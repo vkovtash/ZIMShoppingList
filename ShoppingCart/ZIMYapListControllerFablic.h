@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ZIMListControllersFabricProtocol.h"
+#import "ZIMYapStotage.h"
 
 @interface ZIMYapListControllerFablic : NSObject <ZIMListControllersFabricProtocol>
+@property (readonly, nonatomic) ZIMYapStotage *storage;
+
 - (instancetype)init __attribute__((unavailable("Should be created with initWithDatabaseName:")));
 - (instancetype)initWithDatabaseName:(NSString *)datanaseName;
 @end

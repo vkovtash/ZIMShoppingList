@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ZIMListControllersFabric.h"
 #import "ZIMYapListControllerFablic.h"
+#import "ZIMYapStotage+ZIMTestData.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[ZIMListControllersFabric sharedFabric] setConcreteFabric:[[ZIMYapListControllerFablic alloc] initWithDatabaseName:@"YapGoodsCatalog.sqlite"]];
+    ZIMYapListControllerFablic *fabric = [[ZIMYapListControllerFablic alloc] initWithDatabaseName:@"YapGoodsCatalog.sqlite"];
+    [fabric.storage fillWithTestData];
+    
+    [[ZIMListControllersFabric sharedFabric] setConcreteFabric:fabric];
     
     return YES;
 }

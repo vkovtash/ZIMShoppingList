@@ -9,10 +9,9 @@
 #import "ZIMYapListControllerFablic.h"
 #import "ZIMYapShoppingCartListController.h"
 #import "ZIMYapGoodsCatalogListController.h"
-#import "ZIMYapStotage.h"
 
 @interface ZIMYapListControllerFablic ()
-@property (strong, nonatomic) ZIMYapStotage *storage;
+
 @end
 
 @implementation ZIMYapListControllerFablic
