@@ -57,6 +57,11 @@
 
 #pragma mark - Table view data source
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    ZIMSoppingCartCategory *category = [self.listController objectForSection:section];
+    return category.title;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self.listController numberOfSections];
 }

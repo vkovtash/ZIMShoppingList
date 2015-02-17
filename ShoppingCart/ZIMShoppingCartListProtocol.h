@@ -11,8 +11,8 @@
 #import "ZIMShoppingCartItem.h"
 
 typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
-    ZIMCartItemStateNone,
-    ZIMCartItemStateDone
+    ZIMCartItemStateUndone,
+    ZIMCartItemStateDone,
 };
 
 @protocol ZIMShoppingCartListProtocol <ZIMListProtocol>

@@ -61,9 +61,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - YapDatabase notifications
+
 - (void)storageModifiedNotification:(NSNotification *)note {
     [self.connection beginLongLivedReadTransaction];
 }
+
+#pragma mark - ZIMListProtocol
 
 - (NSInteger)numberOfSections {
     return [self.mappings numberOfSections];

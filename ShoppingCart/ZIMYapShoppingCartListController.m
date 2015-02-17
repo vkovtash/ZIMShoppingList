@@ -46,6 +46,12 @@
     return self;
 }
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - YapDatabase notifications
+
 - (void)storageModifiedNotification:(NSNotification *)note {
     NSArray *notifications = [self.connection beginLongLivedReadTransaction];
     
@@ -100,6 +106,8 @@
     
     [self.delegate listDataChangedWithChanges:changes];
 }
+
+#pragma mark - ZIMShoppingCartListProtocol
 
 - (NSInteger)numberOfSections {
     return [self.mappings numberOfSections];
