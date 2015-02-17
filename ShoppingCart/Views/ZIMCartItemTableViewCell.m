@@ -11,7 +11,11 @@
 @implementation ZIMCartItemTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
+    
+    self.firstTrigger = 0.25;
+    self.secondTrigger = 0.5;
+    [self setDefaultColor:[UIColor colorWithWhite:0.9 alpha:1.0]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MCSwipeTableViewCell/MCSwipeTableViewCell.h>
 
-@interface ZIMCartItemTableViewCell : UITableViewCell
+@interface ZIMCartItemTableViewCell : MCSwipeTableViewCell
 
 @end

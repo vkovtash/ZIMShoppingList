@@ -13,6 +13,7 @@
 typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
     ZIMCartItemStateUndone,
     ZIMCartItemStateDone,
+    ZIMCartItemStateLater,
 };
 
 @protocol ZIMShoppingCartListProtocol <ZIMListProtocol>
