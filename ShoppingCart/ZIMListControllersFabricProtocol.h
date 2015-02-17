@@ -11,4 +11,5 @@
 
 @protocol ZIMListControllersFabricProtocol <NSObject>
 - (id <ZIMShoppingCartListProtocol>)newShoppingCartListController;
+- (id <ZIMListProtocol>)newGoodsCatalogListController;
 @end

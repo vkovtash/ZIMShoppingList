@@ -33,6 +33,21 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"goodsCatalog"]) {
+        UINavigationController *nc = segue.destinationViewController;
+        ZIMGoodsCatalogViewController *goodsCatalogViewController = nc.viewControllers.firstObject;
+        goodsCatalogViewController.delegate = self;
+    }
+}
+
+#pragma mark - ZIMGoodsCatalogViewControllerDelegate
+
+- (void) goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
+    [self.listController appendItems:items];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

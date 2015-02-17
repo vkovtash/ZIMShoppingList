@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ZIMSoppingCartCategory : NSObject
+@property (readonly, nonatomic) NSString *categoryId;
 @property (readonly, nonatomic) NSString *title;
 @end

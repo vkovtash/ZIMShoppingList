@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ZIMShoppingCartListProtocol.h"
+#import "ZIMGoodsCatalogViewController.h"
 
-@interface ZIMShoppingListViewController : UITableViewController
+@interface ZIMShoppingListViewController : UITableViewController <ZIMGoodsCatalogViewControllerDelegate>
 @property (strong, nonatomic) id <ZIMShoppingCartListProtocol> listController;
 @end

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Shopping cart-->
         <scene sceneID="nDX-ix-Vod">
             <objects>
                 <tableViewController id="jOB-2g-8jb" customClass="ZIMShoppingListViewController" sceneMemberID="viewController">
@@ -17,11 +17,63 @@
                             <outlet property="delegate" destination="jOB-2g-8jb" id="3tr-uF-ovm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7WH-OH-1Mh"/>
+                    <navigationItem key="navigationItem" title="Shopping cart" id="7WH-OH-1Mh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kqo-12-BUO">
+                            <connections>
+                                <segue destination="nOw-aS-ctJ" kind="modal" identifier="goodsCatalog" id="Q36-oZ-x9X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piF-02-B5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117" y="324"/>
+        </scene>
+        <!--Catalog-->
+        <scene sceneID="SFo-lF-tNA">
+            <objects>
+                <tableViewController id="gWo-ul-AQV" customClass="ZIMGoodsCatalogViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Oy3-vz-KRT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="gWo-ul-AQV" id="ZTV-r8-q2S"/>
+                            <outlet property="delegate" destination="gWo-ul-AQV" id="sPf-jI-Yd0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Catalog" id="pI7-cC-bum">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="H6g-MG-clQ">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="gWo-ul-AQV" id="qcW-Le-CXR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pFV-lz-78i">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="gWo-ul-AQV" id="Bri-Oc-cws"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5M-Zd-1Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PCr-eA-tzu">
+            <objects>
+                <navigationController id="nOw-aS-ctJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sh5-MY-J9j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gWo-ul-AQV" kind="relationship" relationship="rootViewController" id="Rvs-zs-zb9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nbu-zW-ycd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="583" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Imv-kx-2cX">

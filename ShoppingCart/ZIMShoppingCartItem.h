@@ -10,6 +10,7 @@
 #import "ZIMSoppingCartCategory.h"
 
 @interface ZIMShoppingCartItem : NSObject
+@property (readonly, nonatomic) NSString *itemId;
 @property (readonly, nonatomic) NSString *title;
 @property (readonly, nonatomic) ZIMSoppingCartCategory *category;
 @end
