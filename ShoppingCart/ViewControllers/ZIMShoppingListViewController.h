@@ -11,5 +11,6 @@
 #import "ZIMGoodsCatalogViewController.h"
 
 @interface ZIMShoppingListViewController : UITableViewController <ZIMGoodsCatalogViewControllerDelegate>
+@property (strong, nonatomic) IBOutlet UISegmentedControl *filterControl;
 @property (strong, nonatomic) id <ZIMShoppingCartListProtocol> listController;
 @end

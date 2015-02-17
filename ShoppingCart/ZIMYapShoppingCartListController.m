@@ -20,34 +20,53 @@
 @end
 
 @implementation ZIMYapShoppingCartListController
+@synthesize itemsStateFilter = _itemsStateFilter;
 @synthesize delegate = _delegate;
 
 - (instancetype)initWithStorage:(ZIMYapStotage *)storage {
     self = [super init];
     if (self) {
         _storage = storage;
-        
         _connection = [_storage.database newConnection];
-        
-        _mappings = [[YapDatabaseViewMappings alloc] initWithGroups:@[[ZIMStorageShoppingCartItem collection]] view:ZIMYapShoppingCartViewName];
-        
-        [_connection beginLongLivedReadTransaction];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(storageModifiedNotification:)
-                                                     name:YapDatabaseModifiedNotification
-                                                   object:_storage.database];
-        
-        
-        [_connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-            [_mappings updateWithTransaction:transaction];
-        }];
+        [self applyStateFilter];
     }
     return self;
 }
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) setItemsStateFilter:(ZIMCartItemState)itemsStateFilter {
+    if (_itemsStateFilter != itemsStateFilter) {
+        _itemsStateFilter = itemsStateFilter;
+        [self applyStateFilter];
+    }
+}
+
+- (void) applyStateFilter {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:YapDatabaseModifiedNotification
+                                                  object:self.storage.database];
+    
+    NSString *stateStingRepresentation = [NSString stringWithFormat:@"%ld", self.itemsStateFilter];
+    
+    self.mappings = [[YapDatabaseViewMappings alloc] initWithGroups:@[stateStingRepresentation]
+                                                           view:ZIMYapShoppingCartByStateViewName];
+    
+    [self.connection beginLongLivedReadTransaction];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(storageModifiedNotification:)
+                                                 name:YapDatabaseModifiedNotification
+                                               object:self.storage.database];
+    
+    
+    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        [self.mappings updateWithTransaction:transaction];
+    }];
+    
+    [self.delegate listControllerDidReloadData:self];
 }
 
 #pragma mark - YapDatabase notifications
@@ -104,7 +123,7 @@
         [changes addObject:newChange];
     }
     
-    [self.delegate listDataChangedWithChanges:changes];
+    [self.delegate listController:self didChangeWithChanges:changes];
 }
 
 #pragma mark - ZIMShoppingCartListProtocol
@@ -144,7 +163,6 @@
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     __block ZIMStorageShoppingCartItem *movedItem = nil;
     __block ZIMStorageShoppingCartItem *indexItem = nil;
-    
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         movedItem = [[transaction ext:self.mappings.view] objectAtIndexPath:fromIndexPath withMappings:self.mappings];
         indexItem = [[transaction ext:self.mappings.view] objectAtIndexPath:toIndexPath withMappings:self.mappings];
@@ -155,7 +173,6 @@
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath {
     __block ZIMStorageShoppingCartItem *item = nil;
-    
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
     }];
@@ -163,8 +180,13 @@
     [self.storage removeItem:item];
 }
 
-- (void)setStateForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath {
+    __block ZIMStorageShoppingCartItem *item = nil;
+    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
+        item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
+    }];
     
+    [self.storage setState:state forItem:item];
 }
 
 @end

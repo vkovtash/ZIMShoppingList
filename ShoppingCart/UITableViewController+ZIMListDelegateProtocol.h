@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ZIMShoppingCartListProtocol.h"
 
-@interface UITableViewController (ZIMListDelegateProtocol) <ZIMListDelegateProtocol>
+@interface UITableViewController (ZIMListDelegateProtocol) <ZIMListControllerDelegateProtocol>
 
 @end

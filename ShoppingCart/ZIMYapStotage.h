@@ -13,6 +13,7 @@
 extern NSString *const ZIMYapGategoriesViewName;
 extern NSString *const ZIMYapGoodsViewName;
 extern NSString *const ZIMYapShoppingCartViewName;
+extern NSString *const ZIMYapShoppingCartByStateViewName;
 
 @interface ZIMYapStotage : NSObject
 @property (readonly, nonatomic) NSString *databasePath;

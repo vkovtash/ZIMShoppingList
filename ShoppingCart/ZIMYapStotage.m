@@ -16,6 +16,8 @@
 NSString *const ZIMYapGategoriesViewName = @"ZIMYapGategoriesViewName";
 NSString *const ZIMYapGoodsViewName = @"ZIMYapGoodsViewName";
 NSString *const ZIMYapShoppingCartViewName = @"ZIMYapShoppingCartViewName";
+NSString *const ZIMYapShoppingCartByStateViewName = @"ZIMYapShoppingCartByStateViewName";
+
 
 @implementation ZIMYapStotage
 
@@ -73,9 +75,16 @@ NSString *const ZIMYapShoppingCartViewName = @"ZIMYapShoppingCartViewName";
     [goodsView.options setAllowedCollections:[[YapWhitelistBlacklist alloc] initWithWhitelist:goodsCollections]];
     [_database registerExtension:goodsView withName:ZIMYapGoodsViewName];
     
-    YapDatabaseViewGroupingWithObjectBlock cartGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageGoodsItem *object) {
+    YapDatabaseViewGroupingWithObjectBlock cartGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageShoppingCartItem *object) {
         if ([object isKindOfClass:[ZIMStorageShoppingCartItem class]]) {
             return collection;
+        }
+        return nil;
+    };
+    
+    YapDatabaseViewGroupingWithObjectBlock cartByStateGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageShoppingCartItem *object) {
+        if ([object isKindOfClass:[ZIMStorageShoppingCartItem class]]) {
+            return [NSString stringWithFormat:@"%ld", object.state];
         }
         return nil;
     };
@@ -97,6 +106,13 @@ NSString *const ZIMYapShoppingCartViewName = @"ZIMYapShoppingCartViewName";
     NSSet *cartCollections = [NSSet setWithObject:[ZIMStorageShoppingCartItem collection]];
     [cartView.options setAllowedCollections:[[YapWhitelistBlacklist alloc] initWithWhitelist:cartCollections]];
     [_database registerExtension:cartView withName:ZIMYapShoppingCartViewName];
+    
+    YapDatabaseView *cartByStateView = [[YapDatabaseView alloc] initWithGrouping:[YapDatabaseViewGrouping withObjectBlock:cartByStateGroupingBlock]
+                                                                         sorting:[YapDatabaseViewSorting withObjectBlock:cartSortingBlock]
+                                                                      versionTag:@"1.1"];
+    
+    [cartByStateView.options setAllowedCollections:[[YapWhitelistBlacklist alloc] initWithWhitelist:cartCollections]];
+    [_database registerExtension:cartByStateView withName:ZIMYapShoppingCartByStateViewName];
 }
 
 - (void)fillWithTestData {

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Shopping cart-->
+        <!--Shopping List View Controller-->
         <scene sceneID="nDX-ix-Vod">
             <objects>
                 <tableViewController id="jOB-2g-8jb" customClass="ZIMShoppingListViewController" sceneMemberID="viewController">
@@ -17,17 +17,33 @@
                             <outlet property="delegate" destination="jOB-2g-8jb" id="3tr-uF-ovm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Shopping cart" id="7WH-OH-1Mh">
+                    <navigationItem key="navigationItem" id="7WH-OH-1Mh">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="7ZF-Tt-zZf">
+                            <rect key="frame" x="67.5" y="7" width="185" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Later"/>
+                                <segment title="Current"/>
+                                <segment title="Done"/>
+                            </segments>
+                            <connections>
+                                <action selector="filterControlChanhed:" destination="jOB-2g-8jb" eventType="valueChanged" id="4S0-ub-rbZ"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kqo-12-BUO">
                             <connections>
                                 <segue destination="nOw-aS-ctJ" kind="modal" identifier="goodsCatalog" id="Q36-oZ-x9X"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filterControl" destination="7ZF-Tt-zZf" id="lJ2-4A-YOy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piF-02-B5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117" y="324"/>
+            <point key="canvasLocation" x="147.5" y="324"/>
         </scene>
         <!--Catalog-->
         <scene sceneID="SFo-lF-tNA">

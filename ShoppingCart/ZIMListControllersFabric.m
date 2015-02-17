@@ -36,7 +36,7 @@
     return [self.concreteFabric newShoppingCartListController];
 }
 
-- (id <ZIMListProtocol>)newGoodsCatalogListController {
+- (id <ZIMListControllerProtocol>)newGoodsCatalogListController {
     return [self.concreteFabric newGoodsCatalogListController];
 }
 

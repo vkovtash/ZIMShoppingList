@@ -17,5 +17,5 @@
 
 @interface ZIMGoodsCatalogViewController : UITableViewController
 @property (weak, nonatomic) id <ZIMGoodsCatalogViewControllerDelegate> delegate;
-@property (strong, nonatomic) id <ZIMListProtocol> listController;
+@property (strong, nonatomic) id <ZIMListControllerProtocol> listController;
 @end

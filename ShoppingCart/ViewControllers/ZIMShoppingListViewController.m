@@ -27,13 +27,19 @@
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
     self.listController.delegate = self;
+    self.filterControl.selectedSegmentIndex = 1;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self applyFilterSettings];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"goodsCatalog"]) {
         UINavigationController *nc = segue.destinationViewController;
         ZIMGoodsCatalogViewController *goodsCatalogViewController = nc.viewControllers.firstObject;
@@ -41,9 +47,40 @@
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)filterControlChanhed:(UISegmentedControl *)sender {
+    if (sender == self.filterControl) {
+        [self applyFilterSettings];
+    }
+}
+
+#pragma mark - Private API
+
+- (void)applyFilterSettings {
+    ZIMCartItemState state = ZIMCartItemStateUndone;
+    
+    switch (self.filterControl.selectedSegmentIndex) {
+        case 0:
+            state = ZIMCartItemStateLater;
+            break;
+            
+        case 2:
+            state = ZIMCartItemStateDone;
+            break;
+            
+        case 1:
+        default:
+            state = ZIMCartItemStateUndone;
+            break;
+    }
+    
+    [self.listController setItemsStateFilter:state];
+}
+
 #pragma mark - ZIMGoodsCatalogViewControllerDelegate
 
-- (void) goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
+- (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
     [self.listController appendItems:items];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -68,7 +105,7 @@
                   completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode)
     {
         NSIndexPath *indexPath = [tableView indexPathForCell:cell];
-        [self.listController deleteItemAtIndexPath:indexPath];
+        [self.listController setState:ZIMCartItemStateDone forItemAtIndexPath:indexPath];
     }];
     
     [cell setSwipeGestureWithView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cross"]]

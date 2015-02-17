@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
     ZIMCartItemStateLater,
 };
 
-@protocol ZIMShoppingCartListProtocol <ZIMListProtocol>
+@protocol ZIMShoppingCartListProtocol <ZIMListControllerProtocol>
 @property (readonly, nonatomic) ZIMCartItemState itemsStateFilter;
 
 - (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter;
@@ -25,6 +25,6 @@ typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
 - (void)appendItem:(ZIMShoppingCartItem *)item;
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
 - (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)setStateForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (ZIMShoppingCartItem *)objectAtIndexPath:(NSIndexPath *)indexPath;
 @end

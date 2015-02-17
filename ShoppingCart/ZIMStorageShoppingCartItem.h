@@ -8,8 +8,10 @@
 
 #import "MTLModel.h"
 #import "ZIMStorageGoodsItem.h"
+#import "ZIMShoppingCartListProtocol.h"
 
 @interface ZIMStorageShoppingCartItem : MTLModel
+@property (assign, nonatomic) ZIMCartItemState state;
 @property (assign, nonatomic) unsigned long sortOrder;
 @property (strong, nonatomic) NSString *storageKey;
 @end

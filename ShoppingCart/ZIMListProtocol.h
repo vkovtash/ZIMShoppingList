@@ -1,5 +1,5 @@
 //
-//  ZIMListProtocol.h
+//  ZIMListControllerProtocol.h
 //  ShoppingCart
 //
 //  Created by kovtash on 16.02.15.
@@ -10,15 +10,15 @@
 #import "ZIMListDataChange.h"
 
 
-@protocol ZIMListDelegateProtocol <NSObject>
+@protocol ZIMListControllerDelegateProtocol <NSObject>
 @optional
-- (void)listDataReloaded;
-- (void)listDataChangedWithChanges:(NSArray *)changes;
+- (void)listControllerDidReloadData:(id)listController;
+- (void)listController:(id)listController didChangeWithChanges:(NSArray *)changes;
 @end
 
 
-@protocol ZIMListProtocol <NSObject>
-@property (weak, nonatomic) id <ZIMListDelegateProtocol> delegate;
+@protocol ZIMListControllerProtocol <NSObject>
+@property (weak, nonatomic) id <ZIMListControllerDelegateProtocol> delegate;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberofItemsInSection:(NSInteger)section;

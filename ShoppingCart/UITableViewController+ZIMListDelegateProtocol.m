@@ -10,11 +10,11 @@
 
 @implementation UITableViewController (ZIMListDelegateProtocol)
 
-- (void)listDataReloaded {
+- (void)listControllerDidReloadData:(id)listController {
     [self.tableView reloadData];
 }
 
-- (void)listDataChangedWithChanges:(NSArray *)changes {
+- (void)listController:(id)listController didChangeWithChanges:(NSArray *)changes {
     [self.tableView beginUpdates];
     for (ZIMListDataChange *change in changes) {
         switch (change.changeType) {

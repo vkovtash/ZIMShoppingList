@@ -15,4 +15,5 @@
 - (void)appendGoodsItems:(NSArray *)items;
 - (void)placeItem:(ZIMStorageShoppingCartItem *)movedItem beforeItem:(ZIMStorageShoppingCartItem *)indexItem;
 - (void)removeItem:(ZIMStorageShoppingCartItem *)item;
+- (void)setState:(ZIMCartItemState)state forItem:(ZIMStorageShoppingCartItem *)item;
 @end
