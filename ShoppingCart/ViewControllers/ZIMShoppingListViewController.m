@@ -10,9 +10,11 @@
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
 #import "UITableViewController+ZIMListDelegateProtocol.h"
+#import "ZIMCartItemCellConfigurator.h"
 
-@interface ZIMShoppingListViewController ()
+@interface ZIMShoppingListViewController () <ZIMCartItemCellDelegate>
 @property (strong, nonatomic) NSString *itemCellClassName;
+@property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;
 @end
 
 @implementation ZIMShoppingListViewController
@@ -32,7 +34,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self applyFilterSettings];
+    [self applyFilterState];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,30 +53,35 @@
 
 - (IBAction)filterControlChanhed:(UISegmentedControl *)sender {
     if (sender == self.filterControl) {
-        [self applyFilterSettings];
+        [self applyFilterState];
     }
 }
 
 #pragma mark - Private API
 
-- (void)applyFilterSettings {
+- (void)applyFilterState {
     ZIMCartItemState state = ZIMCartItemStateUndone;
     
     switch (self.filterControl.selectedSegmentIndex) {
         case 0:
             state = ZIMCartItemStateLater;
+            self.cellConfigurator = [ZIMCartItemCellConfigurator laterCellConfigurator];
             break;
             
         case 2:
             state = ZIMCartItemStateDone;
+            self.cellConfigurator = [ZIMCartItemCellConfigurator doneCellConfigurator];
             break;
             
         case 1:
         default:
+            self.cellConfigurator = [ZIMCartItemCellConfigurator undoneCellConfigurator];
             state = ZIMCartItemStateUndone;
             break;
     }
     
+    self.navigationItem.rightBarButtonItem.enabled = state == ZIMCartItemStateUndone;
+    self.cellConfigurator.delegate = self;
     [self.listController setItemsStateFilter:state];
 }
 
@@ -83,6 +90,28 @@
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
     [self.listController appendItems:items];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ZIMCartItemCellDelegate
+
+- (void)deleteAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell; {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.listController deleteItemAtIndexPath:indexPath];
+}
+
+- (void)setDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.listController setState:ZIMCartItemStateDone forItemAtIndexPath:indexPath];
+}
+
+- (void)setUndoneDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.listController setState:ZIMCartItemStateUndone forItemAtIndexPath:indexPath];
+}
+
+- (void)setLaterAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.listController setState:ZIMCartItemStateLater forItemAtIndexPath:indexPath];
 }
 
 #pragma mark - Table view data source
@@ -97,27 +126,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZIMCartItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.itemCellClassName forIndexPath:indexPath];
-    // Adding gestures per state basis.
-    [cell setSwipeGestureWithView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]]
-                            color:[UIColor greenColor]
-                             mode:MCSwipeTableViewCellModeExit
-                            state:MCSwipeTableViewCellState1
-                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode)
-    {
-        NSIndexPath *indexPath = [tableView indexPathForCell:cell];
-        [self.listController setState:ZIMCartItemStateDone forItemAtIndexPath:indexPath];
-    }];
-    
-    [cell setSwipeGestureWithView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cross"]]
-                            color:[UIColor redColor]
-                             mode:MCSwipeTableViewCellModeExit
-                            state:MCSwipeTableViewCellState2
-                  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode)
-     {
-         NSIndexPath *indexPath = [tableView indexPathForCell:cell];
-         [self.listController deleteItemAtIndexPath:indexPath];
-     }];
-    
+    [self.cellConfigurator configureCell:cell];
     return cell;
 }
 
