@@ -65,10 +65,10 @@ static YapDatabaseViewSortingWithObjectBlock cartSortingBlock = ^NSComparisonRes
 
 @implementation ZIMYapStotage
 
-- (instancetype)initWithDatabaseName:(NSString *)datanaseName {
+- (instancetype)initWithDatabaseName:(NSString *)databaseName {
     self = [super init];
     if (self) {
-        _databaseName = datanaseName;
+        _databaseName = databaseName;
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
