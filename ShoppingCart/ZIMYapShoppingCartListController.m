@@ -113,6 +113,10 @@
     return nil;
 }
 
+- (BOOL)isItemsInList:(ZIMYapShoppingCartItem *)item {
+    return [self.storage isItemInList:item.storageGoodsItem];
+}
+
 - (void)appendItems:(NSArray *)items {
     NSArray *goodsItems = [items valueForKeyPath:@"storageGoodsItem"];
     [self.storage appendGoodsItems:goodsItems];

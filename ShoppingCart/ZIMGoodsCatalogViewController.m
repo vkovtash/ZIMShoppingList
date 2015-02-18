@@ -74,12 +74,29 @@
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
     cell.textLabel.text = item.title;
     
-    if ([self.selectedObjects containsObject:item]) {
+    BOOL isItemInList = NO;
+    if ([self.delegate respondsToSelector:@selector(isItemInList:)]) {
+        isItemInList = [self.delegate isItemInList:item];
+    }
+    
+    if (isItemInList) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if ([self.selectedObjects containsObject:item]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL shouldHighlight = YES;
+    if ([self.delegate respondsToSelector:@selector(isItemInList:)]) {
+        ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+        shouldHighlight = ![self.delegate isItemInList:item];
+    }
+    return shouldHighlight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

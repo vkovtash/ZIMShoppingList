@@ -13,6 +13,14 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
 
 @implementation ZIMYapStotage (ZIMShoppingCartManipulations)
 
+- (BOOL)isItemInList:(ZIMStorageGoodsItem *)item {
+    __block BOOL isItemInList = NO;
+    [self.bgConnection readWithBlock:^(YapDatabaseReadTransaction *transaction){
+        isItemInList = [ZIMStorageShoppingCartItem entityExistsForKey:item.itemKey inTransaction:transaction];
+    }];
+    return isItemInList;
+}
+
 - (void)appendGoodsItems:(NSArray *)items {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         for (ZIMStorageGoodsItem *goodsItem in [items reverseObjectEnumerator]) {

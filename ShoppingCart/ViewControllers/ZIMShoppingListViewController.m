@@ -91,6 +91,10 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 #pragma mark - ZIMGoodsCatalogViewControllerDelegate
 
+- (BOOL)isItemInList:(ZIMShoppingCartItem *)item {
+    return [self.listController isItemsInList:item];
+}
+
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
     [self.listController appendItems:items];
     [self dismissViewControllerAnimated:YES completion:nil];

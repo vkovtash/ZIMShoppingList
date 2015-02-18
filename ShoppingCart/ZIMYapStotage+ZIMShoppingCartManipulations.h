@@ -11,6 +11,7 @@
 #import "ZIMStorageShoppingCartItem+ZIMYapRetrieving.h"
 
 @interface ZIMYapStotage (ZIMShoppingCartManipulations)
+- (BOOL)isItemInList:(ZIMStorageGoodsItem *)item;
 - (void)appendGoodsItem:(ZIMStorageGoodsItem *)item;
 - (void)appendGoodsItems:(NSArray *)items;
 - (void)moveItem:(ZIMStorageShoppingCartItem *)movedItem toIndex:(NSUInteger)index;
