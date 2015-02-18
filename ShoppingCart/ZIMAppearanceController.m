@@ -17,10 +17,10 @@
     self = [super init];
     if (self) {
         _backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
-        _mainColor = [UIColor blueColor];
-        _destructiveColor = [UIColor redColor];
-        _laterColor = [UIColor yellowColor];
-        _doneColor = [UIColor greenColor];
+        _mainColor = [UIColor colorWithRed:.3 green:0.65 blue:.95 alpha:1.];
+        _destructiveColor = [UIColor colorWithRed:.90 green:0.31 blue:.26 alpha:1.];
+        _laterColor = [UIColor colorWithRed:.94 green:0.76 blue:.19 alpha:1.];
+        _doneColor = [UIColor colorWithRed:.22 green:0.80 blue:.45 alpha:1.];
     }
     return self;
 }

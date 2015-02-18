@@ -20,12 +20,12 @@
                     <navigationItem key="navigationItem" id="7WH-OH-1Mh">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="7ZF-Tt-zZf">
-                            <rect key="frame" x="67.5" y="7" width="185" height="30"/>
+                            <rect key="frame" x="52.5" y="6.5" width="215" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Later"/>
-                                <segment title="Current"/>
-                                <segment title="Done"/>
+                                <segment title="" image="clock.png"/>
+                                <segment title="" image="list.png"/>
+                                <segment title="" image="check.png"/>
                             </segments>
                             <connections>
                                 <action selector="filterControlChanhed:" destination="jOB-2g-8jb" eventType="valueChanged" id="4S0-ub-rbZ"/>
@@ -43,7 +43,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piF-02-B5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="147.5" y="324"/>
+            <point key="canvasLocation" x="161" y="324"/>
         </scene>
         <!--Catalog-->
         <scene sceneID="SFo-lF-tNA">
@@ -116,6 +116,11 @@
             <point key="canvasLocation" x="-423" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check.png" width="23" height="20"/>
+        <image name="clock.png" width="22" height="22"/>
+        <image name="list.png" width="20" height="18"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
