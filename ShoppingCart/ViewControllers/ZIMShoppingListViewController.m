@@ -11,6 +11,7 @@
 #import "ZIMListControllersFabric.h"
 #import "UITableViewController+ZIMListDelegateProtocol.h"
 #import "ZIMCartItemCellConfigurator.h"
+#import "ZIMAppearanceController.h"
 
 static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
@@ -61,25 +62,30 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 - (void)applyFilterState {
     ZIMCartItemState state = ZIMCartItemStateUndone;
+    UIColor *windowColor = [ZIMAppearanceController defaultAppearance].mainColor;
     
     switch (self.filterControl.selectedSegmentIndex) {
         case 0:
             state = ZIMCartItemStateLater;
             self.cellConfigurator = [ZIMCartItemCellConfigurator laterCellConfigurator];
+            windowColor = [ZIMAppearanceController defaultAppearance].laterColor;
             break;
             
         case 2:
             state = ZIMCartItemStateDone;
             self.cellConfigurator = [ZIMCartItemCellConfigurator doneCellConfigurator];
+            windowColor = [ZIMAppearanceController defaultAppearance].doneColor;
             break;
             
         case 1:
         default:
             self.cellConfigurator = [ZIMCartItemCellConfigurator undoneCellConfigurator];
             state = ZIMCartItemStateUndone;
+            windowColor = [ZIMAppearanceController defaultAppearance].mainColor;
             break;
     }
     
+    [ZIMAppearanceController defaultAppearance].tintColor = windowColor;
     self.navigationItem.rightBarButtonItem.enabled = state == ZIMCartItemStateUndone;
     self.cellConfigurator.delegate = self;
     [self.listController setItemsStateFilter:state];

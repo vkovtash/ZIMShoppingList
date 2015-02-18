@@ -21,23 +21,19 @@
     
     self.firstTrigger = 0.25;
     self.secondTrigger = 0.5;
-    self.defaultColor = [UIColor colorWithWhite:0.9 alpha:1.];
-    self.undoneColor = [UIColor colorWithRed:0.3 green:0.3 blue:1. alpha:1.];
-    self.doneColor = [UIColor colorWithRed:.7 green:0.1 blue:0.7 alpha:1.];
-    self.laterColor = [UIColor colorWithRed:0.3 green:1. blue:1. alpha:1.];
-    self.deleteColor = [UIColor colorWithRed:1. green:0.3 blue:0.3 alpha:1.];
-    self.undoneImage = [UIImage imageNamed:@"list"];
-    self.doneImage = [UIImage imageNamed:@"check"];
-    self.laterImage = [UIImage imageNamed:@"clock"];
-    self.deleteImage = [UIImage imageNamed:@"cross"];
+    self.defaultColor = [UIColor whiteColor];
+    self.mainColor = [UIColor blueColor];
+    self.doneColor = [UIColor greenColor];
+    self.laterColor = [UIColor yellowColor];
+    self.deleteColor = [UIColor redColor];
     
+    [[[self class] appearance] applyInvocationTo:self];
     return self;
 }
 
 - (void)configureCell:(ZIMCartItemTableViewCell *)cell {
     cell.firstTrigger = self.firstTrigger;
     cell.secondTrigger = self.secondTrigger;
-    cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [cell setDefaultColor:self.defaultColor];
 }
 
@@ -51,6 +47,10 @@
 
 + (instancetype)laterCellConfigurator {
     return [ZIMCartItemLaterCellConfigurator new];
+}
+
++ (id)appearance {
+    return [MZAppearance appearanceForClass:[ZIMCartItemCellConfigurator class]];
 }
 
 @end

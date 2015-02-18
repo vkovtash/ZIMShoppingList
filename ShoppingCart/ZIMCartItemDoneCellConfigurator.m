@@ -15,7 +15,7 @@
     
     __weak __typeof(&*self) weakSelf = self;
     [cell setSwipeGestureWithView:[[UIImageView alloc] initWithImage:self.undoneImage]
-                            color:self.undoneColor
+                            color:self.mainColor
                              mode:MCSwipeTableViewCellModeExit
                             state:MCSwipeTableViewCellState3
                   completionBlock:^(id cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode)
