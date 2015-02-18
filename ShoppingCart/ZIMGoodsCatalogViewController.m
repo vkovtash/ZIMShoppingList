@@ -12,14 +12,14 @@
 
 @interface ZIMGoodsCatalogViewController()
 @property (strong, nonatomic) NSString *itemCellClassName;
-@property (strong, nonatomic) NSMutableOrderedSet *selectedIndexes;
+@property (strong, nonatomic) NSMutableOrderedSet *selectedObjects;
 @end
 
 @implementation ZIMGoodsCatalogViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.selectedIndexes = [NSMutableOrderedSet new];
+    self.selectedObjects = [NSMutableOrderedSet new];
     
     self.itemCellClassName =  NSStringFromClass([ZIMCartItemTableViewCell class]);
     
@@ -39,21 +39,11 @@
 }
 
 - (IBAction)doneButtonTapped:(id)sender {
-    NSArray *selectedItems = [self selectedItems];
-    [self.delegate goodsCatalog:self didCompleteWithItemsSelected:selectedItems];
-}
-
-- (NSArray *)selectedItems {
-    NSMutableArray *items = [NSMutableArray array];
-    ZIMShoppingCartItem *item = nil;
-    
-    for (NSIndexPath *indexPath in self.selectedIndexes) {
-        item = [self.listController objectAtIndexPath:indexPath];
-        if (item) {
-            [items addObject:item];
-        }
+    NSMutableArray *result = [NSMutableArray array];
+    for (id object in self.selectedObjects) {
+        [result addObject:object];
     }
-    return [items copy];
+    [self.delegate goodsCatalog:self didCompleteWithItemsSelected:result];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -84,7 +74,7 @@
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
     cell.textLabel.text = item.title;
     
-    if ([self.selectedIndexes containsObject:indexPath]) {
+    if ([self.selectedObjects containsObject:item]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
@@ -93,11 +83,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.selectedIndexes containsObject:indexPath]) {
-        [self.selectedIndexes removeObject:indexPath];
+    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+    if ([self.selectedObjects containsObject:item]) {
+        [self.selectedObjects removeObject:item];
     }
     else {
-        [self.selectedIndexes addObject:indexPath];
+        [self.selectedObjects addObject:item];
     }
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

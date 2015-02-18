@@ -10,4 +10,16 @@
 
 @implementation ZIMShoppingCartItem
 
+- (BOOL) isEqual:(id)object {
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    
+    return [self.itemId isEqualToString:[object itemId]];
+}
+
+- (NSUInteger) hash {
+    return self.itemId.hash;
+}
+
 @end
