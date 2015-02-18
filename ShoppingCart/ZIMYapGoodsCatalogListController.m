@@ -44,6 +44,7 @@
     _filteredView = [[YapDatabaseFilteredView alloc] initWithParentViewName:ZIMYapGoodsViewName
                                                                   filtering:filtering];
     
+    _filteredView.options.isPersistent = NO;
     [_storage.database registerExtension:_filteredView withName:_filteredViewName];
     
     YapDatabaseViewMappingGroupFilter groupFilterBlock = ^BOOL(NSString *group, YapDatabaseReadTransaction *transaction) {
