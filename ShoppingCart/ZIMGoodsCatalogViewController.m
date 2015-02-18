@@ -13,14 +13,14 @@
 static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 @interface ZIMGoodsCatalogViewController()
-@property (strong, nonatomic) NSMutableOrderedSet *selectedObjects;
+@property (strong, nonatomic) NSMutableOrderedSet *mutablePickedItems;
 @end
 
 @implementation ZIMGoodsCatalogViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.selectedObjects = [NSMutableOrderedSet new];
+    self.mutablePickedItems = [NSMutableOrderedSet new];
     
     UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCartItemTableViewCell class])
                                          bundle:[NSBundle mainBundle]];
@@ -36,20 +36,77 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)cancelButtonTapped:(id)sender {
-    [self.delegate goodsCatalog:self didCompleteWithItemsSelected:nil];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateNavigationItemsState];
 }
 
-- (IBAction)doneButtonTapped:(id)sender {
+#pragma mark - Public API
+
+- (void)setSearchString:(NSString *)searchString {
+    _searchString = [searchString copy];
+    if (![self.searchBar.text isEqualToString:_searchString]) {
+        self.searchBar.text = _searchString;
+    }
+    
+    self.listController.filterString = _searchString;
+}
+
+- (NSOrderedSet *)pickedItems {
+    return self.mutablePickedItems;
+}
+
+- (void)completeItemsPicking {
+    [self.searchBar resignFirstResponder];
+    
     NSMutableArray *result = [NSMutableArray array];
-    for (id object in self.selectedObjects) {
+    for (id object in self.mutablePickedItems) {
         [result addObject:object];
     }
     [self.delegate goodsCatalog:self didCompleteWithItemsSelected:result];
 }
 
+- (void)cancelItemsPicking {
+    [self.searchBar resignFirstResponder];
+    [self.delegate goodsCatalog:self didCompleteWithItemsSelected:nil];
+}
+
+- (void)pickItem:(ZIMShoppingCartItem *)item {
+    if (!item) {
+        return;
+    }
+    [self.mutablePickedItems addObject:item];
+    [self updateNavigationItemsState];
+}
+
+- (void)releaseItem:(ZIMShoppingCartItem *)item {
+    if (!item) {
+        return;
+    }
+    [self.mutablePickedItems removeObject:item];
+    [self updateNavigationItemsState];
+}
+
+#pragma mark - Private API
+
+- (void)updateNavigationItemsState {
+    self.navigationItem.rightBarButtonItem.enabled = self.mutablePickedItems.count > 0;
+}
+
+#pragma mark - Actions
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self cancelItemsPicking];
+}
+
+- (IBAction)doneButtonTapped:(id)sender {
+    [self completeItemsPicking];
+}
+
+#pragma mark - UISearchbarDelegate
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.listController.filterString = searchText;
+    self.searchString = searchText;
 }
 
 #pragma mark - Table view data source
@@ -84,7 +141,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     if (isItemInList) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    else if ([self.selectedObjects containsObject:item]) {
+    else if ([self.mutablePickedItems containsObject:item]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
@@ -103,11 +160,11 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    if ([self.selectedObjects containsObject:item]) {
-        [self.selectedObjects removeObject:item];
+    if ([self.mutablePickedItems containsObject:item]) {
+        [self releaseItem:item];
     }
     else {
-        [self.selectedObjects addObject:item];
+        [self pickItem:item];
     }
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

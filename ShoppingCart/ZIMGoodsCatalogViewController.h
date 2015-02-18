@@ -21,4 +21,12 @@
 @interface ZIMGoodsCatalogViewController : UITableViewController <ZIMListControllerDelegateProtocol>
 @property (weak, nonatomic) id<ZIMGoodsCatalogViewControllerDelegate> delegate;
 @property (strong, nonatomic) id<ZIMGoodsCatalogListProtocol> listController;
+@property (copy, nonatomic) NSString *searchString;
+@property (readonly, nonatomic) NSOrderedSet *pickedItems;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+- (void)pickItem:(ZIMShoppingCartItem *)item;
+- (void)releaseItem:(ZIMShoppingCartItem *)item;
+- (void)completeItemsPicking;
+- (void)cancelItemsPicking;
 @end
