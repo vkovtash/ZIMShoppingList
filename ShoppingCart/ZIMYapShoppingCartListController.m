@@ -131,16 +131,19 @@
         return;
     }
     
-    __block ZIMStorageShoppingCartItem *movedItem = nil;
+    __block ZIMStorageShoppingCartItem *movedItem = nil, *indexItem = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        indexItem = [[transaction ext:self.mappings.view] objectAtIndexPath:toIndexPath withMappings:self.mappings];
         movedItem = [[transaction ext:self.mappings.view] objectAtIndexPath:fromIndexPath withMappings:self.mappings];
     }];
     
     if (fromIndexPath.row < toIndexPath.row) {
-        [self.storage moveItem:movedItem toIndex:toIndexPath.row + 1];
+        //[self.storage moveItem:movedItem toIndex:toIndexPath.row + 1];
+        [self.storage placeItem:movedItem afterItem:indexItem];
     }
     else if (fromIndexPath.row > toIndexPath.row) {
-        [self.storage moveItem:movedItem toIndex:toIndexPath.row];
+        [self.storage placeItem:movedItem beforeItem:indexItem];
+        //[self.storage moveItem:movedItem toIndex:toIndexPath.row];
     }
 }
 
@@ -164,6 +167,7 @@
     }];
     
     [self.storage setState:state forItem:item];
+    [self.storage moveItem:item toIndex:0];
 }
 
 @end

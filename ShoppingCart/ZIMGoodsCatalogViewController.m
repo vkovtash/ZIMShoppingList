@@ -109,7 +109,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     self.searchString = searchText;
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView DataSource/Delegate
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     ZIMSoppingCartCategory *category = [self.listController objectForSection:section];
@@ -125,8 +125,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMGoodsItemCellReuseId forIndexPath:indexPath];
-    return cell;
+    return [tableView dequeueReusableCellWithIdentifier:ZIMGoodsItemCellReuseId forIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCartItemTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
