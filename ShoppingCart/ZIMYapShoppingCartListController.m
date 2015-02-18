@@ -138,12 +138,10 @@
     }];
     
     if (fromIndexPath.row < toIndexPath.row) {
-        //[self.storage moveItem:movedItem toIndex:toIndexPath.row + 1];
         [self.storage placeItem:movedItem afterItem:indexItem];
     }
     else if (fromIndexPath.row > toIndexPath.row) {
         [self.storage placeItem:movedItem beforeItem:indexItem];
-        //[self.storage moveItem:movedItem toIndex:toIndexPath.row];
     }
 }
 
