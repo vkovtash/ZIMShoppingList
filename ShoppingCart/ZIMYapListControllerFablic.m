@@ -16,7 +16,7 @@
 
 @implementation ZIMYapListControllerFablic
 
-- (instancetype) initWithDatabaseName:(NSString *)datanaseName {
+- (instancetype)initWithDatabaseName:(NSString *)datanaseName {
     self = [super init];
     if (self) {
         _storage = [[ZIMYapStotage alloc] initWithDatabaseName:datanaseName];

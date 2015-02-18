@@ -21,5 +21,6 @@ extern NSString *const ZIMYapShoppingCartByStateViewName;
 @property (readonly, nonatomic) YapDatabase *database;
 @property (readonly, nonatomic) YapDatabaseConnection *bgConnection;
 
+- (instancetype)init __attribute__((unavailable("Should be created with initWithDatabaseName:")));
 - (instancetype)initWithDatabaseName:(NSString *)datanaseName;
 @end
