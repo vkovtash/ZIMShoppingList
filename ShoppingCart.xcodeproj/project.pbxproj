@@ -18,14 +18,6 @@
 		F303FA0B1A9388FC00582FE8 /* ZIMStorageShoppingCartItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F303FA0A1A9388FC00582FE8 /* ZIMStorageShoppingCartItem+ZIMYapRetrieving.m */; };
 		F303FA0E1A938A7700582FE8 /* ZIMYapStotage+ZIMShoppingCartManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F303FA0D1A938A7700582FE8 /* ZIMYapStotage+ZIMShoppingCartManipulations.m */; };
 		F303FA121A939B6F00582FE8 /* ZIMYapStotage.m in Sources */ = {isa = PBXBuildFile; fileRef = F303FA111A939B6F00582FE8 /* ZIMYapStotage.m */; };
-		F30E04D41A93B4CC00D4EB59 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04CC1A93B4CC00D4EB59 /* check.png */; };
-		F30E04D51A93B4CC00D4EB59 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04CD1A93B4CC00D4EB59 /* check@2x.png */; };
-		F30E04D61A93B4CC00D4EB59 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04CE1A93B4CC00D4EB59 /* clock.png */; };
-		F30E04D71A93B4CC00D4EB59 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04CF1A93B4CC00D4EB59 /* clock@2x.png */; };
-		F30E04D81A93B4CC00D4EB59 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04D01A93B4CC00D4EB59 /* cross.png */; };
-		F30E04D91A93B4CC00D4EB59 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04D11A93B4CC00D4EB59 /* cross@2x.png */; };
-		F30E04DA1A93B4CC00D4EB59 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04D21A93B4CC00D4EB59 /* list.png */; };
-		F30E04DB1A93B4CC00D4EB59 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30E04D31A93B4CC00D4EB59 /* list@2x.png */; };
 		F30E04DF1A93C46900D4EB59 /* ZIMCartItemUndoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E04DE1A93C46900D4EB59 /* ZIMCartItemUndoneCellConfigurator.m */; };
 		F30E04E21A93C4AE00D4EB59 /* ZIMCartItemCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E04E11A93C4AE00D4EB59 /* ZIMCartItemCellConfigurator.m */; };
 		F30E04E51A93CB1900D4EB59 /* ZIMCartItemDoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E04E41A93CB1900D4EB59 /* ZIMCartItemDoneCellConfigurator.m */; };
@@ -87,14 +79,6 @@
 		F303FA0D1A938A7700582FE8 /* ZIMYapStotage+ZIMShoppingCartManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapStotage+ZIMShoppingCartManipulations.m"; sourceTree = "<group>"; };
 		F303FA101A939B6F00582FE8 /* ZIMYapStotage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapStotage.h; sourceTree = "<group>"; };
 		F303FA111A939B6F00582FE8 /* ZIMYapStotage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapStotage.m; sourceTree = "<group>"; };
-		F30E04CC1A93B4CC00D4EB59 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
-		F30E04CD1A93B4CC00D4EB59 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
-		F30E04CE1A93B4CC00D4EB59 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
-		F30E04CF1A93B4CC00D4EB59 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
-		F30E04D01A93B4CC00D4EB59 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
-		F30E04D11A93B4CC00D4EB59 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
-		F30E04D21A93B4CC00D4EB59 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
-		F30E04D31A93B4CC00D4EB59 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		F30E04DD1A93C46900D4EB59 /* ZIMCartItemUndoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemUndoneCellConfigurator.h; sourceTree = "<group>"; };
 		F30E04DE1A93C46900D4EB59 /* ZIMCartItemUndoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemUndoneCellConfigurator.m; sourceTree = "<group>"; };
 		F30E04E01A93C4AE00D4EB59 /* ZIMCartItemCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemCellConfigurator.h; sourceTree = "<group>"; };
@@ -209,22 +193,6 @@
 			name = YapHelpers;
 			sourceTree = "<group>";
 		};
-		F30E04CB1A93B4CC00D4EB59 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F30E04CC1A93B4CC00D4EB59 /* check.png */,
-				F30E04CD1A93B4CC00D4EB59 /* check@2x.png */,
-				F30E04CE1A93B4CC00D4EB59 /* clock.png */,
-				F30E04CF1A93B4CC00D4EB59 /* clock@2x.png */,
-				F30E04D01A93B4CC00D4EB59 /* cross.png */,
-				F30E04D11A93B4CC00D4EB59 /* cross@2x.png */,
-				F30E04D21A93B4CC00D4EB59 /* list.png */,
-				F30E04D31A93B4CC00D4EB59 /* list@2x.png */,
-			);
-			name = Resources;
-			path = Views/Resources;
-			sourceTree = "<group>";
-		};
 		F30E04E91A93CD5100D4EB59 /* ZIMCartItemCellConfigurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +290,6 @@
 		F333210A1A921DB500561ED9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F30E04CB1A93B4CC00D4EB59 /* Resources */,
 				F333210B1A921E0200561ED9 /* ZIMCartItemTableViewCell.h */,
 				F333210C1A921E0200561ED9 /* ZIMCartItemTableViewCell.m */,
 				F333210D1A921E0200561ED9 /* ZIMCartItemTableViewCell.xib */,
@@ -477,18 +444,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30E04D81A93B4CC00D4EB59 /* cross.png in Resources */,
 				F33320EC1A921C3400561ED9 /* Main.storyboard in Resources */,
-				F30E04D41A93B4CC00D4EB59 /* check.png in Resources */,
 				F333210F1A921E0200561ED9 /* ZIMCartItemTableViewCell.xib in Resources */,
-				F30E04DB1A93B4CC00D4EB59 /* list@2x.png in Resources */,
 				F33320F11A921C3400561ED9 /* LaunchScreen.xib in Resources */,
-				F30E04D91A93B4CC00D4EB59 /* cross@2x.png in Resources */,
 				F33320EE1A921C3400561ED9 /* Images.xcassets in Resources */,
-				F30E04D71A93B4CC00D4EB59 /* clock@2x.png in Resources */,
-				F30E04D61A93B4CC00D4EB59 /* clock.png in Resources */,
-				F30E04DA1A93B4CC00D4EB59 /* list.png in Resources */,
-				F30E04D51A93B4CC00D4EB59 /* check@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
