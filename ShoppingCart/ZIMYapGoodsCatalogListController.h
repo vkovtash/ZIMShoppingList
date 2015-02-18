@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMListProtocol.h"
+#import "ZIMGoodsCatalogListProtocol.h"
 #import "ZIMYapStotage.h"
 
-@interface ZIMYapGoodsCatalogListController : NSObject <ZIMListControllerProtocol>
+@interface ZIMYapGoodsCatalogListController : NSObject <ZIMGoodsCatalogListProtocol>
 @property (readonly, nonatomic) ZIMYapStotage *storage;
 
 - (instancetype)init __attribute__((unavailable("Should be created with initWithStorage:")));

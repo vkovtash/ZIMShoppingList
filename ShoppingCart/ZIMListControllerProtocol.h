@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMListDataChange.h"
+#import "ZIMListChanges.h"
 
 
 @protocol ZIMListControllerDelegateProtocol <NSObject>
 @optional
 - (void)listControllerDidReloadData:(id)listController;
-- (void)listController:(id)listController didChangeWithChanges:(NSArray *)changes;
+- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges;
 @end
 
 

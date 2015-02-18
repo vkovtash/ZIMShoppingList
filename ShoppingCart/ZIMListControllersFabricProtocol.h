@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "ZIMShoppingCartListProtocol.h"
+#import "ZIMGoodsCatalogListProtocol.h"
 
 @protocol ZIMListControllersFabricProtocol <NSObject>
 - (id <ZIMShoppingCartListProtocol>)newShoppingCartListController;
-- (id <ZIMListControllerProtocol>)newGoodsCatalogListController;
+- (id <ZIMGoodsCatalogListProtocol>)newGoodsCatalogListController;
 @end

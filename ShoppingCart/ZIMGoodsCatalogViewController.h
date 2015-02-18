@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZIMListProtocol.h"
+#import "ZIMGoodsCatalogListProtocol.h"
 
 @class ZIMGoodsCatalogViewController;
 
@@ -15,7 +15,7 @@
 - (void) goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items;
 @end
 
-@interface ZIMGoodsCatalogViewController : UITableViewController
+@interface ZIMGoodsCatalogViewController : UITableViewController <ZIMListControllerDelegateProtocol>
 @property (weak, nonatomic) id <ZIMGoodsCatalogViewControllerDelegate> delegate;
-@property (strong, nonatomic) id <ZIMListControllerProtocol> listController;
+@property (strong, nonatomic) id <ZIMGoodsCatalogListProtocol> listController;
 @end

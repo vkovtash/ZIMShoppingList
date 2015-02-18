@@ -8,16 +8,22 @@
 
 #import "ZIMYapGoodsCatalogListController.h"
 #import <YapDatabase/YapDatabaseView.h>
+#import <YapDatabase/YapDatabaseFilteredView.h>
+#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
 #import "ZIMStorageCategory+ZIMYapRetrieving.h"
 #import "ZIMYapShoppingCartItem.h"
 #import "ZIMYapShoppingCartCategory.h"
+#import "YapDatabaseViewConnection+ZIMGetChanges.h"
 
 @interface ZIMYapGoodsCatalogListController()
 @property (strong, nonatomic) YapDatabaseViewMappings *mappings;
 @property (strong, nonatomic) YapDatabaseConnection *connection;
+@property (strong, nonatomic) YapDatabaseFilteredView *filteredView;
+@property (strong, nonatomic) NSString *filteredViewName;
 @end
 
 @implementation ZIMYapGoodsCatalogListController
+@synthesize filterString = _filterString;
 @synthesize delegate = _delegate;
 
 - (instancetype)initWithStorage:(ZIMYapStotage *)storage {
@@ -29,8 +35,18 @@
     
     _storage = storage;
     _connection = [storage.database newConnection];
+    _filteredViewName = [NSUUID UUID].UUIDString;
     
-    YapDatabaseViewMappingGroupFilter groupFilterBlock = ^BOOL(NSString *group, YapDatabaseReadTransaction *transaction){
+    YapDatabaseViewFiltering *filtering = [YapDatabaseViewFiltering withKeyBlock:^BOOL(NSString *group, NSString *collection, NSString *key) {
+        return YES;
+    }];
+    
+    _filteredView = [[YapDatabaseFilteredView alloc] initWithParentViewName:ZIMYapGoodsViewName
+                                                                  filtering:filtering];
+    
+    [_storage.database registerExtension:_filteredView withName:_filteredViewName];
+    
+    YapDatabaseViewMappingGroupFilter groupFilterBlock = ^BOOL(NSString *group, YapDatabaseReadTransaction *transaction) {
         return YES;
     };
     
@@ -40,7 +56,7 @@
         return [category1.title caseInsensitiveCompare:category2.title];
     };
     
-    _mappings = [[YapDatabaseViewMappings alloc] initWithGroupFilterBlock:groupFilterBlock sortBlock:groupSortingBlock view:ZIMYapGoodsViewName];
+    _mappings = [[YapDatabaseViewMappings alloc] initWithGroupFilterBlock:groupFilterBlock sortBlock:groupSortingBlock view:_filteredViewName];
     
     [_connection beginLongLivedReadTransaction];
     
@@ -58,16 +74,58 @@
 }
 
 - (void)dealloc {
+    [self.storage.database unregisterExtensionWithName:self.filteredViewName];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)updateViewFilter {
+    YapDatabaseViewFiltering *filtering = nil;
+    NSString *filterString = [self.filterString copy];
+    
+    if (self.filterString.length > 0) {
+        filtering = [YapDatabaseViewFiltering withObjectBlock:^BOOL(NSString *group, NSString *collection, NSString *key, ZIMStorageGoodsItem *object) {
+            return [object.title containsString:filterString];
+        }];
+    }
+    else {
+        filtering = [YapDatabaseViewFiltering withKeyBlock:^BOOL(NSString *group, NSString *collection, NSString *key) {
+            return YES;
+        }];
+    }
+    
+    [self.storage.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [[transaction ext:self.filteredViewName] setFiltering:filtering versionTag:filterString];
+    }];
 }
 
 #pragma mark - YapDatabase notifications
 
 - (void)storageModifiedNotification:(NSNotification *)note {
-    [self.connection beginLongLivedReadTransaction];
+    NSArray *notifications = [self.connection beginLongLivedReadTransaction];
+    
+    NSArray *sectionChanges = nil, *rowChanges = nil;
+    [[self.connection ext:self.mappings.view] zim_getSectionChanges:&sectionChanges
+                                                         rowChanges:&rowChanges
+                                                   forNotifications:notifications
+                                                       withMappings:self.mappings];
+    
+    if (sectionChanges.count == 0 & rowChanges.count == 0) { // Nothing has changed that affects our tableView
+        return;
+    }
+    
+    [self.delegate listController:self didChangeWithRowChanges:rowChanges sectionChanges:sectionChanges];
 }
 
-#pragma mark - ZIMListProtocol
+#pragma mark - ZIMGoodsCatalogListProtocol
+
+- (void)setFilterString:(NSString *)filterString {
+    if (![_filterString isEqualToString:filterString]) {
+        _filterString = [filterString copy];
+        [self updateViewFilter];
+    }
+}
+
+#pragma mark - ZIMListControllerProtocol
 
 - (NSInteger)numberOfSections {
     return [self.mappings numberOfSections];

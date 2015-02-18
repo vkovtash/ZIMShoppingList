@@ -27,6 +27,7 @@
     [self.tableView registerNib:itemCellNib forCellReuseIdentifier:self.itemCellClassName];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newGoodsCatalogListController];
+    self.listController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +54,10 @@
         }
     }
     return [items copy];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.listController.filterString = searchText;
 }
 
 #pragma mark - Table view data source
@@ -99,6 +104,51 @@
     [self tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - ZIMListControllerDelegateProtocol
+
+- (void)listControllerDidReloadData:(id)listController {
+    [self.tableView reloadData];
+}
+
+- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
+    [self.tableView beginUpdates];
+    
+    for (ZIMListSectionChange *change in sectionChanges) {
+        switch (change.changeType) {
+            case ZIMListChangeTypeInsert:
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case ZIMListChangeTypeDelete:
+                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    for (ZIMListRowChange *change in rowChanges) {
+        switch (change.changeType) {
+            case ZIMListChangeTypeInsert:
+                [self.tableView insertRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case ZIMListChangeTypeDelete:
+                [self.tableView deleteRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case ZIMListChangeTypeUpdate:
+                break;
+                
+            case ZIMListChangeTypeMove:
+                [self.tableView moveRowAtIndexPath:change.fromIndexPath toIndexPath:change.indexPath];
+                break;
+        }
+    }
+    [self.tableView endUpdates];
 }
 
 @end

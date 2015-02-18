@@ -14,22 +14,38 @@
     [self.tableView reloadData];
 }
 
-- (void)listController:(id)listController didChangeWithChanges:(NSArray *)changes {
+- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
     [self.tableView beginUpdates];
-    for (ZIMListDataChange *change in changes) {
+    
+    for (ZIMListSectionChange *change in sectionChanges) {
         switch (change.changeType) {
-            case ZIMListDataChangeTypeInsert:
+            case ZIMListChangeTypeInsert:
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+                
+            case ZIMListChangeTypeDelete:
+                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    for (ZIMListRowChange *change in rowChanges) {
+        switch (change.changeType) {
+            case ZIMListChangeTypeInsert:
                 [self.tableView insertRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
                 
-            case ZIMListDataChangeTypeDelete:
+            case ZIMListChangeTypeDelete:
                 [self.tableView deleteRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
                 
-            case ZIMListDataChangeTypeUpdate:
+            case ZIMListChangeTypeUpdate:
                 break;
                 
-            case ZIMListDataChangeTypeMove:
+            case ZIMListChangeTypeMove:
                 [self.tableView moveRowAtIndexPath:change.fromIndexPath toIndexPath:change.indexPath];
                 break;
         }

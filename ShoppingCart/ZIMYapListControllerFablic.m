@@ -28,7 +28,7 @@
     return [[ZIMYapShoppingCartListController alloc] initWithStorage:_storage];
 }
 
-- (id <ZIMListControllerProtocol>)newGoodsCatalogListController {
+- (id <ZIMGoodsCatalogListProtocol>)newGoodsCatalogListController {
     return [[ZIMYapGoodsCatalogListController alloc] initWithStorage:_storage];
 }
 

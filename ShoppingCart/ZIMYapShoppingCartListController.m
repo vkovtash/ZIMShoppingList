@@ -13,6 +13,7 @@
 #import "ZIMStorageShoppingCartItem.h"
 #import "ZIMStorageCategory+ZIMYapRetrieving.h"
 #import "ZIMYapStotage+ZIMShoppingCartManipulations.h"
+#import "YapDatabaseViewConnection+ZIMGetChanges.h"
 
 @interface ZIMYapShoppingCartListController()
 @property (strong, nonatomic) YapDatabaseConnection *connection;
@@ -37,14 +38,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) setItemsStateFilter:(ZIMCartItemState)itemsStateFilter {
+- (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter {
     if (_itemsStateFilter != itemsStateFilter) {
         _itemsStateFilter = itemsStateFilter;
         [self applyStateFilter];
     }
 }
 
-- (void) applyStateFilter {
+- (void)applyStateFilter {
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:YapDatabaseModifiedNotification
                                                   object:self.storage.database];
@@ -74,56 +75,17 @@
 - (void)storageModifiedNotification:(NSNotification *)note {
     NSArray *notifications = [self.connection beginLongLivedReadTransaction];
     
-    if (notifications.count == 0) {
+    NSArray *sectionChanges = nil, *rowChanges = nil;
+    [[self.connection ext:self.mappings.view] zim_getSectionChanges:&sectionChanges
+                                                         rowChanges:&rowChanges
+                                                   forNotifications:notifications
+                                                       withMappings:self.mappings];
+    
+    if (sectionChanges.count == 0 & rowChanges.count == 0) { // Nothing has changed that affects our tableView
         return;
     }
     
-    NSArray *sectionChanges = nil;
-    NSArray *rowChanges = nil;
-    
-    [[self.connection ext:self.mappings.view] getSectionChanges:&sectionChanges
-                                                     rowChanges:&rowChanges
-                                               forNotifications:notifications
-                                                   withMappings:self.mappings];
-    
-    if ([sectionChanges count] == 0 & [rowChanges count] == 0) { // Nothing has changed that affects our tableView
-        return;
-    }
-    
-    NSMutableArray *changes = [NSMutableArray arrayWithCapacity:rowChanges.count];
-    ZIMListDataChange *newChange = nil;
-    
-    for (YapDatabaseViewRowChange *change in rowChanges) {
-        if (!(change.changes & YapDatabaseViewChangedObject)) {
-            continue;
-        }
-        
-        switch (change.type) {
-            case YapDatabaseViewChangeInsert:
-                newChange = [ZIMListDataChange newInsertWithObject:[self objectAtIndexPath:change.newIndexPath]
-                                                       atIndexPath:change.newIndexPath];
-                break;
-                
-            case YapDatabaseViewChangeDelete:
-                newChange = [ZIMListDataChange newDeleteAIndexPath:change.indexPath];
-                break;
-                
-            case YapDatabaseViewChangeMove:
-                newChange = [ZIMListDataChange newMoveWithObject:[self objectAtIndexPath:change.newIndexPath]
-                                                     toIndexPath:change.newIndexPath
-                                                   fromIndexPath:change.indexPath];
-                break;
-                
-            case YapDatabaseViewChangeUpdate:
-                newChange = [ZIMListDataChange newUpdateWithObject:[self objectAtIndexPath:change.indexPath]
-                                                       atIndexPath:change.indexPath];
-                break;
-        }
-        
-        [changes addObject:newChange];
-    }
-    
-    [self.delegate listController:self didChangeWithChanges:changes];
+    [self.delegate listController:self didChangeWithRowChanges:rowChanges sectionChanges:sectionChanges];
 }
 
 #pragma mark - ZIMShoppingCartListProtocol

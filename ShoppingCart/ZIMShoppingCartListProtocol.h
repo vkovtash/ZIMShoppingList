@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMListProtocol.h"
+#import "ZIMListControllerProtocol.h"
 #import "ZIMShoppingCartItem.h"
 
 typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
