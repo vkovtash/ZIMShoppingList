@@ -161,14 +161,21 @@
 }
 
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    if (fromIndexPath.row == toIndexPath.row) {
+        return;
+    }
+    
     __block ZIMStorageShoppingCartItem *movedItem = nil;
-    __block ZIMStorageShoppingCartItem *indexItem = nil;
-    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
+    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
         movedItem = [[transaction ext:self.mappings.view] objectAtIndexPath:fromIndexPath withMappings:self.mappings];
-        indexItem = [[transaction ext:self.mappings.view] objectAtIndexPath:toIndexPath withMappings:self.mappings];
     }];
     
-    [self.storage placeItem:movedItem beforeItem:indexItem];
+    if (fromIndexPath.row < toIndexPath.row) {
+        [self.storage moveItem:movedItem toIndex:toIndexPath.row + 1];
+    }
+    else if (fromIndexPath.row > toIndexPath.row) {
+        [self.storage moveItem:movedItem toIndex:toIndexPath.row];
+    }
 }
 
 - (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath {

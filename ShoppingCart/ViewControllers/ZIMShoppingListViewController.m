@@ -25,16 +25,15 @@
     
     UINib *itemCellNib =  [UINib nibWithNibName:self.itemCellClassName bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:itemCellNib forCellReuseIdentifier:self.itemCellClassName];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
     self.listController.delegate = self;
     self.filterControl.selectedSegmentIndex = 1;
+    [self applyFilterState];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self applyFilterState];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,6 +129,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![cell isKindOfClass:[ZIMCartItemTableViewCell class]]) {
+        return;
+    }
+    
+    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+    cell.textLabel.text = item.title;
+}
+
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleNone;
@@ -143,18 +151,20 @@
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCartItemTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.title;
-}
-
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    //Inhibit all notifications while item movement
+    self.listController.delegate = nil;
+    
     [self.listController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
+    
+    //Subscribing to tonitifations on next runloop cycle
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.listController.delegate = self;
+    });
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-
 
 @end

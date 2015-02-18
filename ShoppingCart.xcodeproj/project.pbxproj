@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				F333211E1A92293000561ED9 /* YapShoppingCart */,
-				F33321131A92251000561ED9 /* ShoppingCartAbstract */,
+				F33321131A92251000561ED9 /* AbstractShoppingCart */,
 				F333210A1A921DB500561ED9 /* Views */,
 				F33321061A921C5200561ED9 /* ViewControllers */,
 				F33320E41A921C3400561ED9 /* AppDelegate.h */,
@@ -321,7 +321,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		F33321131A92251000561ED9 /* ShoppingCartAbstract */ = {
+		F33321131A92251000561ED9 /* AbstractShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
 				F33321261A92330800561ED9 /* DataModel */,
@@ -333,7 +333,7 @@
 				F33321281A92339C00561ED9 /* ZIMListControllersFabric.h */,
 				F33321291A92339C00561ED9 /* ZIMListControllersFabric.m */,
 			);
-			name = ShoppingCartAbstract;
+			name = AbstractShoppingCart;
 			sourceTree = "<group>";
 		};
 		F333211E1A92293000561ED9 /* YapShoppingCart */ = {

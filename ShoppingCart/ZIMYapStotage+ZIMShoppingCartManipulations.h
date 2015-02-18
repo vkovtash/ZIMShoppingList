@@ -13,7 +13,7 @@
 @interface ZIMYapStotage (ZIMShoppingCartManipulations)
 - (void)appendGoodsItem:(ZIMStorageGoodsItem *)item;
 - (void)appendGoodsItems:(NSArray *)items;
-- (void)placeItem:(ZIMStorageShoppingCartItem *)movedItem beforeItem:(ZIMStorageShoppingCartItem *)indexItem;
+- (void)moveItem:(ZIMStorageShoppingCartItem *)movedItem toIndex:(NSUInteger)index;
 - (void)removeItem:(ZIMStorageShoppingCartItem *)item;
 - (void)setState:(ZIMCartItemState)state forItem:(ZIMStorageShoppingCartItem *)item;
 @end

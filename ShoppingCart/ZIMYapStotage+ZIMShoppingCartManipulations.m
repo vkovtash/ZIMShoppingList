@@ -15,7 +15,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
 
 - (void)appendGoodsItems:(NSArray *)items {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        for (ZIMStorageGoodsItem *goodsItem in items) {
+        for (ZIMStorageGoodsItem *goodsItem in [items reverseObjectEnumerator]) {
             if ([ZIMStorageShoppingCartItem entityExistsForKey:goodsItem.itemKey inTransaction:transaction]) {
                 continue; //Already in the list
             }
@@ -37,12 +37,27 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
     [self appendGoodsItems:@[item]];
 }
 
-- (void)placeItem:(ZIMStorageShoppingCartItem *)movedItem beforeItem:(ZIMStorageShoppingCartItem *)indexItem {
+- (void)moveItem:(ZIMStorageShoppingCartItem *)movedItem toIndex:(NSUInteger)index {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        ZIMStorageShoppingCartItem *localMovedItem = nil, *localIndexItem = nil;
+        ZIMStorageShoppingCartItem *localMovedItem = nil;
         localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey inTransaction:transaction];
-        localIndexItem = [ZIMStorageShoppingCartItem entityWithKey:indexItem.storageKey inTransaction:transaction];
-        localMovedItem.sortOrder = localIndexItem.sortOrder + 1;
+        if (!localMovedItem) {
+            return;
+        }
+        
+        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
+        NSString *group = [ZIMStorageShoppingCartItem collection];
+        
+        ZIMStorageShoppingCartItem *currentItem = [viewTransaction objectAtIndex:index inGroup:group];
+        
+        if (index == 0) {
+            localMovedItem.sortOrder = currentItem.sortOrder + ZIMBasicYapStotageSortOrderStep;
+        }
+        else {
+            ZIMStorageShoppingCartItem *upperItem = [viewTransaction objectAtIndex:index - 1  inGroup:group];
+            localMovedItem.sortOrder = currentItem.sortOrder + (upperItem.sortOrder - currentItem.sortOrder) / 2;
+        }
+        
         [localMovedItem saveInTransaction:transaction];
     }];
 }
