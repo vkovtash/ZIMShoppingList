@@ -85,6 +85,10 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
     [self.listController setItemsStateFilter:state];
 }
 
+- (void) subscribeListControllerNotifications {
+    self.listController.delegate = self;
+}
+
 #pragma mark - ZIMGoodsCatalogViewControllerDelegate
 
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
@@ -158,14 +162,11 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     //Inhibit all notifications while item movement
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(subscribeListControllerNotifications) object:self];
     self.listController.delegate = nil;
-    
     [self.listController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
-    
-    //Subscribing to tonitifations on next runloop cycle
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.listController.delegate = self;
-    });
+    //Subscribing to notifications on nex runloop cycle
+    [self performSelector:@selector(subscribeListControllerNotifications) withObject:self afterDelay:0.1];
 }
 
 @end
