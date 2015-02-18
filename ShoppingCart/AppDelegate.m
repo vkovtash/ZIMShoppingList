@@ -10,6 +10,7 @@
 #import "ZIMListControllersFabric.h"
 #import "ZIMYapListControllerFablic.h"
 #import "ZIMYapStotage+ZIMTestData.h"
+#import "ZIMAppearanceController.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,8 @@
     [fabric.storage fillWithTestData];
     
     [[ZIMListControllersFabric sharedFabric] setConcreteFabric:fabric];
+    
+    [[ZIMAppearanceController defaultAppearance] applyAppearance];
     
     return YES;
 }

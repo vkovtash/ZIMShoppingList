@@ -37,6 +37,7 @@
 - (void)configureCell:(ZIMCartItemTableViewCell *)cell {
     cell.firstTrigger = self.firstTrigger;
     cell.secondTrigger = self.secondTrigger;
+    cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [cell setDefaultColor:self.defaultColor];
 }
 

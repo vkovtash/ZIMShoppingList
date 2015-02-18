@@ -50,6 +50,7 @@
 		F333213B1A9258CB00561ED9 /* ZIMStorageShoppingCartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F333213A1A9258CB00561ED9 /* ZIMStorageShoppingCartItem.m */; };
 		F3A6FBD51A93D082009472A4 /* ZIMYapStotage+ZIMTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD41A93D082009472A4 /* ZIMYapStotage+ZIMTestData.m */; };
 		F3A6FBD91A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD81A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m */; };
+		F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,8 @@
 		F3A6FBD61A94CF54009472A4 /* ZIMGoodsCatalogListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMGoodsCatalogListProtocol.h; sourceTree = "<group>"; };
 		F3A6FBD71A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YapDatabaseViewConnection+ZIMGetChanges.h"; sourceTree = "<group>"; };
 		F3A6FBD81A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YapDatabaseViewConnection+ZIMGetChanges.m"; sourceTree = "<group>"; };
+		F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMAppearanceController.h; sourceTree = "<group>"; };
+		F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMAppearanceController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,8 @@
 				F33320ED1A921C3400561ED9 /* Images.xcassets */,
 				F33320EF1A921C3400561ED9 /* LaunchScreen.xib */,
 				F33320E01A921C3400561ED9 /* Supporting Files */,
+				F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */,
+				F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				F33321191A92257000561ED9 /* ZIMShoppingCartItem.m in Sources */,
 				F303F9EF1A925C1800582FE8 /* ZIMYapShoppingCartCategory.m in Sources */,
 				F33321241A9229D200561ED9 /* ZIMYapShoppingCartListController.m in Sources */,
+				F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */,
 				F333210E1A921E0200561ED9 /* ZIMCartItemTableViewCell.m in Sources */,
 				F303FA021A9364AD00582FE8 /* ZIMYapGoodsCatalogListController.m in Sources */,
 				F303FA051A936C8600582FE8 /* ZIMGoodsCatalogViewController.m in Sources */,

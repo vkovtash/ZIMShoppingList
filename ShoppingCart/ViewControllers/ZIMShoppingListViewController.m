@@ -136,16 +136,18 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
     ZIMCartItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMCartItemCellReuseId
                                                                      forIndexPath:indexPath];
     [self.cellConfigurator configureCell:cell];
+    cell.separatorInset = tableView.separatorInset;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCartItemTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (![cell isKindOfClass:[ZIMCartItemTableViewCell class]]) {
         return;
     }
     
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.title;
+    cell.itemTitleLabel.text = item.title;
+    cell.categoryTitleLabel.text = [item.category.title uppercaseString];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {

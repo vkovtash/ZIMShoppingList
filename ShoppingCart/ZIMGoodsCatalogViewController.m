@@ -10,8 +10,9 @@
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
 
+static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
+
 @interface ZIMGoodsCatalogViewController()
-@property (strong, nonatomic) NSString *itemCellClassName;
 @property (strong, nonatomic) NSMutableOrderedSet *selectedObjects;
 @end
 
@@ -21,10 +22,11 @@
     [super viewDidLoad];
     self.selectedObjects = [NSMutableOrderedSet new];
     
-    self.itemCellClassName =  NSStringFromClass([ZIMCartItemTableViewCell class]);
+    UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCartItemTableViewCell class])
+                                         bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:itemCellNib forCellReuseIdentifier:ZIMGoodsItemCellReuseId];
     
-    UINib *itemCellNib =  [UINib nibWithNibName:self.itemCellClassName bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:itemCellNib forCellReuseIdentifier:self.itemCellClassName];
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newGoodsCatalogListController];
     self.listController.delegate = self;
@@ -66,7 +68,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.itemCellClassName forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMGoodsItemCellReuseId forIndexPath:indexPath];
     return cell;
 }
 

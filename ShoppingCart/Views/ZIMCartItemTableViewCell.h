@@ -10,5 +10,6 @@
 #import <MCSwipeTableViewCell/MCSwipeTableViewCell.h>
 
 @interface ZIMCartItemTableViewCell : MCSwipeTableViewCell
-
+@property (strong, nonatomic) IBOutlet UILabel *categoryTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *itemTitleLabel;
 @end
