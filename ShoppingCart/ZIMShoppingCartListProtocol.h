@@ -21,11 +21,12 @@ typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
 
 - (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter;
 
-- (BOOL)isItemsInList:(ZIMShoppingCartItem *)item;
+- (BOOL)isItemInList:(ZIMShoppingCartItem *)item;
 - (void)appendItems:(NSArray *)items;
 - (void)appendItem:(ZIMShoppingCartItem *)item;
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
-- (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)removeAllItems;
 - (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (ZIMShoppingCartItem *)objectAtIndexPath:(NSIndexPath *)indexPath;
 @end

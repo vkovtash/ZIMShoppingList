@@ -76,6 +76,12 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
     }];
 }
 
+- (void)removeAllItems {
+    [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        [transaction removeAllObjectsInCollection:[ZIMStorageShoppingCartItem collection]];
+    }];
+}
+
 - (void)setState:(ZIMCartItemState)state forItem:(ZIMStorageShoppingCartItem *)item {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         ZIMStorageShoppingCartItem *localItem = [ZIMStorageShoppingCartItem entityWithKey:item.storageKey inTransaction:transaction];

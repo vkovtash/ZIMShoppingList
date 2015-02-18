@@ -52,10 +52,14 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 #pragma mark - Actions
 
-- (IBAction)filterControlChanhed:(UISegmentedControl *)sender {
+- (IBAction)filterControlChanged:(UISegmentedControl *)sender {
     if (sender == self.filterControl) {
         [self applyFilterState];
     }
+}
+
+- (IBAction)clearButtonTapped:(UIBarButtonItem *)sender {
+    [self.listController removeAllItems];
 }
 
 #pragma mark - Private API
@@ -98,7 +102,7 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 #pragma mark - ZIMGoodsCatalogViewControllerDelegate
 
 - (BOOL)isItemInList:(ZIMShoppingCartItem *)item {
-    return [self.listController isItemsInList:item];
+    return [self.listController isItemInList:item];
 }
 
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items {
@@ -110,7 +114,7 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 - (void)deleteAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell; {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.listController deleteItemAtIndexPath:indexPath];
+    [self.listController removeItemAtIndexPath:indexPath];
 }
 
 - (void)setDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {

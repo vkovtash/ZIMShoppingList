@@ -113,7 +113,7 @@
     return nil;
 }
 
-- (BOOL)isItemsInList:(ZIMYapShoppingCartItem *)item {
+- (BOOL)isItemInList:(ZIMYapShoppingCartItem *)item {
     return [self.storage isItemInList:item.storageGoodsItem];
 }
 
@@ -144,13 +144,17 @@
     }
 }
 
-- (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)removeItemAtIndexPath:(NSIndexPath *)indexPath {
     __block ZIMStorageShoppingCartItem *item = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
     }];
     
     [self.storage removeItem:item];
+}
+
+- (void)removeAllItems {
+    [self.storage removeAllItems];
 }
 
 - (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath {

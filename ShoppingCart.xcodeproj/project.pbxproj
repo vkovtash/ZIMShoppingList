@@ -277,10 +277,10 @@
 			isa = PBXGroup;
 			children = (
 				F30E04E91A93CD5100D4EB59 /* ZIMCartItemCellConfigurator */,
-				F303FA031A936C8600582FE8 /* ZIMGoodsCatalogViewController.h */,
-				F303FA041A936C8600582FE8 /* ZIMGoodsCatalogViewController.m */,
 				F33321071A921CAC00561ED9 /* ZIMShoppingListViewController.h */,
 				F33321081A921CAC00561ED9 /* ZIMShoppingListViewController.m */,
+				F303FA031A936C8600582FE8 /* ZIMGoodsCatalogViewController.h */,
+				F303FA041A936C8600582FE8 /* ZIMGoodsCatalogViewController.m */,
 				F33321311A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.h */,
 				F33321321A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m */,
 			);
