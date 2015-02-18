@@ -47,8 +47,8 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
 
 - (void)moveItem:(ZIMStorageShoppingCartItem *)movedItem toIndex:(NSUInteger)index {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        ZIMStorageShoppingCartItem *localMovedItem = nil;
-        localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey inTransaction:transaction];
+        ZIMStorageShoppingCartItem *localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey
+                                                                                 inTransaction:transaction];
         if (!localMovedItem) {
             return;
         }
@@ -62,8 +62,8 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
             localMovedItem.sortOrder = currentItem.sortOrder + ZIMBasicYapStotageSortOrderStep;
         }
         else {
-            ZIMStorageShoppingCartItem *upperItem = [viewTransaction objectAtIndex:index - 1  inGroup:group];
-            localMovedItem.sortOrder = currentItem.sortOrder + (upperItem.sortOrder - currentItem.sortOrder) / 2;
+            ZIMStorageShoppingCartItem *topItem = [viewTransaction objectAtIndex:index - 1  inGroup:group];
+            localMovedItem.sortOrder = currentItem.sortOrder + (topItem.sortOrder - currentItem.sortOrder) / 2;
         }
         
         [localMovedItem saveInTransaction:transaction];
@@ -72,19 +72,26 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
 
 - (void)placeItem:(ZIMStorageShoppingCartItem *)movedItem beforeItem:(ZIMStorageShoppingCartItem *)indexItem {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        ZIMStorageShoppingCartItem *localMovedItem = nil;
-        localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey inTransaction:transaction];
+        ZIMStorageShoppingCartItem *localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey
+                                                                                 inTransaction:transaction];
         if (!localMovedItem) {
             return;
         }
         
-        ZIMStorageShoppingCartItem *currentItem = [ZIMStorageShoppingCartItem entityWithKey:indexItem.storageKey inTransaction:transaction];
+        ZIMStorageShoppingCartItem *currentItem = [ZIMStorageShoppingCartItem entityWithKey:indexItem.storageKey
+                                                                              inTransaction:transaction];
         
         YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
         NSString *group = nil;
         NSUInteger index = 0;
         
-        [viewTransaction getGroup:&group index:&index forKey:indexItem.storageKey inCollection:[ZIMStorageShoppingCartItem collection]];
+        BOOL result = [viewTransaction getGroup:&group
+                                          index:&index
+                                         forKey:indexItem.storageKey
+                                   inCollection:[ZIMStorageShoppingCartItem collection]];
+        if (!result) {
+            return;
+        }
         
         if (index == 0) {
             localMovedItem.sortOrder = currentItem.sortOrder + ZIMBasicYapStotageSortOrderStep;
@@ -100,19 +107,26 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
 
 - (void)placeItem:(ZIMStorageShoppingCartItem *)movedItem afterItem:(ZIMStorageShoppingCartItem *)indexItem {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        ZIMStorageShoppingCartItem *localMovedItem = nil;
-        localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey inTransaction:transaction];
+        ZIMStorageShoppingCartItem *localMovedItem = [ZIMStorageShoppingCartItem entityWithKey:movedItem.storageKey
+                                                                                 inTransaction:transaction];
         if (!localMovedItem) {
             return;
         }
         
-        ZIMStorageShoppingCartItem *currentItem = [ZIMStorageShoppingCartItem entityWithKey:indexItem.storageKey inTransaction:transaction];
+        ZIMStorageShoppingCartItem *currentItem = [ZIMStorageShoppingCartItem entityWithKey:indexItem.storageKey
+                                                                              inTransaction:transaction];
         
         YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
         NSString *group = nil;
         NSUInteger index = 0;
         
-        [viewTransaction getGroup:&group index:&index forKey:indexItem.storageKey inCollection:[ZIMStorageShoppingCartItem collection]];
+        BOOL result = [viewTransaction getGroup:&group
+                                          index:&index
+                                         forKey:indexItem.storageKey
+                                   inCollection:[ZIMStorageShoppingCartItem collection]];
+        if (!result) {
+            return;
+        }
         
         ZIMStorageShoppingCartItem *baseItem = [viewTransaction objectAtIndex:index + 1  inGroup:group];
         localMovedItem.sortOrder = baseItem.sortOrder + (currentItem.sortOrder - baseItem.sortOrder) / 2;
