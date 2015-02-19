@@ -19,7 +19,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="7WH-OH-1Mh">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="KZ3-Dq-9n0">
+                        <barButtonItem key="leftBarButtonItem" image="toolbar-icn-trashbin" id="KZ3-Dq-9n0">
                             <connections>
                                 <action selector="clearButtonTapped:" destination="jOB-2g-8jb" id="BDN-Fj-OdX"/>
                             </connections>
@@ -36,7 +36,7 @@
                                 <action selector="filterControlChanged:" destination="jOB-2g-8jb" eventType="valueChanged" id="Ze5-LT-itu"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kqo-12-BUO">
+                        <barButtonItem key="rightBarButtonItem" image="menubar-icn-plus" id="Kqo-12-BUO">
                             <connections>
                                 <segue destination="nOw-aS-ctJ" kind="modal" identifier="goodsCatalog" id="Q36-oZ-x9X"/>
                             </connections>
@@ -72,12 +72,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Catalog" id="pI7-cC-bum">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="H6g-MG-clQ">
+                        <barButtonItem key="leftBarButtonItem" image="menubar-icn-x" id="H6g-MG-clQ">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="gWo-ul-AQV" id="qcW-Le-CXR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pFV-lz-78i">
+                        <barButtonItem key="rightBarButtonItem" image="menubar-icn-check" id="pFV-lz-78i">
                             <connections>
                                 <action selector="doneButtonTapped:" destination="gWo-ul-AQV" id="Bri-Oc-cws"/>
                             </connections>
@@ -128,6 +128,10 @@
         <image name="check" width="23" height="20"/>
         <image name="clock" width="22" height="22"/>
         <image name="list" width="20" height="18"/>
+        <image name="menubar-icn-check" width="24" height="24"/>
+        <image name="menubar-icn-plus" width="24" height="24"/>
+        <image name="menubar-icn-x" width="24" height="24"/>
+        <image name="toolbar-icn-trashbin" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
