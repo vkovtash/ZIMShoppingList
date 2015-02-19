@@ -1,14 +1,14 @@
 //
-//  ZIMCartItemTableViewCell.m
+//  ZIMShoppingLisItemCell.m
 //  ShoppingCart
 //
 //  Created by kovtash on 16.02.15.
 //  Copyright (c) 2015 zim. All rights reserved.
 //
 
-#import "ZIMCartItemTableViewCell.h"
+#import "ZIMShoppingLisItemCell.h"
 
-@implementation ZIMCartItemTableViewCell
+@implementation ZIMShoppingLisItemCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

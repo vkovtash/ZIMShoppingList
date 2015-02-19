@@ -31,7 +31,7 @@
     return self;
 }
 
-- (void)configureCell:(ZIMCartItemTableViewCell *)cell {
+- (void)configureCell:(ZIMShoppingLisItemCell *)cell {
     cell.firstTrigger = self.firstTrigger;
     cell.secondTrigger = self.secondTrigger;
     [cell setDefaultColor:self.defaultColor];

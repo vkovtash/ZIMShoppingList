@@ -10,7 +10,7 @@
 
 @implementation ZIMCartItemLaterCellConfigurator
 
-- (void)configureCell:(ZIMCartItemTableViewCell *)cell {
+- (void)configureCell:(ZIMShoppingLisItemCell *)cell {
     [super configureCell:cell];
     
     __weak __typeof(&*self) weakSelf = self;

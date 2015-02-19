@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMCartItemTableViewCell.h"
+#import "ZIMShoppingLisItemCell.h"
 #import <MZAppearance/MZAppearance.h>
 
 
 @protocol ZIMCartItemCellDelegate <NSObject>
-- (void)deleteAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell;
-- (void)setDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell;
-- (void)setUndoneDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell;
-- (void)setLaterAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell;
+- (void)deleteAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
+- (void)setDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
+- (void)setUndoneDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
+- (void)setLaterAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
 @end
 
 @interface ZIMCartItemCellConfigurator : NSObject
@@ -33,7 +33,7 @@
 
 @property (weak, nonatomic) id<ZIMCartItemCellDelegate> delegate;
 
-- (void)configureCell:(ZIMCartItemTableViewCell *)cell;
+- (void)configureCell:(ZIMShoppingLisItemCell *)cell;
 
 + (instancetype)undoneCellConfigurator;
 + (instancetype)doneCellConfigurator;

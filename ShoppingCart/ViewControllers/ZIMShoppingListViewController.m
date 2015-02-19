@@ -7,11 +7,11 @@
 //
 
 #import "ZIMShoppingListViewController.h"
-#import "ZIMCartItemTableViewCell.h"
+#import "ZIMShoppingLisItemCell.h"
 #import "ZIMListControllersFabric.h"
 #import "UIView+ZIMNibForViewClass.h"
 #import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
-#import "ZIMCartItemPlaceholderCell.h"
+#import "ZIMShoppingListPlaceholderCell.h"
 
 static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
@@ -27,9 +27,9 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     
     _controllerFilterState = ZIMCartItemStateUndone;
     
-    [self.tableView registerNib:[ZIMCartItemTableViewCell zim_getAssociatedNib]
+    [self.tableView registerNib:[ZIMShoppingLisItemCell zim_getAssociatedNib]
          forCellReuseIdentifier:ZIMCartItemCellReuseId];
-    [self.tableView  registerTemporaryEmptyCellClass:ZIMCartItemPlaceholderCell.class];
+    [self.tableView  registerTemporaryEmptyCellClass:ZIMShoppingListPlaceholderCell.class];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
 }
@@ -160,22 +160,22 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
 #pragma mark - ZIMCartItemCellDelegate
 
-- (void)deleteAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell; {
+- (void)deleteAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell; {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.listController removeItemAtIndexPath:indexPath];
 }
 
-- (void)setDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+- (void)setDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.listController setState:ZIMCartItemStateDone forItemAtIndexPath:indexPath];
 }
 
-- (void)setUndoneDoneAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+- (void)setUndoneDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.listController setState:ZIMCartItemStateUndone forItemAtIndexPath:indexPath];
 }
 
-- (void)setLaterAtcionTriggeredForCell:(ZIMCartItemTableViewCell *)cell {
+- (void)setLaterAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.listController setState:ZIMCartItemStateLater forItemAtIndexPath:indexPath];
 }
@@ -191,15 +191,15 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZIMCartItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMCartItemCellReuseId
+    ZIMShoppingLisItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMCartItemCellReuseId
                                                                      forIndexPath:indexPath];
     [self.cellConfigurator configureCell:cell];
     cell.separatorInset = tableView.separatorInset;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCartItemTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (![cell isKindOfClass:[ZIMCartItemTableViewCell class]]) {
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMShoppingLisItemCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![cell isKindOfClass:[ZIMShoppingLisItemCell class]]) {
         return;
     }
     
