@@ -47,6 +47,7 @@
 		F3A6FBE71A95DE7D009472A4 /* ZIMCatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */; };
 		F3A6FBE91A9613CB009472A4 /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE81A9613CB009472A4 /* testData.json */; };
 		F3B57C6B1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */; };
+		F3B57C711A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C701A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,8 @@
 		F3A6FBE81A9613CB009472A4 /* testData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testData.json; sourceTree = "<group>"; };
 		F3B57C691A962E53000CB9E7 /* UIView+ZIMNibForViewClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZIMNibForViewClass.h"; sourceTree = "<group>"; };
 		F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZIMNibForViewClass.m"; sourceTree = "<group>"; };
+		F3B57C6F1A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemPlaceholderCell.h; sourceTree = "<group>"; };
+		F3B57C701A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemPlaceholderCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +312,8 @@
 				F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */,
 				F3B57C691A962E53000CB9E7 /* UIView+ZIMNibForViewClass.h */,
 				F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */,
+				F3B57C6F1A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.h */,
+				F3B57C701A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				F303FA121A939B6F00582FE8 /* ZIMYapStotage.m in Sources */,
 				F303F9E91A925A2200582FE8 /* ZIMYapGoodsItem.m in Sources */,
 				F3A6FBD51A93D082009472A4 /* ZIMYapStotage+ZIMJSONDataImport.m in Sources */,
+				F3B57C711A964AC3000CB9E7 /* ZIMCartItemPlaceholderCell.m in Sources */,
 				F30E04E81A93CBB100D4EB59 /* ZIMCartItemLaterCellConfigurator.m in Sources */,
 				F333212A1A92339C00561ED9 /* ZIMListControllersFabric.m in Sources */,
 				F33321191A92257000561ED9 /* ZIMDMListItem.m in Sources */,

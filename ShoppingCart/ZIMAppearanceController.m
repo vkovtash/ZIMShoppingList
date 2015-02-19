@@ -11,6 +11,7 @@
 #import "ZIMShoppingListViewController.h"
 #import "ZIMCartItemCellConfigurator.h"
 #import "ZIMGoodsCatalogViewController.h"
+#import "ZIMCartItemPlaceholderCell.h"
 
 @implementation ZIMAppearanceController
 
@@ -63,7 +64,12 @@
     //ZIMShoppingListViewController
     appearance  = [UITableView appearanceWhenContainedIn:[ZIMShoppingListViewController class], nil];
     [appearance setRowHeight:65];
+    [appearance setBackgroundColor:self.backgroundColor];
+    [appearance setTableFooterView:[UIView new]];
     [appearance setSeparatorInset:UIEdgeInsetsMake(0, 25, 0, 0)];
+    
+    appearance = [ZIMCartItemPlaceholderCell appearanceWhenContainedIn:[ZIMShoppingListViewController class], nil];
+    [appearance setBackgroundColor:self.backgroundColor];
     
     //ZIMGoodsCatalogViewController
     appearance = [UITableView appearanceWhenContainedIn:[ZIMGoodsCatalogViewController class], nil];

@@ -11,8 +11,10 @@
 #import "ZIMGoodsCatalogViewController.h"
 #import "ZIMCartItemCellConfigurator.h"
 #import "UITableViewController+ZIMListDelegateProtocol.h"
+#import "HPReorderTableView.h"
 
 @interface ZIMShoppingListViewController : UITableViewController <ZIMGoodsCatalogViewControllerDelegate, ZIMCartItemCellDelegate>
+@property (strong, nonatomic) IBOutlet HPReorderTableView *tableView;
 @property (assign, nonatomic) ZIMCartItemState controllerFilterState;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *filterControl;
 @property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;

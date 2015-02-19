@@ -10,8 +10,8 @@
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
 #import "UIView+ZIMNibForViewClass.h"
-#import <ZIMTools/UIActionSheet+ZIMBlocks.h>
-
+#import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
+#import "ZIMCartItemPlaceholderCell.h"
 
 static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
@@ -29,6 +29,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     
     [self.tableView registerNib:[ZIMCartItemTableViewCell zim_getAssociatedNib]
          forCellReuseIdentifier:ZIMCartItemCellReuseId];
+    [self.tableView  registerTemporaryEmptyCellClass:ZIMCartItemPlaceholderCell.class];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
 }
