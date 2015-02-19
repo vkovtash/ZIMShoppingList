@@ -38,7 +38,6 @@
 		F333212A1A92339C00561ED9 /* ZIMListControllersFabric.m in Sources */ = {isa = PBXBuildFile; fileRef = F33321291A92339C00561ED9 /* ZIMListControllersFabric.m */; };
 		F333212D1A92351700561ED9 /* ZIMYapListControllerFablic.m in Sources */ = {isa = PBXBuildFile; fileRef = F333212C1A92351700561ED9 /* ZIMYapListControllerFablic.m */; };
 		F33321301A923FF100561ED9 /* ZIMListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F333212F1A923FF100561ED9 /* ZIMListChanges.m */; };
-		F33321331A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = F33321321A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m */; };
 		F333213B1A9258CB00561ED9 /* ZIMYapListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F333213A1A9258CB00561ED9 /* ZIMYapListItem.m */; };
 		F3A6FBD51A93D082009472A4 /* ZIMYapStotage+ZIMJSONDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD41A93D082009472A4 /* ZIMYapStotage+ZIMJSONDataImport.m */; };
 		F3A6FBD91A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD81A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m */; };
@@ -48,6 +47,9 @@
 		F3A6FBE91A9613CB009472A4 /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE81A9613CB009472A4 /* testData.json */; };
 		F3B57C6B1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */; };
 		F3B57C711A964AC3000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C701A964AC3000CB9E7 /* ZIMShoppingListPlaceholderCell.m */; };
+		F3B57C781A964E37000CB9E7 /* ZIMShoppingListBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C761A964E37000CB9E7 /* ZIMShoppingListBackgroundView.m */; };
+		F3B57C791A964E37000CB9E7 /* ZIMShoppingListBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B57C771A964E37000CB9E7 /* ZIMShoppingListBackgroundView.xib */; };
+		F3B57C7C1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C7B1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,8 +127,6 @@
 		F333212C1A92351700561ED9 /* ZIMYapListControllerFablic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapListControllerFablic.m; sourceTree = "<group>"; };
 		F333212E1A923FF100561ED9 /* ZIMListChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListChanges.h; sourceTree = "<group>"; };
 		F333212F1A923FF100561ED9 /* ZIMListChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListChanges.m; sourceTree = "<group>"; };
-		F33321311A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+ZIMListDelegateProtocol.h"; sourceTree = "<group>"; };
-		F33321321A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+ZIMListDelegateProtocol.m"; sourceTree = "<group>"; };
 		F33321391A9258CB00561ED9 /* ZIMYapListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapListItem.h; sourceTree = "<group>"; };
 		F333213A1A9258CB00561ED9 /* ZIMYapListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapListItem.m; sourceTree = "<group>"; };
 		F3A6FBD31A93D082009472A4 /* ZIMYapStotage+ZIMJSONDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapStotage+ZIMJSONDataImport.h"; sourceTree = "<group>"; };
@@ -144,6 +144,11 @@
 		F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZIMNibForViewClass.m"; sourceTree = "<group>"; };
 		F3B57C6F1A964AC3000CB9E7 /* ZIMShoppingListPlaceholderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMShoppingListPlaceholderCell.h; sourceTree = "<group>"; };
 		F3B57C701A964AC3000CB9E7 /* ZIMShoppingListPlaceholderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMShoppingListPlaceholderCell.m; sourceTree = "<group>"; };
+		F3B57C751A964E37000CB9E7 /* ZIMShoppingListBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMShoppingListBackgroundView.h; sourceTree = "<group>"; };
+		F3B57C761A964E37000CB9E7 /* ZIMShoppingListBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMShoppingListBackgroundView.m; sourceTree = "<group>"; };
+		F3B57C771A964E37000CB9E7 /* ZIMShoppingListBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZIMShoppingListBackgroundView.xib; sourceTree = "<group>"; };
+		F3B57C7A1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+ZIMApplyListChanges.h"; sourceTree = "<group>"; };
+		F3B57C7B1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ZIMApplyListChanges.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,8 +300,8 @@
 				F33321081A921CAC00561ED9 /* ZIMShoppingListViewController.m */,
 				F303FA031A936C8600582FE8 /* ZIMGoodsCatalogViewController.h */,
 				F303FA041A936C8600582FE8 /* ZIMGoodsCatalogViewController.m */,
-				F33321311A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.h */,
-				F33321321A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m */,
+				F3B57C7A1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.h */,
+				F3B57C7B1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -314,6 +319,9 @@
 				F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */,
 				F3B57C691A962E53000CB9E7 /* UIView+ZIMNibForViewClass.h */,
 				F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */,
+				F3B57C751A964E37000CB9E7 /* ZIMShoppingListBackgroundView.h */,
+				F3B57C761A964E37000CB9E7 /* ZIMShoppingListBackgroundView.m */,
+				F3B57C771A964E37000CB9E7 /* ZIMShoppingListBackgroundView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -492,6 +500,7 @@
 				F33320EC1A921C3400561ED9 /* Main.storyboard in Resources */,
 				F333210F1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib in Resources */,
 				F3A6FBE71A95DE7D009472A4 /* ZIMCatalogItemCell.xib in Resources */,
+				F3B57C791A964E37000CB9E7 /* ZIMShoppingListBackgroundView.xib in Resources */,
 				F3A6FBE91A9613CB009472A4 /* testData.json in Resources */,
 				F33320F11A921C3400561ED9 /* LaunchScreen.xib in Resources */,
 				F33320EE1A921C3400561ED9 /* Images.xcassets in Resources */,
@@ -568,15 +577,16 @@
 				F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */,
 				F333210E1A921E0200561ED9 /* ZIMShoppingLisItemCell.m in Sources */,
 				F303FA021A9364AD00582FE8 /* ZIMYapGoodsCatalogListController.m in Sources */,
+				F3B57C7C1A965BE8000CB9E7 /* UITableView+ZIMApplyListChanges.m in Sources */,
 				F303FA051A936C8600582FE8 /* ZIMGoodsCatalogViewController.m in Sources */,
 				F3A6FBD91A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */,
+				F3B57C781A964E37000CB9E7 /* ZIMShoppingListBackgroundView.m in Sources */,
 				F303FA0B1A9388FC00582FE8 /* ZIMStorageShoppingCartItem+ZIMYapRetrieving.m in Sources */,
 				F30E04E51A93CB1900D4EB59 /* ZIMCartItemDoneCellConfigurator.m in Sources */,
 				F33321091A921CAC00561ED9 /* ZIMShoppingListViewController.m in Sources */,
 				F3B57C6B1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */,
 				F33320E31A921C3400561ED9 /* main.m in Sources */,
 				F333213B1A9258CB00561ED9 /* ZIMYapListItem.m in Sources */,
-				F33321331A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m in Sources */,
 				F30E04E21A93C4AE00D4EB59 /* ZIMCartItemCellConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

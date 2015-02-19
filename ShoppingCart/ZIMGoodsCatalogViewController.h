@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ZIMGoodsCatalogListProtocol.h"
-#import "UITableViewController+ZIMListDelegateProtocol.h"
 
 @class ZIMGoodsCatalogViewController;
 @class ZIMDMListItem;

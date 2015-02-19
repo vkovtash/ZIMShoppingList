@@ -86,6 +86,14 @@
 
 #pragma mark - ZIMShoppingCartListProtocol
 
+- (NSInteger)numberOfAllItemsInList {
+    __block NSUInteger numberOfItems = 0;
+    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
+        numberOfItems = [[transaction ext:ZIMYapShoppingCartByStateViewName] numberOfItemsInAllGroups];
+    }];
+    return numberOfItems;
+}
+
 - (NSInteger)numberOfSections {
     return [self.mappings numberOfSections];
 }

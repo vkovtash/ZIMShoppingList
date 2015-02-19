@@ -1,5 +1,5 @@
 //
-//  UIView+ZIMNibForViewClass.h
+//  ZIMShoppingListPlaceholderCell.h
 //  ShoppingCart
 //
 //  Created by kovtash on 19.02.15.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (ZIMNibForViewClass)
-+ (UINib *)zim_getAssociatedNib;
-+ (instancetype)zim_loadFromNib;
+@interface ZIMShoppingListPlaceholderCell : UITableViewCell
+
 @end

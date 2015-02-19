@@ -10,6 +10,7 @@
 #import "ZIMListControllersFabric.h"
 #import "ZIMCatalogItemCell.h"
 #import "UIView+ZIMNibForViewClass.h"
+#import "UITableView+ZIMApplyListChanges.h"
 
 static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
@@ -116,6 +117,16 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     self.searchString = searchText;
+}
+
+#pragma mark - ZIMListControllerDelegateProtocol
+
+- (void)listControllerDidReloadData:(id)listController {
+    [self.tableView reloadData];
+}
+
+- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
+    [self.tableView zim_applyRowChanges:rowChanges sectionChanges:sectionChanges];
 }
 
 #pragma mark - TableView DataSource/Delegate

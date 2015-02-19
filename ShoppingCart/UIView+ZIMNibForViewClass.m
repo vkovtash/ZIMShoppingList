@@ -14,4 +14,12 @@
     return [UINib nibWithNibName:NSStringFromClass(self.class) bundle:[NSBundle mainBundle]];
 }
 
++ (instancetype)zim_loadFromNib {
+    NSArray *nibContent = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class)
+                                                        owner:nil
+                                                      options:nil];
+    
+    return [nibContent firstObject];
+}
+
 @end

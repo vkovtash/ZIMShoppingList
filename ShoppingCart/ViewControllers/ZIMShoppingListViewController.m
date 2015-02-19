@@ -12,7 +12,8 @@
 #import "UIView+ZIMNibForViewClass.h"
 #import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
 #import "ZIMShoppingListPlaceholderCell.h"
-
+#import "ZIMShoppingListBackgroundView.h"
+#import "UITableView+ZIMApplyListChanges.h"
 
 static NSString *const ZIMListItemCellReuseId = @"ZIMListItemCellReuseId";
 static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
@@ -32,6 +33,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     [self.tableView registerNib:[ZIMShoppingLisItemCell zim_getAssociatedNib]
          forCellReuseIdentifier:ZIMListItemCellReuseId];
     [self.tableView  registerTemporaryEmptyCellClass:ZIMShoppingListPlaceholderCell.class];
+    self.tableView.backgroundView = [ZIMShoppingListBackgroundView zim_loadFromNib];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
 }
@@ -64,6 +66,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
         _listController = listController;
         _listController.delegate = self;
         [self applyFilterState];
+        [self updateBackgoundViewState:NO];
     }
 }
 
@@ -145,6 +148,32 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     [self.listController setItemsStateFilter:self.controllerFilterState];
 }
 
+- (void)updateBackgoundViewState:(BOOL)animated {
+    UIView *backgroundView = self.tableView.backgroundView;
+    if (!backgroundView) {
+        return;
+    }
+    
+    BOOL shouldHide = [self.listController numberOfAllItemsInList] > 0;
+    
+    if (!animated) {
+        backgroundView.hidden = shouldHide;
+        return;
+    }
+    
+    if (!shouldHide) {
+        backgroundView.hidden = shouldHide;
+    }
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        backgroundView.alpha = shouldHide ? 0. : 1.;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            backgroundView.hidden = shouldHide;
+        }
+    }];
+}
+
 - (void) subscribeListControllerNotifications {
     self.listController.delegate = self;
 }
@@ -180,6 +209,17 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 - (void)setLaterAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self.listController setState:ZIMCartItemStateLater forItemAtIndexPath:indexPath];
+}
+
+#pragma mark - ZIMListControllerDelegateProtocol
+
+- (void)listControllerDidReloadData:(id)listController {
+    [self.tableView reloadData];
+}
+
+- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
+    [self updateBackgoundViewState:YES];
+    [self.tableView zim_applyRowChanges:rowChanges sectionChanges:sectionChanges];
 }
 
 #pragma mark - TableView DataSource/Delegate
