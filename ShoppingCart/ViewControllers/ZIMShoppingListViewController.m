@@ -10,6 +10,7 @@
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
 #import "UIView+ZIMNibForViewClass.h"
+#import <ZIMTools/UIActionSheet+ZIMBlocks.h>
 
 
 static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
@@ -92,7 +93,18 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 }
 
 - (IBAction)clearButtonTapped:(UIBarButtonItem *)sender {
-    [self.listController removeAllItems];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:@"Clear list"
+                                                    otherButtonTitles:nil];
+    
+    [actionSheet showInView:self.view
+         withDismissHandler:^(NSInteger selectedIndex, BOOL didCancel, BOOL destructive)
+    {
+        if (destructive) {
+            [self.listController removeAllItems];
+        }
+    }];
 }
 
 #pragma mark - Private API

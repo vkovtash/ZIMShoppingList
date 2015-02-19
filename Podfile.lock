@@ -16,6 +16,7 @@ PODS:
     - CocoaLumberjack (~> 1)
   - YapDatabase/standard (2.5.4):
     - YapDatabase/common
+  - ZIMTools (1.0)
 
 DEPENDENCIES:
   - HPReorderTableView (~> 0.2)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - MCSwipeTableViewCell (~> 2.1.0)
   - MZAppearance (~> 1.1)
   - YapDatabase (~> 2.5)
+  - ZIMTools
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
@@ -31,5 +33,6 @@ SPEC CHECKSUMS:
   MCSwipeTableViewCell: 8e78ff197ab06ba7bfd5c938a00149de8a33afa9
   MZAppearance: c88502c0c2345120630c34e09d5ff09e2969ba30
   YapDatabase: c1d6912df1b4a160f7373ee7657d360e29bb00fd
+  ZIMTools: 7187482a7c94beb90137debea24fac57f1ae61e4
 
 COCOAPODS: 0.35.0
