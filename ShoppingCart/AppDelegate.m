@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ZIMListControllersFabric.h"
 #import "ZIMYapListControllerFablic.h"
-#import "ZIMYapStotage+ZIMTestData.h"
+#import "ZIMYapStotage+ZIMJSONDataImport.h"
 #import "ZIMAppearanceController.h"
 
 @interface AppDelegate ()
@@ -23,11 +23,15 @@
     // Override point for customization after application launch.
     
     ZIMYapListControllerFablic *fabric = [[ZIMYapListControllerFablic alloc] initWithDatabaseName:@"YapGoodsCatalog.sqlite"];
-    [fabric.storage fillWithTestData];
     
     [[ZIMListControllersFabric sharedFabric] setConcreteFabric:fabric];
     
     [[ZIMAppearanceController defaultAppearance] applyAppearance];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"testData" ofType:@"json"];
+        [fabric.storage importDataFromFileWithPath:path error:nil];
+    });
     
     return YES;
 }
