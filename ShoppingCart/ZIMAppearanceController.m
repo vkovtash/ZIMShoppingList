@@ -7,11 +7,13 @@
 //
 
 #import "ZIMAppearanceController.h"
+#import "UIView+ZIMNibForViewClass.h"
 #import "ZIMShoppingLisItemCell.h"
 #import "ZIMShoppingListViewController.h"
 #import "ZIMListItemCellConfigurator.h"
 #import "ZIMGoodsCatalogViewController.h"
 #import "ZIMShoppingListPlaceholderCell.h"
+#import "ZIMShoppingListBackgroundView.h"
 
 @implementation ZIMAppearanceController
 
@@ -67,6 +69,7 @@
     [appearance setBackgroundColor:self.backgroundColor];
     [appearance setTableFooterView:[UIView new]];
     [appearance setSeparatorInset:UIEdgeInsetsMake(0, 25, 0, 0)];
+    [appearance setBackgroundView:[ZIMShoppingListBackgroundView zim_loadFromNib]];
     
     appearance = [ZIMShoppingListPlaceholderCell appearanceWhenContainedIn:[ZIMShoppingListViewController class], nil];
     [appearance setBackgroundColor:self.backgroundColor];

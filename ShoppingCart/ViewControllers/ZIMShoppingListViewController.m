@@ -11,7 +11,6 @@
 #import "ZIMListControllersFabric.h"
 #import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
 #import "ZIMShoppingListPlaceholderCell.h"
-#import "ZIMShoppingListBackgroundView.h"
 #import "UITableView+ZIMApplyListChanges.h"
 #import "UIView+ZIMNibForViewClass.h"
 #import "UIView+ZIMHideAnimated.h"
@@ -31,7 +30,6 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     [self.tableView registerNib:[ZIMShoppingLisItemCell zim_getAssociatedNib]
          forCellReuseIdentifier:ZIMListItemCellReuseId];
     [self.tableView  registerTemporaryEmptyCellClass:ZIMShoppingListPlaceholderCell.class];
-    self.tableView.backgroundView = [ZIMShoppingListBackgroundView zim_loadFromNib];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
 }

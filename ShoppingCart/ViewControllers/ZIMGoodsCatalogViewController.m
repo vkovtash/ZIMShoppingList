@@ -24,6 +24,11 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _searchBar = [UISearchBar new];
+    self.navigationItem.titleView = self.searchBar;
+    self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Search";
+    
     self.mutablePickedItems = [NSMutableOrderedSet new];
     
     [self.tableView registerNib:[ZIMCatalogItemCell zim_getAssociatedNib] forCellReuseIdentifier:ZIMGoodsItemCellReuseId];

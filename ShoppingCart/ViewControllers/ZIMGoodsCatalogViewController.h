@@ -21,12 +21,12 @@
 @end
 
 
-@interface ZIMGoodsCatalogViewController : UITableViewController <ZIMListControllerDelegateProtocol>
+@interface ZIMGoodsCatalogViewController : UITableViewController <ZIMListControllerDelegateProtocol, UISearchBarDelegate>
 @property (weak, nonatomic) id<ZIMGoodsCatalogViewControllerDelegate> delegate;
 @property (strong, nonatomic) id<ZIMGoodsCatalogListProtocol> listController;
 @property (copy, nonatomic) NSString *searchString;
 @property (readonly, nonatomic) NSOrderedSet *pickedItems;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (readonly, nonatomic) UISearchBar *searchBar;
 
 - (void)pickItem:(ZIMDMListItem *)item;
 - (void)releaseItem:(ZIMDMListItem *)item;
