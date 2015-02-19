@@ -13,11 +13,13 @@
 #import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
 #import "ZIMShoppingListPlaceholderCell.h"
 
-static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
+
+static NSString *const ZIMListItemCellReuseId = @"ZIMListItemCellReuseId";
 static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
 
 @interface ZIMShoppingListViewController ()
+
 @end
 
 @implementation ZIMShoppingListViewController
@@ -28,7 +30,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     _controllerFilterState = ZIMCartItemStateUndone;
     
     [self.tableView registerNib:[ZIMShoppingLisItemCell zim_getAssociatedNib]
-         forCellReuseIdentifier:ZIMCartItemCellReuseId];
+         forCellReuseIdentifier:ZIMListItemCellReuseId];
     [self.tableView  registerTemporaryEmptyCellClass:ZIMShoppingListPlaceholderCell.class];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
@@ -191,7 +193,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZIMShoppingLisItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMCartItemCellReuseId
+    ZIMShoppingLisItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ZIMListItemCellReuseId
                                                                      forIndexPath:indexPath];
     [self.cellConfigurator configureCell:cell];
     cell.separatorInset = tableView.separatorInset;
