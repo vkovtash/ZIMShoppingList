@@ -10,6 +10,7 @@
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMShoppingListViewController.h"
 #import "ZIMCartItemCellConfigurator.h"
+#import "ZIMGoodsCatalogViewController.h"
 
 @implementation ZIMAppearanceController
 
@@ -47,6 +48,7 @@
     
     id appearance = nil;
     
+    //ZIMCartItemCellConfigurator
     appearance = [ZIMCartItemCellConfigurator appearance];
     [appearance setDefaultColor:self.backgroundColor];
     [appearance setDoneColor:self.doneColor];
@@ -58,9 +60,20 @@
     [appearance setDeleteImage:[UIImage imageNamed:@"cross"]];
     [appearance setDoneImage:[UIImage imageNamed:@"check"]];
     
+    //ZIMShoppingListViewController
     appearance  = [UITableView appearanceWhenContainedIn:[ZIMShoppingListViewController class], nil];
     [appearance setRowHeight:65];
     [appearance setSeparatorInset:UIEdgeInsetsMake(0, 25, 0, 0)];
+    
+    //ZIMGoodsCatalogViewController
+    appearance = [UITableView appearanceWhenContainedIn:[ZIMGoodsCatalogViewController class], nil];
+    [appearance setRowHeight:50];
+    [appearance setSectionHeaderHeight:35];
+    [appearance setSeparatorInset:UIEdgeInsetsMake(0, 25, 0, 0)];
+    
+    appearance = [UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], [ZIMGoodsCatalogViewController class], nil];
+    [appearance setTextColor:[UIColor darkGrayColor]];
+    [appearance setFont:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
 }
 
 @end

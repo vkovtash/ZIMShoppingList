@@ -43,6 +43,8 @@
 		F3A6FBD51A93D082009472A4 /* ZIMYapStotage+ZIMTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD41A93D082009472A4 /* ZIMYapStotage+ZIMTestData.m */; };
 		F3A6FBD91A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBD81A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m */; };
 		F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */; };
+		F3A6FBE61A95DE7D009472A4 /* ZIMCatalogItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */; };
+		F3A6FBE71A95DE7D009472A4 /* ZIMCatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,9 @@
 		F3A6FBD81A94DC5B009472A4 /* YapDatabaseViewConnection+ZIMGetChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YapDatabaseViewConnection+ZIMGetChanges.m"; sourceTree = "<group>"; };
 		F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMAppearanceController.h; sourceTree = "<group>"; };
 		F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMAppearanceController.m; sourceTree = "<group>"; };
+		F3A6FBE31A95DE7D009472A4 /* ZIMCatalogItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCatalogItemCell.h; sourceTree = "<group>"; };
+		F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCatalogItemCell.m; sourceTree = "<group>"; };
+		F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZIMCatalogItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +298,9 @@
 				F333210B1A921E0200561ED9 /* ZIMCartItemTableViewCell.h */,
 				F333210C1A921E0200561ED9 /* ZIMCartItemTableViewCell.m */,
 				F333210D1A921E0200561ED9 /* ZIMCartItemTableViewCell.xib */,
+				F3A6FBE31A95DE7D009472A4 /* ZIMCatalogItemCell.h */,
+				F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */,
+				F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -446,6 +454,7 @@
 			files = (
 				F33320EC1A921C3400561ED9 /* Main.storyboard in Resources */,
 				F333210F1A921E0200561ED9 /* ZIMCartItemTableViewCell.xib in Resources */,
+				F3A6FBE71A95DE7D009472A4 /* ZIMCatalogItemCell.xib in Resources */,
 				F33320F11A921C3400561ED9 /* LaunchScreen.xib in Resources */,
 				F33320EE1A921C3400561ED9 /* Images.xcassets in Resources */,
 			);
@@ -498,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A6FBE61A95DE7D009472A4 /* ZIMCatalogItemCell.m in Sources */,
 				F303FA0E1A938A7700582FE8 /* ZIMYapStotage+ZIMShoppingCartManipulations.m in Sources */,
 				F303F9F91A9276BB00582FE8 /* ZIMStorageGoodsItem+ZIMYapRetrieving.m in Sources */,
 				F33321301A923FF100561ED9 /* ZIMListChanges.m in Sources */,

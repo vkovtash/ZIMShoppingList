@@ -7,8 +7,8 @@
 //
 
 #import "ZIMGoodsCatalogViewController.h"
-#import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
+#import "ZIMCatalogItemCell.h"
 
 static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
@@ -22,7 +22,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [super viewDidLoad];
     self.mutablePickedItems = [NSMutableOrderedSet new];
     
-    UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCartItemTableViewCell class])
+    UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCatalogItemCell class])
                                          bundle:[NSBundle mainBundle]];
     [self.tableView registerNib:itemCellNib forCellReuseIdentifier:ZIMGoodsItemCellReuseId];
     
@@ -113,7 +113,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     ZIMSoppingCartCategory *category = [self.listController objectForSection:section];
-    return category.title;
+    return [category.title uppercaseString];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -128,9 +128,9 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     return [tableView dequeueReusableCellWithIdentifier:ZIMGoodsItemCellReuseId forIndexPath:indexPath];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCartItemTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCatalogItemCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    cell.textLabel.text = item.title;
+    cell.titleLabel.text = item.title;
     
     BOOL isItemInList = NO;
     if ([self.delegate respondsToSelector:@selector(isItemInList:)]) {
@@ -138,13 +138,13 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     }
     
     if (isItemInList) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.indicatorState = ZIMItemCellIndicatorInactive;
     }
     else if ([self.mutablePickedItems containsObject:item]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.indicatorState = ZIMItemCellIndicatorActive;
     }
     else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.indicatorState = ZIMItemCellIndicatorNone;
     }
 }
 
