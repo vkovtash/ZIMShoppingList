@@ -26,10 +26,10 @@
 		F3B57C8F1A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C891A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m */; };
 		F3B57C9D1A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C911A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m */; };
 		F3B57C9E1A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C931A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m */; };
-		F3B57C9F1A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C961A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.m */; };
-		F3B57CA01A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C981A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.m */; };
-		F3B57CA11A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9A1A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.m */; };
-		F3B57CA21A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9C1A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.m */; };
+		F3B57C9F1A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */; };
+		F3B57CA01A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */; };
+		F3B57CA11A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */; };
+		F3B57CA21A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */; };
 		F3B57CB01A966355000CB9E7 /* ZIMDMListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CA51A966355000CB9E7 /* ZIMDMListCategory.m */; };
 		F3B57CB11A966355000CB9E7 /* ZIMDMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CA71A966355000CB9E7 /* ZIMDMListItem.m */; };
 		F3B57CB21A966355000CB9E7 /* ZIMListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CAA1A966355000CB9E7 /* ZIMListChanges.m */; };
@@ -99,14 +99,14 @@
 		F3B57C911A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+ZIMApplyListChanges.m"; path = "ViewControllers/UITableView+ZIMApplyListChanges.m"; sourceTree = "<group>"; };
 		F3B57C921A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMGoodsCatalogViewController.h; path = ViewControllers/ZIMGoodsCatalogViewController.h; sourceTree = "<group>"; };
 		F3B57C931A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMGoodsCatalogViewController.m; path = ViewControllers/ZIMGoodsCatalogViewController.m; sourceTree = "<group>"; };
-		F3B57C951A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemCellConfigurator.h; sourceTree = "<group>"; };
-		F3B57C961A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemCellConfigurator.m; sourceTree = "<group>"; };
-		F3B57C971A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemDoneCellConfigurator.h; sourceTree = "<group>"; };
-		F3B57C981A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemDoneCellConfigurator.m; sourceTree = "<group>"; };
-		F3B57C991A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemLaterCellConfigurator.h; sourceTree = "<group>"; };
-		F3B57C9A1A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemLaterCellConfigurator.m; sourceTree = "<group>"; };
-		F3B57C9B1A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMCartItemUndoneCellConfigurator.h; sourceTree = "<group>"; };
-		F3B57C9C1A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCartItemUndoneCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C951A9662C0000CB9E7 /* ZIMListItemCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C971A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemDoneCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemDoneCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C991A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemLaterCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemLaterCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C9B1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemUndoneCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemUndoneCellConfigurator.m; sourceTree = "<group>"; };
 		F3B57CA41A966355000CB9E7 /* ZIMDMListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDMListCategory.h; sourceTree = "<group>"; };
 		F3B57CA51A966355000CB9E7 /* ZIMDMListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDMListCategory.m; sourceTree = "<group>"; };
 		F3B57CA61A966355000CB9E7 /* ZIMDMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDMListItem.h; sourceTree = "<group>"; };
@@ -320,14 +320,14 @@
 		F3B57C941A9662C0000CB9E7 /* ZIMListItemCellConfigurator */ = {
 			isa = PBXGroup;
 			children = (
-				F3B57C951A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.h */,
-				F3B57C961A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.m */,
-				F3B57C971A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.h */,
-				F3B57C981A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.m */,
-				F3B57C991A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.h */,
-				F3B57C9A1A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.m */,
-				F3B57C9B1A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.h */,
-				F3B57C9C1A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.m */,
+				F3B57C951A9662C0000CB9E7 /* ZIMListItemCellConfigurator.h */,
+				F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */,
+				F3B57C971A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.h */,
+				F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */,
+				F3B57C991A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.h */,
+				F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */,
+				F3B57C9B1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.h */,
+				F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */,
 			);
 			name = ZIMListItemCellConfigurator;
 			path = ViewControllers/ZIMListItemCellConfigurator;
@@ -573,10 +573,10 @@
 			files = (
 				F3B57CDC1A966459000CB9E7 /* ZIMYapDmListCategory.m in Sources */,
 				F3B57C8F1A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */,
-				F3B57CA21A9662C0000CB9E7 /* ZIMCartItemUndoneCellConfigurator.m in Sources */,
+				F3B57CA21A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m in Sources */,
 				F3B57CE61A966459000CB9E7 /* ZIMYapListCategory.m in Sources */,
-				F3B57C9F1A9662C0000CB9E7 /* ZIMCartItemCellConfigurator.m in Sources */,
-				F3B57CA11A9662C0000CB9E7 /* ZIMCartItemLaterCellConfigurator.m in Sources */,
+				F3B57C9F1A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m in Sources */,
+				F3B57CA11A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m in Sources */,
 				F3B57C9E1A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m in Sources */,
 				F3B57CDB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m in Sources */,
 				F33320E61A921C3400561ED9 /* AppDelegate.m in Sources */,
@@ -600,7 +600,7 @@
 				F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */,
 				F3B57CE71A966459000CB9E7 /* ZIMYapListItem.m in Sources */,
 				F3B57C8A1A966257000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */,
-				F3B57CA01A9662C0000CB9E7 /* ZIMCartItemDoneCellConfigurator.m in Sources */,
+				F3B57CA01A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m in Sources */,
 				F33321091A921CAC00561ED9 /* ZIMShoppingListViewController.m in Sources */,
 				F3B57CDE1A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m in Sources */,
 				F3B57CB31A966355000CB9E7 /* ZIMListControllersFabric.m in Sources */,

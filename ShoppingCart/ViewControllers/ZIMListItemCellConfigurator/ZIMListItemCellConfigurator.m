@@ -1,17 +1,17 @@
 //
-//  ZIMCartItemCellConfigurator.m
+//  ZIMListItemCellConfigurator.m
 //  ShoppingCart
 //
 //  Created by kovtash on 17.02.15.
 //  Copyright (c) 2015 zim. All rights reserved.
 //
 
-#import "ZIMCartItemCellConfigurator.h"
-#import "ZIMCartItemUndoneCellConfigurator.h"
-#import "ZIMCartItemDoneCellConfigurator.h"
-#import "ZIMCartItemLaterCellConfigurator.h"
+#import "ZIMListItemCellConfigurator.h"
+#import "ZIMListItemUndoneCellConfigurator.h"
+#import "ZIMListItemDoneCellConfigurator.h"
+#import "ZIMListItemLaterCellConfigurator.h"
 
-@implementation ZIMCartItemCellConfigurator
+@implementation ZIMListItemCellConfigurator
 
 - (instancetype)init {
     self = [super init];
@@ -38,19 +38,19 @@
 }
 
 + (instancetype)undoneCellConfigurator {
-    return [ZIMCartItemUndoneCellConfigurator new];
+    return [ZIMListItemUndoneCellConfigurator new];
 }
 
 + (instancetype)doneCellConfigurator {
-    return [ZIMCartItemDoneCellConfigurator new];
+    return [ZIMListItemDoneCellConfigurator new];
 }
 
 + (instancetype)laterCellConfigurator {
-    return [ZIMCartItemLaterCellConfigurator new];
+    return [ZIMListItemLaterCellConfigurator new];
 }
 
 + (id)appearance {
-    return [MZAppearance appearanceForClass:[ZIMCartItemCellConfigurator class]];
+    return [MZAppearance appearanceForClass:[ZIMListItemCellConfigurator class]];
 }
 
 @end

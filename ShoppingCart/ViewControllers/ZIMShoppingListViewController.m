@@ -119,20 +119,20 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     switch (self.controllerFilterState) {
         case ZIMListItemStateLater:
             self.filterControl.selectedSegmentIndex = 0;
-            self.cellConfigurator = [ZIMCartItemCellConfigurator laterCellConfigurator];
+            self.cellConfigurator = [ZIMListItemCellConfigurator laterCellConfigurator];
             newWindowColor = self.cellConfigurator.laterColor;
             break;
             
         case ZIMListItemStateDone:
             self.filterControl.selectedSegmentIndex = 2;
-            self.cellConfigurator = [ZIMCartItemCellConfigurator doneCellConfigurator];
+            self.cellConfigurator = [ZIMListItemCellConfigurator doneCellConfigurator];
             newWindowColor = self.cellConfigurator.doneColor;
             break;
             
         case ZIMListItemStateUndone:
         default:
             self.filterControl.selectedSegmentIndex = 1;
-            self.cellConfigurator = [ZIMCartItemCellConfigurator undoneCellConfigurator];
+            self.cellConfigurator = [ZIMListItemCellConfigurator undoneCellConfigurator];
             newWindowColor = self.cellConfigurator.mainColor;
             break;
     }

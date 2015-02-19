@@ -9,7 +9,7 @@
 #import "ZIMAppearanceController.h"
 #import "ZIMShoppingLisItemCell.h"
 #import "ZIMShoppingListViewController.h"
-#import "ZIMCartItemCellConfigurator.h"
+#import "ZIMListItemCellConfigurator.h"
 #import "ZIMGoodsCatalogViewController.h"
 #import "ZIMShoppingListPlaceholderCell.h"
 
@@ -50,7 +50,7 @@
     id appearance = nil;
     
     //ZIMCartItemCellConfigurator
-    appearance = [ZIMCartItemCellConfigurator appearance];
+    appearance = [ZIMListItemCellConfigurator appearance];
     [appearance setDefaultColor:self.backgroundColor];
     [appearance setDoneColor:self.doneColor];
     [appearance setDeleteColor:self.destructiveColor];

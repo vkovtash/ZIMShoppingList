@@ -1,5 +1,5 @@
 //
-//  ZIMCartItemCellConfigurator.h
+//  ZIMListItemCellConfigurator.h
 //  ShoppingCart
 //
 //  Created by kovtash on 17.02.15.
@@ -11,14 +11,14 @@
 #import <MZAppearance/MZAppearance.h>
 
 
-@protocol ZIMCartItemCellDelegate <NSObject>
+@protocol ZIMListItemCellDelegate <NSObject>
 - (void)deleteAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
 - (void)setDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
 - (void)setUndoneDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
 - (void)setLaterAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell;
 @end
 
-@interface ZIMCartItemCellConfigurator : NSObject
+@interface ZIMListItemCellConfigurator : NSObject
 @property (strong, nonatomic) UIColor *defaultColor MZ_APPEARANCE_SELECTOR;
 @property (strong, nonatomic) UIColor *mainColor MZ_APPEARANCE_SELECTOR;
 @property (strong, nonatomic) UIColor *doneColor MZ_APPEARANCE_SELECTOR;
@@ -31,7 +31,7 @@
 @property (assign, nonatomic) CGFloat firstTrigger MZ_APPEARANCE_SELECTOR;
 @property (assign, nonatomic) CGFloat secondTrigger MZ_APPEARANCE_SELECTOR;
 
-@property (weak, nonatomic) id<ZIMCartItemCellDelegate> delegate;
+@property (weak, nonatomic) id<ZIMListItemCellDelegate> delegate;
 
 - (void)configureCell:(ZIMShoppingLisItemCell *)cell;
 
