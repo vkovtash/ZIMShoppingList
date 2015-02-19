@@ -7,10 +7,6 @@
 //
 
 #import "ZIMYapStotage.h"
-#import <YapDatabase/YapDatabaseView.h>
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
-#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
-#import "ZIMStorageShoppingCartItem+ZIMYapRetrieving.h"
 
 
 NSString *const ZIMYapGategoriesViewName = @"ZIMYapGategoriesViewName";

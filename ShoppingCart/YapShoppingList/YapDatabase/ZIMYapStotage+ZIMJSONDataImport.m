@@ -7,8 +7,6 @@
 //
 
 #import "ZIMYapStotage+ZIMJSONDataImport.h"
-#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
 
 
 @implementation ZIMJSONGoodsItem

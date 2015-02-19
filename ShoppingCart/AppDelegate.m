@@ -29,7 +29,7 @@
     [[ZIMAppearanceController defaultAppearance] applyAppearance];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"testData" ofType:@"json"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"test_data" ofType:@"json"];
         [fabric.storage importDataFromFileWithPath:path error:nil];
     });
     

@@ -7,8 +7,6 @@
 //
 
 #import "ZIMYapStotage.h"
-#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
-#import "ZIMStorageShoppingCartItem+ZIMYapRetrieving.h"
 
 @interface ZIMYapStotage (ZIMShoppingListManipulations)
 - (BOOL)isItemInList:(ZIMYapGoodsItem *)item;

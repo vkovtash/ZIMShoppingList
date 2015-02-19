@@ -7,9 +7,9 @@
 //
 
 #import "ZIMYapGoodsCatalogListController.h"
-#import <YapDatabase/YapDatabaseFilteredView.h>
 #import "ZIMYapDmListItem.h"
 #import "ZIMYapDmListCategory.h"
+#import <YapDatabase/YapDatabaseFilteredView.h>
 
 @interface ZIMYapGoodsCatalogListController()
 @property (strong, nonatomic) YapDatabaseViewMappings *mappings;

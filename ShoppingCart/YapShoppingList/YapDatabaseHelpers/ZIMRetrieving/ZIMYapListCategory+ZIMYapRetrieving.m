@@ -1,12 +1,12 @@
 //
-//  ZIMStorageCategory+ZIMYapRetrieving.m
+//  ZIMYapListCategory+ZIMYapRetrieving.m
 //  ShoppingCart
 //
 //  Created by kovtash on 17.02.15.
 //  Copyright (c) 2015 zim. All rights reserved.
 //
 
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
+#import "ZIMYapListCategory+ZIMYapRetrieving.h"
 
 @implementation ZIMYapListCategory (ZIMYapRetrieving)
 

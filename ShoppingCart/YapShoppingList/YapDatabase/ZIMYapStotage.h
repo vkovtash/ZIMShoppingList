@@ -10,14 +10,14 @@
 #import <YapDatabase/YapDatabase.h>
 #import <YapDatabase/YapDatabaseView.h>
 #import "YapDatabaseViewConnection+ZIMGetChanges.h"
-#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
-#import "ZIMStorageShoppingCartItem+ZIMYapRetrieving.h"
+#import "ZIMYapModel+ZIMYapRetrieving.h"
+
 
 extern NSString *const ZIMYapGategoriesViewName;
 extern NSString *const ZIMYapGoodsViewName;
 extern NSString *const ZIMYapShoppingCartViewName;
 extern NSString *const ZIMYapShoppingCartByStateViewName;
+
 
 @interface ZIMYapStotage : NSObject
 @property (readonly, nonatomic) NSString *databasePath;

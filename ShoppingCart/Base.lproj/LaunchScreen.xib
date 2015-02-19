@@ -24,7 +24,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rro-Vb-Zlh" userLabel="GreenView">
                             <rect key="frame" x="0.0" y="0.0" width="165" height="65"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="iTN-ek-evB">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="iTN-ek-evB">
                                     <rect key="frame" x="119" y="23" width="23" height="20"/>
                                 </imageView>
                             </subviews>

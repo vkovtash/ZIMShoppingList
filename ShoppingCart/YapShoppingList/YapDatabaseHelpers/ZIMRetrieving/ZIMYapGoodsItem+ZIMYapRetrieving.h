@@ -1,5 +1,5 @@
 //
-//  ZIMStorageGoodsItem+ZIMYapRetrieving.h
+//  ZIMYapGoodsItem+ZIMYapRetrieving.h
 //  ShoppingCart
 //
 //  Created by kovtash on 16.02.15.
