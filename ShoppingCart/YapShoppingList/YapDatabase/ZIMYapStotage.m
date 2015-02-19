@@ -103,8 +103,8 @@ static YapDatabaseViewSortingWithObjectBlock listItemsSortingBlock =
     
     
     YapDatabaseView *listItemsView = [[YapDatabaseView alloc] initWithGrouping:[YapDatabaseViewGrouping withObjectBlock:cartGroupingBlock]
-                                                                  sorting:[YapDatabaseViewSorting withObjectBlock:listItemsSortingBlock]
-                                                               versionTag:@"1.1"];
+                                                                       sorting:[YapDatabaseViewSorting withObjectBlock:listItemsSortingBlock]
+                                                                    versionTag:@"1.1"];
     
     [_database registerExtension:listItemsView withName:ZIMYapShoppingListViewName];
     
