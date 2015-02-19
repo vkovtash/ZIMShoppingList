@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <YapDatabase/YapDatabase.h>
-
+#import <YapDatabase/YapDatabaseView.h>
+#import "YapDatabaseViewConnection+ZIMGetChanges.h"
+#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
+#import "ZIMStorageCategory+ZIMYapRetrieving.h"
+#import "ZIMStorageShoppingCartItem+ZIMYapRetrieving.h"
 
 extern NSString *const ZIMYapGategoriesViewName;
 extern NSString *const ZIMYapGoodsViewName;

@@ -8,7 +8,7 @@
 
 #import "ZIMStorageCategory+ZIMYapRetrieving.h"
 
-@implementation ZIMStorageCategory (ZIMYapRetrieving)
+@implementation ZIMYapListCategory (ZIMYapRetrieving)
 
 - (NSString *)collection {
     return [[self class] collection];
@@ -19,7 +19,7 @@
 }
 
 + (NSString *)collection {
-    static NSString *const collection = @"ZIMStorageCategory";
+    static NSString *const collection = @"ZIMYapListCategory";
     return collection;
 }
 @end

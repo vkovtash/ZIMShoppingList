@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 zim. All rights reserved.
 //
 
-#import "ZIMStorageGoodsItem.h"
+#import "ZIMYapGoodsItem.h"
 #import <YapDatabase/YapDatabaseTransaction.h>
 
-@interface ZIMStorageGoodsItem (ZIMYapRetrieving)
+@interface ZIMYapGoodsItem (ZIMYapRetrieving)
 - (NSString *)collection;
 
 + (instancetype)entityWithKey:(NSString *)key inTransaction:(YapDatabaseReadTransaction *)transaction;

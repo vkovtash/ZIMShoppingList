@@ -80,15 +80,15 @@
     for (ZIMJSONGoodsCategory *JSONCategory in JSONDocument.categories) {
         
         [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-            ZIMStorageCategory *category = [ZIMStorageCategory new];
+            ZIMYapListCategory *category = [ZIMYapListCategory new];
             category.title = [JSONCategory.title lowercaseString];
             category.categoryKey = JSONCategory.storageId;
             
             [transaction setObject:category forKey:category.categoryKey inCollection:category.collection];
             
-            ZIMStorageGoodsItem *goodsItem = nil;
+            ZIMYapGoodsItem *goodsItem = nil;
             for (ZIMJSONGoodsItem *JSONItem in JSONCategory.items) {
-                goodsItem = [ZIMStorageGoodsItem new];
+                goodsItem = [ZIMYapGoodsItem new];
                 goodsItem.categoryKey = category.categoryKey;
                 goodsItem.itemKey = JSONItem.storageId;
                 goodsItem.title = [JSONItem.title lowercaseString];

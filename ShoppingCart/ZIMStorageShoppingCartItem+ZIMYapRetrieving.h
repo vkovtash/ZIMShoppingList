@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 zim. All rights reserved.
 //
 
-#import "ZIMStorageShoppingCartItem.h"
+#import "ZIMYapListItem.h"
 #import <YapDatabase/YapDatabaseTransaction.h>
 
-@interface ZIMStorageShoppingCartItem (ZIMYapRetrieving)
+@interface ZIMYapListItem (ZIMYapRetrieving)
 - (NSString *)collection;
 - (BOOL)saveInTransaction:(YapDatabaseReadWriteTransaction *)transaction;
 - (void)removeInTransaction:(YapDatabaseReadWriteTransaction *)transaction;

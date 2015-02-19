@@ -80,7 +80,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [self.delegate goodsCatalog:self didCompleteWithItemsSelected:nil];
 }
 
-- (void)pickItem:(ZIMShoppingCartItem *)item {
+- (void)pickItem:(ZIMDMListItem *)item {
     if (!item) {
         return;
     }
@@ -88,7 +88,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [self updateNavigationItemsState];
 }
 
-- (void)releaseItem:(ZIMShoppingCartItem *)item {
+- (void)releaseItem:(ZIMDMListItem *)item {
     if (!item) {
         return;
     }
@@ -121,7 +121,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 #pragma mark - TableView DataSource/Delegate
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    ZIMSoppingCartCategory *category = [self.listController objectForSection:section];
+    ZIMDMListCategory *category = [self.listController objectForSection:section];
     return [category.title uppercaseString];
 }
 
@@ -138,7 +138,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCatalogItemCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+    ZIMDMListItem *item = [self.listController objectAtIndexPath:indexPath];
     cell.titleLabel.text = [item.title capitalizedString];
     
     BOOL isItemInList = NO;
@@ -160,14 +160,14 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     BOOL shouldHighlight = YES;
     if ([self.delegate respondsToSelector:@selector(isItemInList:)]) {
-        ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+        ZIMDMListItem *item = [self.listController objectAtIndexPath:indexPath];
         shouldHighlight = ![self.delegate isItemInList:item];
     }
     return shouldHighlight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+    ZIMDMListItem *item = [self.listController objectAtIndexPath:indexPath];
     if ([self.mutablePickedItems containsObject:item]) {
         [self releaseItem:item];
     }

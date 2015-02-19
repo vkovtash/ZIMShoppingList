@@ -7,13 +7,9 @@
 //
 
 #import "ZIMYapGoodsCatalogListController.h"
-#import <YapDatabase/YapDatabaseView.h>
 #import <YapDatabase/YapDatabaseFilteredView.h>
-#import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
-#import "ZIMYapShoppingCartItem.h"
-#import "ZIMYapShoppingCartCategory.h"
-#import "YapDatabaseViewConnection+ZIMGetChanges.h"
+#import "ZIMYapDmListItem.h"
+#import "ZIMYapDmListCategory.h"
 
 @interface ZIMYapGoodsCatalogListController()
 @property (strong, nonatomic) YapDatabaseViewMappings *mappings;
@@ -52,8 +48,8 @@
     };
     
     YapDatabaseViewMappingGroupSort groupSortingBlock = ^NSComparisonResult(NSString *group1, NSString *group2, YapDatabaseReadTransaction *transaction){
-        ZIMStorageCategory *category1 = [ZIMStorageCategory entityWithKey:group1 inTransaction:transaction];
-        ZIMStorageCategory *category2 = [ZIMStorageCategory entityWithKey:group2 inTransaction:transaction];
+        ZIMYapListCategory *category1 = [ZIMYapListCategory entityWithKey:group1 inTransaction:transaction];
+        ZIMYapListCategory *category2 = [ZIMYapListCategory entityWithKey:group2 inTransaction:transaction];
         return [category1.title caseInsensitiveCompare:category2.title];
     };
     
@@ -84,7 +80,7 @@
     NSString *filterString = [self.filterString copy];
     
     if (self.filterString.length > 0) {
-        filtering = [YapDatabaseViewFiltering withObjectBlock:^BOOL(NSString *group, NSString *collection, NSString *key, ZIMStorageGoodsItem *object) {
+        filtering = [YapDatabaseViewFiltering withObjectBlock:^BOOL(NSString *group, NSString *collection, NSString *key, ZIMYapGoodsItem *object) {
             return [object.title containsString:filterString];
         }];
     }
@@ -138,22 +134,22 @@
 }
 
 - (id)objectForSection:(NSInteger)section {
-    __block ZIMYapShoppingCartCategory *resultItem = nil;
+    __block ZIMYapDmListCategory *resultItem = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        ZIMStorageGoodsItem *goodsItem = [[transaction ext:self.mappings.view] objectAtRow:0 inSection:section withMappings:self.mappings];
-        ZIMStorageCategory *category = [ZIMStorageCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
-        resultItem = [[ZIMYapShoppingCartCategory alloc] initWithCategory:category];
+        ZIMYapGoodsItem *goodsItem = [[transaction ext:self.mappings.view] objectAtRow:0 inSection:section withMappings:self.mappings];
+        ZIMYapListCategory *category = [ZIMYapListCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
+        resultItem = [[ZIMYapDmListCategory alloc] initWithCategory:category];
     }];
     return resultItem;
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-    __block ZIMYapShoppingCartItem *resultItem = nil;
+    __block ZIMYapDmListItem *resultItem = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        ZIMStorageGoodsItem *goodsItem = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
-        ZIMStorageCategory *category = [ZIMStorageCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
+        ZIMYapGoodsItem *goodsItem = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
+        ZIMYapListCategory *category = [ZIMYapListCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
         
-        resultItem = [[ZIMYapShoppingCartItem alloc] initWithGoodsItem:goodsItem category:category];
+        resultItem = [[ZIMYapDmListItem alloc] initWithGoodsItem:goodsItem category:category];
     }];
     return resultItem;
 }

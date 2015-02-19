@@ -1,5 +1,5 @@
 //
-//  ZIMShoppingCartItem.h
+//  ZIMDMListItem.h
 //  ShoppingCart
 //
 //  Created by kovtash on 16.02.15.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMSoppingCartCategory.h"
+#import "ZIMDMListCategory.h"
 
-@interface ZIMShoppingCartItem : NSObject
+@interface ZIMDMListItem : NSObject
 @property (readonly, nonatomic) NSString *itemId;
 @property (readonly, nonatomic) NSString *title;
-@property (readonly, nonatomic) ZIMSoppingCartCategory *category;
+@property (readonly, nonatomic) ZIMDMListCategory *category;
 @end

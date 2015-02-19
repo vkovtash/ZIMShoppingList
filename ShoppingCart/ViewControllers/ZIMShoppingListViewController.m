@@ -136,7 +136,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
 #pragma mark - ZIMGoodsCatalogViewControllerDelegate
 
-- (BOOL)isItemInList:(ZIMShoppingCartItem *)item {
+- (BOOL)isItemInList:(ZIMDMListItem *)item {
     return [self.listController isItemInList:item];
 }
 
@@ -190,7 +190,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
         return;
     }
     
-    ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
+    ZIMDMListItem *item = [self.listController objectAtIndexPath:indexPath];
     cell.itemTitleLabel.text = [item.title capitalizedString];
     cell.categoryTitleLabel.text = [item.category.title uppercaseString];
 }

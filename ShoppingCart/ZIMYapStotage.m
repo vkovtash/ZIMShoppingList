@@ -19,40 +19,40 @@ NSString *const ZIMYapShoppingCartViewName = @"ZIMYapShoppingCartViewName";
 NSString *const ZIMYapShoppingCartByStateViewName = @"ZIMYapShoppingCartByStateViewName";
 
 
-static YapDatabaseViewGroupingWithObjectBlock categoriesGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageCategory *object) {
-    return [object isKindOfClass:[ZIMStorageCategory class]] ? collection : nil;
+static YapDatabaseViewGroupingWithObjectBlock categoriesGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMYapListCategory *object) {
+    return [object isKindOfClass:[ZIMYapListCategory class]] ? collection : nil;
 };
 
-static YapDatabaseViewSortingWithObjectBlock categoriesSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMStorageCategory *object1, NSString *collection2, NSString *key2, ZIMStorageCategory *object2) {
+static YapDatabaseViewSortingWithObjectBlock categoriesSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMYapListCategory *object1, NSString *collection2, NSString *key2, ZIMYapListCategory *object2) {
     return [object1.title caseInsensitiveCompare:object2.title];
 };
 
-static YapDatabaseViewGroupingWithObjectBlock goodsGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageGoodsItem *object) {
-    if ([object isKindOfClass:[ZIMStorageGoodsItem class]]) {
+static YapDatabaseViewGroupingWithObjectBlock goodsGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMYapGoodsItem *object) {
+    if ([object isKindOfClass:[ZIMYapGoodsItem class]]) {
         return object.categoryKey;
     }
     return nil;
 };
 
-static YapDatabaseViewSortingWithObjectBlock goodsSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMStorageGoodsItem *object1, NSString *collection2, NSString *key2, ZIMStorageGoodsItem *object2) {
+static YapDatabaseViewSortingWithObjectBlock goodsSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMYapGoodsItem *object1, NSString *collection2, NSString *key2, ZIMYapGoodsItem *object2) {
     return [object1.title caseInsensitiveCompare:object2.title];
 };
 
-static YapDatabaseViewGroupingWithObjectBlock cartGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageShoppingCartItem *object) {
-    if ([object isKindOfClass:[ZIMStorageShoppingCartItem class]]) {
+static YapDatabaseViewGroupingWithObjectBlock cartGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMYapListItem *object) {
+    if ([object isKindOfClass:[ZIMYapListItem class]]) {
         return collection;
     }
     return nil;
 };
 
-static YapDatabaseViewGroupingWithObjectBlock cartByStateGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMStorageShoppingCartItem *object) {
-    if ([object isKindOfClass:[ZIMStorageShoppingCartItem class]]) {
+static YapDatabaseViewGroupingWithObjectBlock cartByStateGroupingBlock = ^NSString *(NSString *collection, NSString *key, ZIMYapListItem *object) {
+    if ([object isKindOfClass:[ZIMYapListItem class]]) {
         return [NSString stringWithFormat:@"%ld", object.state];
     }
     return nil;
 };
 
-static YapDatabaseViewSortingWithObjectBlock cartSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMStorageShoppingCartItem *object1, NSString *collection2, NSString *key2, ZIMStorageShoppingCartItem *object2) {
+static YapDatabaseViewSortingWithObjectBlock cartSortingBlock = ^NSComparisonResult(NSString *group, NSString *collection1, NSString *key1, ZIMYapListItem *object1, NSString *collection2, NSString *key2, ZIMYapListItem *object2) {
     if (object1.sortOrder > object2.sortOrder) {
         return NSOrderedAscending;
     }

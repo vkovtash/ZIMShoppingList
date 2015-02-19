@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZIMListControllerProtocol.h"
-#import "ZIMShoppingCartItem.h"
+#import "ZIMDMListItem.h"
 
 typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
     ZIMCartItemStateUndone,
@@ -21,12 +21,12 @@ typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
 
 - (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter;
 
-- (BOOL)isItemInList:(ZIMShoppingCartItem *)item;
+- (BOOL)isItemInList:(ZIMDMListItem *)item;
 - (void)appendItems:(NSArray *)items;
-- (void)appendItem:(ZIMShoppingCartItem *)item;
+- (void)appendItem:(ZIMDMListItem *)item;
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
 - (void)removeItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)removeAllItems;
 - (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath;
-- (ZIMShoppingCartItem *)objectAtIndexPath:(NSIndexPath *)indexPath;
+- (ZIMDMListItem *)objectAtIndexPath:(NSIndexPath *)indexPath;
 @end

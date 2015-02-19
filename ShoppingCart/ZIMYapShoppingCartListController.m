@@ -8,12 +8,8 @@
 
 #import "ZIMYapShoppingCartListController.h"
 #import <UIKit/UITableView.h>
-#import <YapDatabase/YapDatabaseView.h>
-#import "ZIMYapShoppingCartItem.h"
-#import "ZIMStorageShoppingCartItem.h"
-#import "ZIMStorageCategory+ZIMYapRetrieving.h"
-#import "ZIMYapStotage+ZIMShoppingCartManipulations.h"
-#import "YapDatabaseViewConnection+ZIMGetChanges.h"
+#import "ZIMYapDmListItem.h"
+#import "ZIMYapStotage+ZIMShoppingListManipulations.h"
 
 @interface ZIMYapShoppingCartListController()
 @property (strong, nonatomic) YapDatabaseConnection *connection;
@@ -98,13 +94,13 @@
     return [self.mappings numberOfItemsInSection:section];
 }
 
-- (ZIMShoppingCartItem *)objectAtIndexPath:(NSIndexPath *)indexPath {
-    __block ZIMShoppingCartItem *result = nil;
+- (ZIMDMListItem *)objectAtIndexPath:(NSIndexPath *)indexPath {
+    __block ZIMDMListItem *result = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        ZIMStorageShoppingCartItem *cartItem = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
-        ZIMStorageGoodsItem *goodsItem = [ZIMStorageGoodsItem entityWithKey:cartItem.storageKey inTransaction:transaction];
-        ZIMStorageCategory *category = [ZIMStorageCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
-        result = [[ZIMYapShoppingCartItem alloc] initWithGoodsItem:goodsItem category:category];
+        ZIMYapListItem *cartItem = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
+        ZIMYapGoodsItem *goodsItem = [ZIMYapGoodsItem entityWithKey:cartItem.storageKey inTransaction:transaction];
+        ZIMYapListCategory *category = [ZIMYapListCategory entityWithKey:goodsItem.categoryKey inTransaction:transaction];
+        result = [[ZIMYapDmListItem alloc] initWithGoodsItem:goodsItem category:category];
     }];
     return result;
 }
@@ -113,7 +109,7 @@
     return nil;
 }
 
-- (BOOL)isItemInList:(ZIMYapShoppingCartItem *)item {
+- (BOOL)isItemInList:(ZIMYapDmListItem *)item {
     return [self.storage isItemInList:item.storageGoodsItem];
 }
 
@@ -122,7 +118,7 @@
     [self.storage appendGoodsItems:goodsItems];
 }
 
-- (void)appendItem:(ZIMYapShoppingCartItem *)item {
+- (void)appendItem:(ZIMYapDmListItem *)item {
     [self.storage appendGoodsItem:item.storageGoodsItem];
 }
 
@@ -131,7 +127,7 @@
         return;
     }
     
-    __block ZIMStorageShoppingCartItem *movedItem = nil, *indexItem = nil;
+    __block ZIMYapListItem *movedItem = nil, *indexItem = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
         indexItem = [[transaction ext:self.mappings.view] objectAtIndexPath:toIndexPath withMappings:self.mappings];
         movedItem = [[transaction ext:self.mappings.view] objectAtIndexPath:fromIndexPath withMappings:self.mappings];
@@ -146,7 +142,7 @@
 }
 
 - (void)removeItemAtIndexPath:(NSIndexPath *)indexPath {
-    __block ZIMStorageShoppingCartItem *item = nil;
+    __block ZIMYapListItem *item = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
     }];
@@ -159,7 +155,7 @@
 }
 
 - (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath {
-    __block ZIMStorageShoppingCartItem *item = nil;
+    __block ZIMYapListItem *item = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];
     }];

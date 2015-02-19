@@ -8,7 +8,7 @@
 
 #import "ZIMStorageGoodsItem+ZIMYapRetrieving.h"
 
-@implementation ZIMStorageGoodsItem (ZIMYapRetrieving)
+@implementation ZIMYapGoodsItem (ZIMYapRetrieving)
 
 - (NSString *)collection {
     return [[self class] collection];
@@ -19,7 +19,7 @@
 }
 
 + (NSString *)collection {
-    static NSString *const collection = @"ZIMStorageGoodsItem";
+    static NSString *const collection = @"ZIMYapGoodsItem";
     return collection;
 }
 

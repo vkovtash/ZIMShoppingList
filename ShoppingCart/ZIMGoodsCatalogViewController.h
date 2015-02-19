@@ -11,11 +11,11 @@
 #import "UITableViewController+ZIMListDelegateProtocol.h"
 
 @class ZIMGoodsCatalogViewController;
-@class ZIMShoppingCartItem;
+@class ZIMDMListItem;
 
 @protocol ZIMGoodsCatalogViewControllerDelegate <NSObject>
 @optional
-- (BOOL)isItemInList:(ZIMShoppingCartItem *)item;
+- (BOOL)isItemInList:(ZIMDMListItem *)item;
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items;
 @end
 
@@ -26,8 +26,8 @@
 @property (readonly, nonatomic) NSOrderedSet *pickedItems;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
-- (void)pickItem:(ZIMShoppingCartItem *)item;
-- (void)releaseItem:(ZIMShoppingCartItem *)item;
+- (void)pickItem:(ZIMDMListItem *)item;
+- (void)releaseItem:(ZIMDMListItem *)item;
 - (void)completeItemsPicking;
 - (void)cancelItemsPicking;
 @end
