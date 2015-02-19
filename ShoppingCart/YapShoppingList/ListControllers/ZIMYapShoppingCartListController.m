@@ -49,7 +49,7 @@
     NSString *stateStingRepresentation = [NSString stringWithFormat:@"%ld", self.itemsStateFilter];
     
     self.mappings = [[YapDatabaseViewMappings alloc] initWithGroups:@[stateStingRepresentation]
-                                                           view:ZIMYapShoppingCartByStateViewName];
+                                                           view:ZIMYapShoppingListByStateViewName];
     
     [self.connection beginLongLivedReadTransaction];
     
@@ -89,7 +89,7 @@
 - (NSInteger)numberOfAllItemsInList {
     __block NSUInteger numberOfItems = 0;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
-        numberOfItems = [[transaction ext:ZIMYapShoppingCartByStateViewName] numberOfItemsInAllGroups];
+        numberOfItems = [[transaction ext:ZIMYapShoppingListByStateViewName] numberOfItemsInAllGroups];
     }];
     return numberOfItems;
 }

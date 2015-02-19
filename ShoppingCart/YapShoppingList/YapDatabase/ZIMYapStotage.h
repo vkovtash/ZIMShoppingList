@@ -15,8 +15,8 @@
 
 extern NSString *const ZIMYapGategoriesViewName;
 extern NSString *const ZIMYapGoodsViewName;
-extern NSString *const ZIMYapShoppingCartViewName;
-extern NSString *const ZIMYapShoppingCartByStateViewName;
+extern NSString *const ZIMYapShoppingListViewName;
+extern NSString *const ZIMYapShoppingListByStateViewName;
 
 
 @interface ZIMYapStotage : NSObject

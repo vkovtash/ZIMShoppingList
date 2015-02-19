@@ -384,12 +384,12 @@
 		F3B57CC11A966459000CB9E7 /* YapDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				F3B57CC61A966459000CB9E7 /* ZIMYapStotage.h */,
+				F3B57CC71A966459000CB9E7 /* ZIMYapStotage.m */,
 				F3B57CC21A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.h */,
 				F3B57CC31A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m */,
 				F3B57CC41A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.h */,
 				F3B57CC51A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m */,
-				F3B57CC61A966459000CB9E7 /* ZIMYapStotage.h */,
-				F3B57CC71A966459000CB9E7 /* ZIMYapStotage.m */,
 			);
 			path = YapDatabase;
 			sourceTree = "<group>";

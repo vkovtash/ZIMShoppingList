@@ -9,11 +9,11 @@
 #import "ZIMShoppingListViewController.h"
 #import "ZIMShoppingLisItemCell.h"
 #import "ZIMListControllersFabric.h"
-#import "UIView+ZIMNibForViewClass.h"
 #import <ZIMTools/UIActionSheet+ZIMBlocks.h>    
 #import "ZIMShoppingListPlaceholderCell.h"
 #import "ZIMShoppingListBackgroundView.h"
 #import "UITableView+ZIMApplyListChanges.h"
+#import "UIView+ZIMNibForViewClass.h"
 #import "UIView+ZIMHideAnimated.h"
 
 

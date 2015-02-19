@@ -29,7 +29,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
             }
             
             ZIMYapListItem *currentTopItem = nil;
-            currentTopItem = [[transaction ext:ZIMYapShoppingCartViewName] firstObjectInGroup:[ZIMYapListItem collection]];
+            currentTopItem = [[transaction ext:ZIMYapShoppingListViewName] firstObjectInGroup:[ZIMYapListItem collection]];
             long maxSortOrder = currentTopItem.sortOrder;
             
             ZIMYapListItem *newCartItem = [ZIMYapListItem new];
@@ -53,7 +53,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
             return;
         }
         
-        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
+        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingListViewName];
         NSString *group = [ZIMYapListItem collection];
         
         ZIMYapListItem *currentItem = [viewTransaction objectAtIndex:index inGroup:group];
@@ -81,7 +81,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
         ZIMYapListItem *currentItem = [ZIMYapListItem entityWithKey:indexItem.storageKey
                                                                               inTransaction:transaction];
         
-        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
+        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingListViewName];
         NSString *group = nil;
         NSUInteger index = 0;
         
@@ -116,7 +116,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
         ZIMYapListItem *currentItem = [ZIMYapListItem entityWithKey:indexItem.storageKey
                                                                               inTransaction:transaction];
         
-        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingCartViewName];
+        YapDatabaseViewTransaction *viewTransaction = [transaction ext:ZIMYapShoppingListViewName];
         NSString *group = nil;
         NSUInteger index = 0;
         
