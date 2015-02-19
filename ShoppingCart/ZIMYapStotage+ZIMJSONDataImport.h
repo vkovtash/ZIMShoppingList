@@ -29,5 +29,5 @@
 
 
 @interface ZIMYapStotage (ZIMJSONDataImport)
-- (BOOL) importDataFromFileWithPath:(NSString *)filePath error:(NSError **)error;
+- (BOOL)importDataFromFileWithPath:(NSString *)filePath error:(NSError **)error;
 @end

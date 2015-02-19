@@ -57,7 +57,7 @@
 
 @implementation ZIMYapStotage (ZIMTestData)
 
-- (BOOL) importDataFromFileWithPath:(NSString *)filePath error:(NSError **)error {
+- (BOOL)importDataFromFileWithPath:(NSString *)filePath error:(NSError **)error {
     NSData *JSONData = [[NSData alloc] initWithContentsOfFile:filePath options:0 error:error];
     if (!JSONData) {
         return NO;

@@ -9,14 +9,14 @@
 #import "ZIMShoppingListViewController.h"
 #import "ZIMCartItemTableViewCell.h"
 #import "ZIMListControllersFabric.h"
-#import "UITableViewController+ZIMListDelegateProtocol.h"
-#import "ZIMCartItemCellConfigurator.h"
-#import "ZIMAppearanceController.h"
+#import "UIView+ZIMNibForViewClass.h"
+
 
 static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
+static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
-@interface ZIMShoppingListViewController () <ZIMCartItemCellDelegate>
-@property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;
+
+@interface ZIMShoppingListViewController ()
 @end
 
 @implementation ZIMShoppingListViewController
@@ -24,17 +24,19 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCartItemTableViewCell class])
-                                         bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:itemCellNib forCellReuseIdentifier:ZIMCartItemCellReuseId];
+    _controllerFilterState = ZIMCartItemStateUndone;
+    
+    [self.tableView registerNib:[ZIMCartItemTableViewCell zim_getAssociatedNib]
+         forCellReuseIdentifier:ZIMCartItemCellReuseId];
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newShoppingCartListController];
-    self.listController.delegate = self;
-    self.filterControl.selectedSegmentIndex = 1;
-    [self applyFilterState];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)dealloc {
+    self.listController = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 
@@ -43,10 +45,28 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"goodsCatalog"]) {
+    if ([segue.identifier isEqualToString:ZIMGoodsCatalogSegueId]) {
         UINavigationController *nc = segue.destinationViewController;
         ZIMGoodsCatalogViewController *goodsCatalogViewController = nc.viewControllers.firstObject;
         goodsCatalogViewController.delegate = self;
+    }
+}
+
+#pragma mark - Public API
+
+- (void)setListController:(id<ZIMShoppingCartListProtocol>)listController {
+    if (_listController != listController) {
+        _listController.delegate = nil;
+        _listController = listController;
+        _listController.delegate = self;
+        [self applyFilterState];
+    }
+}
+
+- (void)setControllerFilterState:(ZIMCartItemState)controllerFilterState {
+    if (_controllerFilterState != controllerFilterState) {
+        _controllerFilterState = controllerFilterState;
+        [self applyFilterState];
     }
 }
 
@@ -54,7 +74,20 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 
 - (IBAction)filterControlChanged:(UISegmentedControl *)sender {
     if (sender == self.filterControl) {
-        [self applyFilterState];
+        switch (sender.selectedSegmentIndex) {
+            case 0:
+                self.controllerFilterState = ZIMCartItemStateLater;
+                break;
+                
+            case 2:
+                self.controllerFilterState = ZIMCartItemStateDone;
+                break;
+                
+            case 1:
+            default:
+                self.controllerFilterState = ZIMCartItemStateUndone;
+                break;
+        }
     }
 }
 
@@ -65,34 +98,36 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
 #pragma mark - Private API
 
 - (void)applyFilterState {
-    ZIMCartItemState state = ZIMCartItemStateUndone;
-    UIColor *windowColor = [ZIMAppearanceController defaultAppearance].mainColor;
+    UIColor *newWindowColor = nil;
     
-    switch (self.filterControl.selectedSegmentIndex) {
-        case 0:
-            state = ZIMCartItemStateLater;
+    switch (self.controllerFilterState) {
+        case ZIMCartItemStateLater:
+            self.filterControl.selectedSegmentIndex = 0;
             self.cellConfigurator = [ZIMCartItemCellConfigurator laterCellConfigurator];
-            windowColor = [ZIMAppearanceController defaultAppearance].laterColor;
+            newWindowColor = self.cellConfigurator.laterColor;
             break;
             
-        case 2:
-            state = ZIMCartItemStateDone;
+        case ZIMCartItemStateDone:
+            self.filterControl.selectedSegmentIndex = 2;
             self.cellConfigurator = [ZIMCartItemCellConfigurator doneCellConfigurator];
-            windowColor = [ZIMAppearanceController defaultAppearance].doneColor;
+            newWindowColor = self.cellConfigurator.doneColor;
             break;
             
-        case 1:
+        case ZIMCartItemStateUndone:
         default:
+            self.filterControl.selectedSegmentIndex = 1;
             self.cellConfigurator = [ZIMCartItemCellConfigurator undoneCellConfigurator];
-            state = ZIMCartItemStateUndone;
-            windowColor = [ZIMAppearanceController defaultAppearance].mainColor;
+            newWindowColor = self.cellConfigurator.mainColor;
             break;
     }
     
-    [ZIMAppearanceController defaultAppearance].tintColor = windowColor;
-    self.navigationItem.rightBarButtonItem.enabled = state == ZIMCartItemStateUndone;
+    if (newWindowColor) {
+        [UIApplication sharedApplication].delegate.window.tintColor = newWindowColor;
+    }
+    
+    self.navigationItem.rightBarButtonItem.enabled = (self.controllerFilterState == ZIMCartItemStateUndone);
     self.cellConfigurator.delegate = self;
-    [self.listController setItemsStateFilter:state];
+    [self.listController setItemsStateFilter:self.controllerFilterState];
 }
 
 - (void) subscribeListControllerNotifications {
@@ -182,7 +217,7 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
     self.listController.delegate = nil;
     [self.listController moveItemFromIndexPath:fromIndexPath toIndexPath:toIndexPath];
     //Subscribing to notifications on nex runloop cycle
-    [self performSelector:@selector(subscribeListControllerNotifications) withObject:self afterDelay:0.1];
+    [self performSelector:@selector(subscribeListControllerNotifications) withObject:self afterDelay:0];
 }
 
 @end

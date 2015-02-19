@@ -20,11 +20,11 @@
     for (ZIMListSectionChange *change in sectionChanges) {
         switch (change.changeType) {
             case ZIMListChangeTypeInsert:
-                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case ZIMListChangeTypeDelete:
-                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             default:
@@ -35,11 +35,11 @@
     for (ZIMListRowChange *change in rowChanges) {
         switch (change.changeType) {
             case ZIMListChangeTypeInsert:
-                [self.tableView insertRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView insertRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case ZIMListChangeTypeDelete:
-                [self.tableView deleteRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView deleteRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case ZIMListChangeTypeUpdate:

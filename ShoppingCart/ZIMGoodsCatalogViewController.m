@@ -9,6 +9,7 @@
 #import "ZIMGoodsCatalogViewController.h"
 #import "ZIMListControllersFabric.h"
 #import "ZIMCatalogItemCell.h"
+#import "UIView+ZIMNibForViewClass.h"
 
 static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
@@ -22,14 +23,14 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [super viewDidLoad];
     self.mutablePickedItems = [NSMutableOrderedSet new];
     
-    UINib *itemCellNib =  [UINib nibWithNibName:NSStringFromClass([ZIMCatalogItemCell class])
-                                         bundle:[NSBundle mainBundle]];
-    [self.tableView registerNib:itemCellNib forCellReuseIdentifier:ZIMGoodsItemCellReuseId];
-    
+    [self.tableView registerNib:[ZIMCatalogItemCell zim_getAssociatedNib] forCellReuseIdentifier:ZIMGoodsItemCellReuseId];
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     self.listController = [[ZIMListControllersFabric sharedFabric] newGoodsCatalogListController];
-    self.listController.delegate = self;
+}
+
+- (void)dealloc {
+    self.listController = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +43,14 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 }
 
 #pragma mark - Public API
+
+- (void)setListController:(id<ZIMGoodsCatalogListProtocol>)listController {
+    if (_listController != listController) {
+        _listController.delegate = nil;
+        _listController = listController;
+        _listController.delegate = self;
+    }
+}
 
 - (void)setSearchString:(NSString *)searchString {
     _searchString = [searchString copy];
@@ -170,51 +179,6 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
     [self tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - ZIMListControllerDelegateProtocol
-
-- (void)listControllerDidReloadData:(id)listController {
-    [self.tableView reloadData];
-}
-
-- (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
-    [self.tableView beginUpdates];
-    
-    for (ZIMListSectionChange *change in sectionChanges) {
-        switch (change.changeType) {
-            case ZIMListChangeTypeInsert:
-                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-                
-            case ZIMListChangeTypeDelete:
-                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:change.index] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-                
-            default:
-                break;
-        }
-    }
-    
-    for (ZIMListRowChange *change in rowChanges) {
-        switch (change.changeType) {
-            case ZIMListChangeTypeInsert:
-                [self.tableView insertRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-                
-            case ZIMListChangeTypeDelete:
-                [self.tableView deleteRowsAtIndexPaths:@[change.indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                break;
-                
-            case ZIMListChangeTypeUpdate:
-                break;
-                
-            case ZIMListChangeTypeMove:
-                [self.tableView moveRowAtIndexPath:change.fromIndexPath toIndexPath:change.indexPath];
-                break;
-        }
-    }
-    [self.tableView endUpdates];
 }
 
 @end

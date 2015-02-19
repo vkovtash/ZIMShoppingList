@@ -46,6 +46,7 @@
 		F3A6FBE61A95DE7D009472A4 /* ZIMCatalogItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */; };
 		F3A6FBE71A95DE7D009472A4 /* ZIMCatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */; };
 		F3A6FBE91A9613CB009472A4 /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = F3A6FBE81A9613CB009472A4 /* testData.json */; };
+		F3B57C6B1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,8 @@
 		F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMCatalogItemCell.m; sourceTree = "<group>"; };
 		F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZIMCatalogItemCell.xib; sourceTree = "<group>"; };
 		F3A6FBE81A9613CB009472A4 /* testData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testData.json; sourceTree = "<group>"; };
+		F3B57C691A962E53000CB9E7 /* UIView+ZIMNibForViewClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZIMNibForViewClass.h"; sourceTree = "<group>"; };
+		F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZIMNibForViewClass.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +307,8 @@
 				F3A6FBE31A95DE7D009472A4 /* ZIMCatalogItemCell.h */,
 				F3A6FBE41A95DE7D009472A4 /* ZIMCatalogItemCell.m */,
 				F3A6FBE51A95DE7D009472A4 /* ZIMCatalogItemCell.xib */,
+				F3B57C691A962E53000CB9E7 /* UIView+ZIMNibForViewClass.h */,
+				F3B57C6A1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				F303FA0B1A9388FC00582FE8 /* ZIMStorageShoppingCartItem+ZIMYapRetrieving.m in Sources */,
 				F30E04E51A93CB1900D4EB59 /* ZIMCartItemDoneCellConfigurator.m in Sources */,
 				F33321091A921CAC00561ED9 /* ZIMShoppingListViewController.m in Sources */,
+				F3B57C6B1A962E53000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */,
 				F33320E31A921C3400561ED9 /* main.m in Sources */,
 				F333213B1A9258CB00561ED9 /* ZIMStorageShoppingCartItem.m in Sources */,
 				F33321331A924B1C00561ED9 /* UITableViewController+ZIMListDelegateProtocol.m in Sources */,

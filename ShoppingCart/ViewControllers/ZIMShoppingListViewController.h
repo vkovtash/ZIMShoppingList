@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ZIMShoppingCartListProtocol.h"
 #import "ZIMGoodsCatalogViewController.h"
+#import "ZIMCartItemCellConfigurator.h"
+#import "UITableViewController+ZIMListDelegateProtocol.h"
 
-@interface ZIMShoppingListViewController : UITableViewController <ZIMGoodsCatalogViewControllerDelegate>
+@interface ZIMShoppingListViewController : UITableViewController <ZIMGoodsCatalogViewControllerDelegate, ZIMCartItemCellDelegate>
+@property (assign, nonatomic) ZIMCartItemState controllerFilterState;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *filterControl;
+@property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;
 @property (strong, nonatomic) id <ZIMShoppingCartListProtocol> listController;
 @end
