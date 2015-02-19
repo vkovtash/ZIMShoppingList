@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZIMShoppingCartListProtocol.h"
+#import "ZIMShoppingListProtocol.h"
 
 @interface UITableView (ZIMApplyListChanges)
 - (void) zim_applyRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMShoppingCartListProtocol.h"
+#import "ZIMShoppingListProtocol.h"
 #import "ZIMYapStotage.h"
 
 @interface ZIMYapShoppingCartListController : NSObject <ZIMShoppingCartListProtocol>

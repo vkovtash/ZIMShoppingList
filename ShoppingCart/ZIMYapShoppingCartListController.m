@@ -34,7 +34,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter {
+- (void)setItemsStateFilter:(ZIMListItemState)itemsStateFilter {
     if (_itemsStateFilter != itemsStateFilter) {
         _itemsStateFilter = itemsStateFilter;
         [self applyStateFilter];
@@ -162,7 +162,7 @@
     [self.storage removeAllItems];
 }
 
-- (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)setState:(ZIMListItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath {
     __block ZIMYapListItem *item = nil;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction){
         item = [[transaction ext:self.mappings.view] objectAtIndexPath:indexPath withMappings:self.mappings];

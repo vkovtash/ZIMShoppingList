@@ -1,5 +1,5 @@
 //
-//  ZIMShoppingCartListProtocol.h
+//  ZIMShoppingListProtocol.h
 //  ShoppingCart
 //
 //  Created by kovtash on 16.02.15.
@@ -10,16 +10,16 @@
 #import "ZIMListControllerProtocol.h"
 #import "ZIMDMListItem.h"
 
-typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
-    ZIMCartItemStateUndone,
-    ZIMCartItemStateDone,
-    ZIMCartItemStateLater,
+typedef NS_ENUM(NSUInteger, ZIMListItemState) {
+    ZIMListItemStateUndone,
+    ZIMListItemStateDone,
+    ZIMListItemStateLater,
 };
 
 @protocol ZIMShoppingCartListProtocol <ZIMListControllerProtocol>
-@property (readonly, nonatomic) ZIMCartItemState itemsStateFilter;
+@property (readonly, nonatomic) ZIMListItemState itemsStateFilter;
 
-- (void)setItemsStateFilter:(ZIMCartItemState)itemsStateFilter;
+- (void)setItemsStateFilter:(ZIMListItemState)itemsStateFilter;
 
 - (NSInteger)numberOfAllItemsInList;
 - (BOOL)isItemInList:(ZIMDMListItem *)item;
@@ -28,6 +28,6 @@ typedef NS_ENUM(NSUInteger, ZIMCartItemState) {
 - (void)moveItemFromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
 - (void)removeItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)removeAllItems;
-- (void)setState:(ZIMCartItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)setState:(ZIMListItemState)state forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (ZIMDMListItem *)objectAtIndexPath:(NSIndexPath *)indexPath;
 @end

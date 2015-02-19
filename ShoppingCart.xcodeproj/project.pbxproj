@@ -119,7 +119,7 @@
 		F33321201A92296500561ED9 /* ZIMYapDmListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapDmListItem.m; sourceTree = "<group>"; };
 		F33321221A9229D200561ED9 /* ZIMYapShoppingCartListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapShoppingCartListController.h; sourceTree = "<group>"; };
 		F33321231A9229D200561ED9 /* ZIMYapShoppingCartListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapShoppingCartListController.m; sourceTree = "<group>"; };
-		F33321251A922A6200561ED9 /* ZIMShoppingCartListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMShoppingCartListProtocol.h; sourceTree = "<group>"; };
+		F33321251A922A6200561ED9 /* ZIMShoppingListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMShoppingListProtocol.h; sourceTree = "<group>"; };
 		F33321271A92332F00561ED9 /* ZIMListControllersFabricProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListControllersFabricProtocol.h; sourceTree = "<group>"; };
 		F33321281A92339C00561ED9 /* ZIMListControllersFabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListControllersFabric.h; sourceTree = "<group>"; };
 		F33321291A92339C00561ED9 /* ZIMListControllersFabric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListControllersFabric.m; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 				F333212E1A923FF100561ED9 /* ZIMListChanges.h */,
 				F333212F1A923FF100561ED9 /* ZIMListChanges.m */,
 				F333211D1A92280400561ED9 /* ZIMListControllerProtocol.h */,
-				F33321251A922A6200561ED9 /* ZIMShoppingCartListProtocol.h */,
+				F33321251A922A6200561ED9 /* ZIMShoppingListProtocol.h */,
 				F3A6FBD61A94CF54009472A4 /* ZIMGoodsCatalogListProtocol.h */,
 				F33321271A92332F00561ED9 /* ZIMListControllersFabricProtocol.h */,
 				F33321281A92339C00561ED9 /* ZIMListControllersFabric.h */,

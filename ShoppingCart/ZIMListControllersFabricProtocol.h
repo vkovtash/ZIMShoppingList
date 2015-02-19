@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZIMShoppingCartListProtocol.h"
+#import "ZIMShoppingListProtocol.h"
 #import "ZIMGoodsCatalogListProtocol.h"
 
 @protocol ZIMListControllersFabricProtocol <NSObject>

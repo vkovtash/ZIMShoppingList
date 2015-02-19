@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZIMShoppingCartListProtocol.h"
+#import "ZIMShoppingListProtocol.h"
 #import "ZIMGoodsCatalogViewController.h"
 #import "ZIMCartItemCellConfigurator.h"
 #import "HPReorderTableView.h"
@@ -16,7 +16,7 @@
                                                                   ZIMCartItemCellDelegate,
                                                                   ZIMListControllerDelegateProtocol>
 @property (strong, nonatomic) IBOutlet HPReorderTableView *tableView;
-@property (assign, nonatomic) ZIMCartItemState controllerFilterState;
+@property (assign, nonatomic) ZIMListItemState controllerFilterState;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *filterControl;
 @property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;
 @property (strong, nonatomic) id <ZIMShoppingCartListProtocol> listController;

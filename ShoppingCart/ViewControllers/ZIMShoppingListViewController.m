@@ -28,7 +28,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _controllerFilterState = ZIMCartItemStateUndone;
+    _controllerFilterState = ZIMListItemStateUndone;
     
     [self.tableView registerNib:[ZIMShoppingLisItemCell zim_getAssociatedNib]
          forCellReuseIdentifier:ZIMListItemCellReuseId];
@@ -70,7 +70,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     }
 }
 
-- (void)setControllerFilterState:(ZIMCartItemState)controllerFilterState {
+- (void)setControllerFilterState:(ZIMListItemState)controllerFilterState {
     if (_controllerFilterState != controllerFilterState) {
         _controllerFilterState = controllerFilterState;
         [self applyFilterState];
@@ -83,16 +83,16 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     if (sender == self.filterControl) {
         switch (sender.selectedSegmentIndex) {
             case 0:
-                self.controllerFilterState = ZIMCartItemStateLater;
+                self.controllerFilterState = ZIMListItemStateLater;
                 break;
                 
             case 2:
-                self.controllerFilterState = ZIMCartItemStateDone;
+                self.controllerFilterState = ZIMListItemStateDone;
                 break;
                 
             case 1:
             default:
-                self.controllerFilterState = ZIMCartItemStateUndone;
+                self.controllerFilterState = ZIMListItemStateUndone;
                 break;
         }
     }
@@ -119,19 +119,19 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
     UIColor *newWindowColor = nil;
     
     switch (self.controllerFilterState) {
-        case ZIMCartItemStateLater:
+        case ZIMListItemStateLater:
             self.filterControl.selectedSegmentIndex = 0;
             self.cellConfigurator = [ZIMCartItemCellConfigurator laterCellConfigurator];
             newWindowColor = self.cellConfigurator.laterColor;
             break;
             
-        case ZIMCartItemStateDone:
+        case ZIMListItemStateDone:
             self.filterControl.selectedSegmentIndex = 2;
             self.cellConfigurator = [ZIMCartItemCellConfigurator doneCellConfigurator];
             newWindowColor = self.cellConfigurator.doneColor;
             break;
             
-        case ZIMCartItemStateUndone:
+        case ZIMListItemStateUndone:
         default:
             self.filterControl.selectedSegmentIndex = 1;
             self.cellConfigurator = [ZIMCartItemCellConfigurator undoneCellConfigurator];
@@ -143,7 +143,7 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
         [UIApplication sharedApplication].delegate.window.tintColor = newWindowColor;
     }
     
-    self.navigationItem.rightBarButtonItem.enabled = (self.controllerFilterState == ZIMCartItemStateUndone);
+    self.navigationItem.rightBarButtonItem.enabled = (self.controllerFilterState == ZIMListItemStateUndone);
     self.cellConfigurator.delegate = self;
     [self.listController setItemsStateFilter:self.controllerFilterState];
 }
@@ -198,17 +198,17 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
 - (void)setDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.listController setState:ZIMCartItemStateDone forItemAtIndexPath:indexPath];
+    [self.listController setState:ZIMListItemStateDone forItemAtIndexPath:indexPath];
 }
 
 - (void)setUndoneDoneAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.listController setState:ZIMCartItemStateUndone forItemAtIndexPath:indexPath];
+    [self.listController setState:ZIMListItemStateUndone forItemAtIndexPath:indexPath];
 }
 
 - (void)setLaterAtcionTriggeredForCell:(ZIMShoppingLisItemCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.listController setState:ZIMCartItemStateLater forItemAtIndexPath:indexPath];
+    [self.listController setState:ZIMListItemStateLater forItemAtIndexPath:indexPath];
 }
 
 #pragma mark - ZIMListControllerDelegateProtocol

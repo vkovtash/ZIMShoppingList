@@ -147,7 +147,7 @@ static const long ZIMBasicYapStotageSortOrderStep = 65635;
     }];
 }
 
-- (void)setState:(ZIMCartItemState)state forItem:(ZIMYapListItem *)item {
+- (void)setState:(ZIMListItemState)state forItem:(ZIMYapListItem *)item {
     [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         ZIMYapListItem *localItem = [ZIMYapListItem entityWithKey:item.storageKey inTransaction:transaction];
         if (localItem.state == state) {

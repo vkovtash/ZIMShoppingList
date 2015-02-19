@@ -19,5 +19,5 @@
 - (void)placeItem:(ZIMYapListItem *)movedItem afterItem:(ZIMYapListItem *)indexItem;
 - (void)removeItem:(ZIMYapListItem *)item;
 - (void)removeAllItems;
-- (void)setState:(ZIMCartItemState)state forItem:(ZIMYapListItem *)item;
+- (void)setState:(ZIMListItemState)state forItem:(ZIMYapListItem *)item;
 @end
