@@ -130,7 +130,7 @@ static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ZIMCatalogItemCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    cell.titleLabel.text = item.title;
+    cell.titleLabel.text = [item.title capitalizedString];
     
     BOOL isItemInList = NO;
     if ([self.delegate respondsToSelector:@selector(isItemInList:)]) {

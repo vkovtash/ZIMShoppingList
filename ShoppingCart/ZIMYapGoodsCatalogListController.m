@@ -120,8 +120,9 @@
 #pragma mark - ZIMGoodsCatalogListProtocol
 
 - (void)setFilterString:(NSString *)filterString {
-    if (![_filterString isEqualToString:filterString]) {
-        _filterString = [filterString copy];
+    NSString *lowerCaseString = [filterString lowercaseString];
+    if (![_filterString isEqualToString:lowerCaseString]) {
+        _filterString = lowerCaseString;
         [self updateViewFilter];
     }
 }

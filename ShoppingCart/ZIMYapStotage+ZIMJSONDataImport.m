@@ -81,7 +81,7 @@
         
         [self.bgConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
             ZIMStorageCategory *category = [ZIMStorageCategory new];
-            category.title = JSONCategory.title;
+            category.title = [JSONCategory.title lowercaseString];
             category.categoryKey = JSONCategory.storageId;
             
             [transaction setObject:category forKey:category.categoryKey inCollection:category.collection];
@@ -91,7 +91,7 @@
                 goodsItem = [ZIMStorageGoodsItem new];
                 goodsItem.categoryKey = category.categoryKey;
                 goodsItem.itemKey = JSONItem.storageId;
-                goodsItem.title = JSONItem.title;
+                goodsItem.title = [JSONItem.title lowercaseString];
                 
                 [transaction setObject:goodsItem forKey:goodsItem.itemKey inCollection:goodsItem.collection];
             }

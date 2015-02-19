@@ -156,7 +156,7 @@ static NSString *const ZIMCartItemCellReuseId = @"ZIMCartItemCellReuseId";
     }
     
     ZIMShoppingCartItem *item = [self.listController objectAtIndexPath:indexPath];
-    cell.itemTitleLabel.text = item.title;
+    cell.itemTitleLabel.text = [item.title capitalizedString];
     cell.categoryTitleLabel.text = [item.category.title uppercaseString];
 }
 
