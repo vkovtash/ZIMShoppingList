@@ -50,6 +50,7 @@
 		F3B57CFB1A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF51A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m */; };
 		F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF71A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m */; };
 		F3B57CFD1A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */; };
+		F3B57D001A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,8 @@
 		F3B57CF81A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapListItem+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
 		F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapListItem+ZIMYapRetrieving.m"; sourceTree = "<group>"; };
 		F3B57CFA1A9666F3000CB9E7 /* ZIMYapModel+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapModel+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
+		F3B57CFE1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ZIMHideAnimated.h"; path = "Views/UIView+ZIMHideAnimated.h"; sourceTree = "<group>"; };
+		F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZIMHideAnimated.m"; path = "Views/UIView+ZIMHideAnimated.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +272,8 @@
 		F333210A1A921DB500561ED9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F3B57CFE1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.h */,
+				F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */,
 				F3B57C801A966257000CB9E7 /* UIView+ZIMNibForViewClass.h */,
 				F3B57C811A966257000CB9E7 /* UIView+ZIMNibForViewClass.m */,
 				F3B57C821A966257000CB9E7 /* ZIMCatalogItemCell.h */,
@@ -590,6 +595,7 @@
 				F3B57CDD1A966459000CB9E7 /* ZIMYapDmListItem.m in Sources */,
 				F333210E1A921E0200561ED9 /* ZIMShoppingLisItemCell.m in Sources */,
 				F3B57CDF1A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m in Sources */,
+				F3B57D001A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m in Sources */,
 				F3B57CB21A966355000CB9E7 /* ZIMListChanges.m in Sources */,
 				F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */,
 				F3B57CE71A966459000CB9E7 /* ZIMYapListItem.m in Sources */,

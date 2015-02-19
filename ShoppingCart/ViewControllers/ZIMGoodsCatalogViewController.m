@@ -12,7 +12,9 @@
 #import "UIView+ZIMNibForViewClass.h"
 #import "UITableView+ZIMApplyListChanges.h"
 
+
 static NSString *const ZIMGoodsItemCellReuseId = @"ZIMGoodsItemCellReuseId";
+
 
 @interface ZIMGoodsCatalogViewController()
 @property (strong, nonatomic) NSMutableOrderedSet *mutablePickedItems;

@@ -14,14 +14,12 @@
 #import "ZIMShoppingListPlaceholderCell.h"
 #import "ZIMShoppingListBackgroundView.h"
 #import "UITableView+ZIMApplyListChanges.h"
+#import "UIView+ZIMHideAnimated.h"
+
 
 static NSString *const ZIMListItemCellReuseId = @"ZIMListItemCellReuseId";
 static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 
-
-@interface ZIMShoppingListViewController ()
-
-@end
 
 @implementation ZIMShoppingListViewController
 
@@ -149,32 +147,12 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 }
 
 - (void)updateBackgoundViewState:(BOOL)animated {
-    UIView *backgroundView = self.tableView.backgroundView;
-    if (!backgroundView) {
-        return;
-    }
-    
-    BOOL shouldHide = [self.listController numberOfAllItemsInList] > 0;
-    
-    if (!animated) {
-        backgroundView.hidden = shouldHide;
-        return;
-    }
-    
-    if (!shouldHide) {
-        backgroundView.hidden = shouldHide;
-    }
-    
-    [UIView animateWithDuration:0.25 animations:^{
-        backgroundView.alpha = shouldHide ? 0. : 1.;
-    } completion:^(BOOL finished) {
-        if (finished) {
-            backgroundView.hidden = shouldHide;
-        }
-    }];
+    BOOL hidden = [self.listController numberOfAllItemsInList] > 0;
+    [self.tableView.backgroundView zim_setHidden:hidden
+                                        animated:animated];
 }
 
-- (void) subscribeListControllerNotifications {
+- (void)subscribeListControllerNotifications {
     self.listController.delegate = self;
 }
 

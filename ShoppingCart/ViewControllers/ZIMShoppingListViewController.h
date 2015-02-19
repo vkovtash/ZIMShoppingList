@@ -19,5 +19,5 @@
 @property (assign, nonatomic) ZIMListItemState controllerFilterState;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *filterControl;
 @property (strong, nonatomic) ZIMCartItemCellConfigurator *cellConfigurator;
-@property (strong, nonatomic) id <ZIMShoppingCartListProtocol> listController;
+@property (strong, nonatomic) id<ZIMShoppingCartListProtocol> listController;
 @end

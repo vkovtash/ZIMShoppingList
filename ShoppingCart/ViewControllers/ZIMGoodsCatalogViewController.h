@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ZIMGoodsCatalogListProtocol.h"
 
+
 @class ZIMGoodsCatalogViewController;
 @class ZIMDMListItem;
+
 
 @protocol ZIMGoodsCatalogViewControllerDelegate <NSObject>
 @optional
 - (BOOL)isItemInList:(ZIMDMListItem *)item;
 - (void)goodsCatalog:(ZIMGoodsCatalogViewController *)catalog didCompleteWithItemsSelected:(NSArray *)items;
 @end
+
 
 @interface ZIMGoodsCatalogViewController : UITableViewController <ZIMListControllerDelegateProtocol>
 @property (weak, nonatomic) id<ZIMGoodsCatalogViewControllerDelegate> delegate;
