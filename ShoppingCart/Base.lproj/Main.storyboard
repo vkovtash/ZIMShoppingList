@@ -38,12 +38,13 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="menubar-icn-plus" id="Kqo-12-BUO">
                             <connections>
-                                <segue destination="nOw-aS-ctJ" kind="modal" identifier="goodsCatalog" id="Q36-oZ-x9X"/>
+                                <action selector="addButtonTapped:" destination="jOB-2g-8jb" id="7H1-pd-TbK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="filterControl" destination="7ZF-Tt-zZf" id="lJ2-4A-YOy"/>
+                        <segue destination="nOw-aS-ctJ" kind="modal" identifier="goodsCatalogSegue" id="vVo-fU-fla"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piF-02-B5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,7 +54,7 @@
         <!--Goods Catalog View Controller-->
         <scene sceneID="SFo-lF-tNA">
             <objects>
-                <tableViewController id="gWo-ul-AQV" customClass="ZIMGoodsCatalogViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="goodsCatalogViewController" id="gWo-ul-AQV" customClass="ZIMGoodsCatalogViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Oy3-vz-KRT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +84,8 @@
         <!--Navigation Controller-->
         <scene sceneID="PCr-eA-tzu">
             <objects>
-                <navigationController id="nOw-aS-ctJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="goodsCatalogNavigationController" id="nOw-aS-ctJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gRd-RH-c4o"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sh5-MY-J9j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

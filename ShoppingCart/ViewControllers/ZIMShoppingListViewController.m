@@ -14,11 +14,16 @@
 #import "UITableView+ZIMApplyListChanges.h"
 #import "UIView+ZIMNibForViewClass.h"
 #import "UIView+ZIMHideAnimated.h"
+#import "ZIMTransitionsFactory.h"
 
 
 static NSString *const ZIMListItemCellReuseId = @"ZIMListItemCellReuseId";
-static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
+static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalogSegue";
+static NSString *const ZIMGoodsCatalogViewControllerId = @"goodsCatalogViewController";
 
+@interface ZIMShoppingListViewController()
+@property (nonatomic, strong) id transitionAnimator;
+@end
 
 @implementation ZIMShoppingListViewController
 
@@ -74,6 +79,16 @@ static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalog";
 }
 
 #pragma mark - Actions
+
+- (IBAction)addButtonTapped:(id)sender {
+    ZIMGoodsCatalogViewController *goodsCatalogViewController = [self.storyboard instantiateViewControllerWithIdentifier:ZIMGoodsCatalogViewControllerId];
+    goodsCatalogViewController.delegate = self;
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:goodsCatalogViewController];
+    self.transitionAnimator = [ZIMTransitionsFactory modalTransitionWithViewController:nc];
+    
+    [self presentViewController:nc animated:YES completion:nil];
+}
 
 - (IBAction)filterControlChanged:(UISegmentedControl *)sender {
     if (sender == self.filterControl) {

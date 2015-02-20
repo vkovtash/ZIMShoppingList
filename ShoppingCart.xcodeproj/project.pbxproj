@@ -51,6 +51,8 @@
 		F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF71A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m */; };
 		F3B57CFD1A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */; };
 		F3B57D001A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */; };
+		F3B57D051A97186A000CB9E7 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */; };
+		F3B57D091A971B11000CB9E7 /* ZIMTransitionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,10 @@
 		F3B57CFA1A9666F3000CB9E7 /* ZIMYapModel+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapModel+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
 		F3B57CFE1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ZIMHideAnimated.h"; path = "Views/UIView+ZIMHideAnimated.h"; sourceTree = "<group>"; };
 		F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZIMHideAnimated.m"; path = "Views/UIView+ZIMHideAnimated.m"; sourceTree = "<group>"; };
+		F3B57D031A97186A000CB9E7 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
+		F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
+		F3B57D071A971B11000CB9E7 /* ZIMTransitionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMTransitionsFactory.h; sourceTree = "<group>"; };
+		F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMTransitionsFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				F3B57CB41A966387000CB9E7 /* test_data.json */,
+				F3B57D011A971840000CB9E7 /* Libraries */,
+				F3B57D061A971AA9000CB9E7 /* Transitions */,
 				F3B57C7D1A9661C9000CB9E7 /* Resources */,
 				F3B57CB61A966459000CB9E7 /* YapShoppingList */,
 				F33321131A92251000561ED9 /* AbstractShoppingList */,
@@ -431,6 +439,32 @@
 			path = ZIMRetrieving;
 			sourceTree = "<group>";
 		};
+		F3B57D011A971840000CB9E7 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D021A971840000CB9E7 /* ZFDragableModalTransition */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		F3B57D021A971840000CB9E7 /* ZFDragableModalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D031A97186A000CB9E7 /* ZFModalTransitionAnimator.h */,
+				F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */,
+			);
+			path = ZFDragableModalTransition;
+			sourceTree = "<group>";
+		};
+		F3B57D061A971AA9000CB9E7 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D071A971B11000CB9E7 /* ZIMTransitionsFactory.h */,
+				F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -571,11 +605,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B57D091A971B11000CB9E7 /* ZIMTransitionsFactory.m in Sources */,
 				F3B57CDC1A966459000CB9E7 /* ZIMYapDmListCategory.m in Sources */,
 				F3B57C8F1A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */,
 				F3B57CA21A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m in Sources */,
 				F3B57CE61A966459000CB9E7 /* ZIMYapListCategory.m in Sources */,
 				F3B57C9F1A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m in Sources */,
+				F3B57D051A97186A000CB9E7 /* ZFModalTransitionAnimator.m in Sources */,
 				F3B57CA11A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m in Sources */,
 				F3B57C9E1A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m in Sources */,
 				F3B57CDB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m in Sources */,
