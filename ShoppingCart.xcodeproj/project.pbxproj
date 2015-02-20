@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DE131267CA0EA034DEB7FB6 /* libPods-ShoppingCart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B33C38E0F59D63794B2F77DF /* libPods-ShoppingCart.a */; };
+		F33320E31A921C3400561ED9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F33320E21A921C3400561ED9 /* main.m */; };
+		F33320E61A921C3400561ED9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F33320E51A921C3400561ED9 /* AppDelegate.m */; };
+		F33320EC1A921C3400561ED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F33320EA1A921C3400561ED9 /* Main.storyboard */; };
+		F33320F11A921C3400561ED9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F33320EF1A921C3400561ED9 /* LaunchScreen.xib */; };
+		F33320FD1A921C3400561ED9 /* ShoppingCartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F33320FC1A921C3400561ED9 /* ShoppingCartTests.m */; };
+		F33321091A921CAC00561ED9 /* ZIMShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F33321081A921CAC00561ED9 /* ZIMShoppingListViewController.m */; };
+		F333210E1A921E0200561ED9 /* ZIMShoppingLisItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F333210C1A921E0200561ED9 /* ZIMShoppingLisItemCell.m */; };
+		F333210F1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F333210D1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib */; };
+		F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */; };
+		F3B57C7F1A9661C9000CB9E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B57C7E1A9661C9000CB9E7 /* Images.xcassets */; };
+		F3B57C8A1A966257000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C811A966257000CB9E7 /* UIView+ZIMNibForViewClass.m */; };
+		F3B57C8B1A966257000CB9E7 /* ZIMCatalogItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C831A966257000CB9E7 /* ZIMCatalogItemCell.m */; };
+		F3B57C8C1A966257000CB9E7 /* ZIMCatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B57C841A966257000CB9E7 /* ZIMCatalogItemCell.xib */; };
+		F3B57C8D1A966257000CB9E7 /* ZIMShoppingListBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C861A966257000CB9E7 /* ZIMShoppingListBackgroundView.m */; };
+		F3B57C8E1A966257000CB9E7 /* ZIMShoppingListBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3B57C871A966257000CB9E7 /* ZIMShoppingListBackgroundView.xib */; };
+		F3B57C8F1A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C891A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m */; };
+		F3B57C9D1A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C911A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m */; };
+		F3B57C9E1A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C931A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m */; };
+		F3B57C9F1A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */; };
+		F3B57CA01A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */; };
+		F3B57CA11A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */; };
+		F3B57CA21A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */; };
+		F3B57CB01A966355000CB9E7 /* ZIMDMListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CA51A966355000CB9E7 /* ZIMDMListCategory.m */; };
+		F3B57CB11A966355000CB9E7 /* ZIMDMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CA71A966355000CB9E7 /* ZIMDMListItem.m */; };
+		F3B57CB21A966355000CB9E7 /* ZIMListChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CAA1A966355000CB9E7 /* ZIMListChanges.m */; };
+		F3B57CB31A966355000CB9E7 /* ZIMListControllersFabric.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CAD1A966355000CB9E7 /* ZIMListControllersFabric.m */; };
+		F3B57CB51A966387000CB9E7 /* test_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F3B57CB41A966387000CB9E7 /* test_data.json */; };
+		F3B57CDA1A966459000CB9E7 /* ZIMYapGoodsCatalogListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CB91A966459000CB9E7 /* ZIMYapGoodsCatalogListController.m */; };
+		F3B57CDB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CBB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m */; };
+		F3B57CDC1A966459000CB9E7 /* ZIMYapDmListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CBE1A966459000CB9E7 /* ZIMYapDmListCategory.m */; };
+		F3B57CDD1A966459000CB9E7 /* ZIMYapDmListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CC01A966459000CB9E7 /* ZIMYapDmListItem.m */; };
+		F3B57CDE1A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CC31A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m */; };
+		F3B57CDF1A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CC51A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m */; };
+		F3B57CE01A966459000CB9E7 /* ZIMYapStotage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CC71A966459000CB9E7 /* ZIMYapStotage.m */; };
+		F3B57CE11A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CCA1A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.m */; };
+		F3B57CE51A966459000CB9E7 /* ZIMYapGoodsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CD31A966459000CB9E7 /* ZIMYapGoodsItem.m */; };
+		F3B57CE61A966459000CB9E7 /* ZIMYapListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CD51A966459000CB9E7 /* ZIMYapListCategory.m */; };
+		F3B57CE71A966459000CB9E7 /* ZIMYapListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CD71A966459000CB9E7 /* ZIMYapListItem.m */; };
+		F3B57CE81A966459000CB9E7 /* ZIMYapListControllerFablic.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CD91A966459000CB9E7 /* ZIMYapListControllerFablic.m */; };
+		F3B57CFB1A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF51A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m */; };
+		F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF71A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m */; };
+		F3B57CFD1A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */; };
+		F3B57D001A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */; };
+		F3B57D051A97186A000CB9E7 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */; };
+		F3B57D091A971B11000CB9E7 /* ZIMTransitionsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F33320F71A921C3400561ED9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F33320D51A921C3400561ED9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F33320DC1A921C3400561ED9;
+			remoteInfo = ShoppingCart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6857D680C1EE64BDAFE847BE /* Pods-ShoppingCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.debug.xcconfig"; sourceTree = "<group>"; };
+		792E599313CB0AD8540A6E10 /* Pods-ShoppingCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingCart.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart.release.xcconfig"; sourceTree = "<group>"; };
+		B33C38E0F59D63794B2F77DF /* libPods-ShoppingCart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShoppingCart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33320DD1A921C3400561ED9 /* ShoppingCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33320E11A921C3400561ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33320E21A921C3400561ED9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F33320E41A921C3400561ED9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F33320E51A921C3400561ED9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F33320EB1A921C3400561ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F33320F01A921C3400561ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F33320F61A921C3400561ED9 /* ShoppingCartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33320FB1A921C3400561ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33320FC1A921C3400561ED9 /* ShoppingCartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTests.m; sourceTree = "<group>"; };
+		F33321071A921CAC00561ED9 /* ZIMShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMShoppingListViewController.h; path = ViewControllers/ZIMShoppingListViewController.h; sourceTree = "<group>"; };
+		F33321081A921CAC00561ED9 /* ZIMShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMShoppingListViewController.m; path = ViewControllers/ZIMShoppingListViewController.m; sourceTree = "<group>"; };
+		F333210B1A921E0200561ED9 /* ZIMShoppingLisItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMShoppingLisItemCell.h; path = Views/ZIMShoppingLisItemCell.h; sourceTree = "<group>"; };
+		F333210C1A921E0200561ED9 /* ZIMShoppingLisItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMShoppingLisItemCell.m; path = Views/ZIMShoppingLisItemCell.m; sourceTree = "<group>"; };
+		F333210D1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZIMShoppingLisItemCell.xib; path = Views/ZIMShoppingLisItemCell.xib; sourceTree = "<group>"; };
+		F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMAppearanceController.h; sourceTree = "<group>"; };
+		F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMAppearanceController.m; sourceTree = "<group>"; };
+		F3B57C7E1A9661C9000CB9E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F3B57C801A966257000CB9E7 /* UIView+ZIMNibForViewClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ZIMNibForViewClass.h"; path = "Views/UIView+ZIMNibForViewClass.h"; sourceTree = "<group>"; };
+		F3B57C811A966257000CB9E7 /* UIView+ZIMNibForViewClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZIMNibForViewClass.m"; path = "Views/UIView+ZIMNibForViewClass.m"; sourceTree = "<group>"; };
+		F3B57C821A966257000CB9E7 /* ZIMCatalogItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMCatalogItemCell.h; path = Views/ZIMCatalogItemCell.h; sourceTree = "<group>"; };
+		F3B57C831A966257000CB9E7 /* ZIMCatalogItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMCatalogItemCell.m; path = Views/ZIMCatalogItemCell.m; sourceTree = "<group>"; };
+		F3B57C841A966257000CB9E7 /* ZIMCatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZIMCatalogItemCell.xib; path = Views/ZIMCatalogItemCell.xib; sourceTree = "<group>"; };
+		F3B57C851A966257000CB9E7 /* ZIMShoppingListBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMShoppingListBackgroundView.h; path = Views/ZIMShoppingListBackgroundView.h; sourceTree = "<group>"; };
+		F3B57C861A966257000CB9E7 /* ZIMShoppingListBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMShoppingListBackgroundView.m; path = Views/ZIMShoppingListBackgroundView.m; sourceTree = "<group>"; };
+		F3B57C871A966257000CB9E7 /* ZIMShoppingListBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZIMShoppingListBackgroundView.xib; path = Views/ZIMShoppingListBackgroundView.xib; sourceTree = "<group>"; };
+		F3B57C881A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMShoppingListPlaceholderCell.h; path = Views/ZIMShoppingListPlaceholderCell.h; sourceTree = "<group>"; };
+		F3B57C891A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMShoppingListPlaceholderCell.m; path = Views/ZIMShoppingListPlaceholderCell.m; sourceTree = "<group>"; };
+		F3B57C901A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+ZIMApplyListChanges.h"; path = "ViewControllers/UITableView+ZIMApplyListChanges.h"; sourceTree = "<group>"; };
+		F3B57C911A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+ZIMApplyListChanges.m"; path = "ViewControllers/UITableView+ZIMApplyListChanges.m"; sourceTree = "<group>"; };
+		F3B57C921A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMGoodsCatalogViewController.h; path = ViewControllers/ZIMGoodsCatalogViewController.h; sourceTree = "<group>"; };
+		F3B57C931A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMGoodsCatalogViewController.m; path = ViewControllers/ZIMGoodsCatalogViewController.m; sourceTree = "<group>"; };
+		F3B57C951A9662C0000CB9E7 /* ZIMListItemCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C971A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemDoneCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemDoneCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C991A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemLaterCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemLaterCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57C9B1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMListItemUndoneCellConfigurator.h; sourceTree = "<group>"; };
+		F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMListItemUndoneCellConfigurator.m; sourceTree = "<group>"; };
+		F3B57CA41A966355000CB9E7 /* ZIMDMListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDMListCategory.h; sourceTree = "<group>"; };
+		F3B57CA51A966355000CB9E7 /* ZIMDMListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDMListCategory.m; sourceTree = "<group>"; };
+		F3B57CA61A966355000CB9E7 /* ZIMDMListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDMListItem.h; sourceTree = "<group>"; };
+		F3B57CA71A966355000CB9E7 /* ZIMDMListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDMListItem.m; sourceTree = "<group>"; };
+		F3B57CA81A966355000CB9E7 /* ZIMGoodsCatalogListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMGoodsCatalogListProtocol.h; path = AbstractShoppingList/ZIMGoodsCatalogListProtocol.h; sourceTree = "<group>"; };
+		F3B57CA91A966355000CB9E7 /* ZIMListChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMListChanges.h; path = AbstractShoppingList/ZIMListChanges.h; sourceTree = "<group>"; };
+		F3B57CAA1A966355000CB9E7 /* ZIMListChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMListChanges.m; path = AbstractShoppingList/ZIMListChanges.m; sourceTree = "<group>"; };
+		F3B57CAB1A966355000CB9E7 /* ZIMListControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMListControllerProtocol.h; path = AbstractShoppingList/ZIMListControllerProtocol.h; sourceTree = "<group>"; };
+		F3B57CAC1A966355000CB9E7 /* ZIMListControllersFabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMListControllersFabric.h; path = AbstractShoppingList/ZIMListControllersFabric.h; sourceTree = "<group>"; };
+		F3B57CAD1A966355000CB9E7 /* ZIMListControllersFabric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZIMListControllersFabric.m; path = AbstractShoppingList/ZIMListControllersFabric.m; sourceTree = "<group>"; };
+		F3B57CAE1A966355000CB9E7 /* ZIMListControllersFabricProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMListControllersFabricProtocol.h; path = AbstractShoppingList/ZIMListControllersFabricProtocol.h; sourceTree = "<group>"; };
+		F3B57CAF1A966355000CB9E7 /* ZIMShoppingListProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZIMShoppingListProtocol.h; path = AbstractShoppingList/ZIMShoppingListProtocol.h; sourceTree = "<group>"; };
+		F3B57CB41A966387000CB9E7 /* test_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_data.json; sourceTree = "<group>"; };
+		F3B57CB81A966459000CB9E7 /* ZIMYapGoodsCatalogListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapGoodsCatalogListController.h; sourceTree = "<group>"; };
+		F3B57CB91A966459000CB9E7 /* ZIMYapGoodsCatalogListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapGoodsCatalogListController.m; sourceTree = "<group>"; };
+		F3B57CBA1A966459000CB9E7 /* ZIMYapShoppingCartListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapShoppingCartListController.h; sourceTree = "<group>"; };
+		F3B57CBB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapShoppingCartListController.m; sourceTree = "<group>"; };
+		F3B57CBD1A966459000CB9E7 /* ZIMYapDmListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapDmListCategory.h; sourceTree = "<group>"; };
+		F3B57CBE1A966459000CB9E7 /* ZIMYapDmListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapDmListCategory.m; sourceTree = "<group>"; };
+		F3B57CBF1A966459000CB9E7 /* ZIMYapDmListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapDmListItem.h; sourceTree = "<group>"; };
+		F3B57CC01A966459000CB9E7 /* ZIMYapDmListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapDmListItem.m; sourceTree = "<group>"; };
+		F3B57CC21A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapStotage+ZIMJSONDataImport.h"; sourceTree = "<group>"; };
+		F3B57CC31A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapStotage+ZIMJSONDataImport.m"; sourceTree = "<group>"; };
+		F3B57CC41A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapStotage+ZIMShoppingListManipulations.h"; sourceTree = "<group>"; };
+		F3B57CC51A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapStotage+ZIMShoppingListManipulations.m"; sourceTree = "<group>"; };
+		F3B57CC61A966459000CB9E7 /* ZIMYapStotage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapStotage.h; sourceTree = "<group>"; };
+		F3B57CC71A966459000CB9E7 /* ZIMYapStotage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapStotage.m; sourceTree = "<group>"; };
+		F3B57CC91A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YapDatabaseViewConnection+ZIMGetChanges.h"; sourceTree = "<group>"; };
+		F3B57CCA1A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YapDatabaseViewConnection+ZIMGetChanges.m"; sourceTree = "<group>"; };
+		F3B57CD21A966459000CB9E7 /* ZIMYapGoodsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapGoodsItem.h; sourceTree = "<group>"; };
+		F3B57CD31A966459000CB9E7 /* ZIMYapGoodsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapGoodsItem.m; sourceTree = "<group>"; };
+		F3B57CD41A966459000CB9E7 /* ZIMYapListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapListCategory.h; sourceTree = "<group>"; };
+		F3B57CD51A966459000CB9E7 /* ZIMYapListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapListCategory.m; sourceTree = "<group>"; };
+		F3B57CD61A966459000CB9E7 /* ZIMYapListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapListItem.h; sourceTree = "<group>"; };
+		F3B57CD71A966459000CB9E7 /* ZIMYapListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapListItem.m; sourceTree = "<group>"; };
+		F3B57CD81A966459000CB9E7 /* ZIMYapListControllerFablic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMYapListControllerFablic.h; sourceTree = "<group>"; };
+		F3B57CD91A966459000CB9E7 /* ZIMYapListControllerFablic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMYapListControllerFablic.m; sourceTree = "<group>"; };
+		F3B57CF41A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapGoodsItem+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
+		F3B57CF51A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapGoodsItem+ZIMYapRetrieving.m"; sourceTree = "<group>"; };
+		F3B57CF61A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapListCategory+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
+		F3B57CF71A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapListCategory+ZIMYapRetrieving.m"; sourceTree = "<group>"; };
+		F3B57CF81A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapListItem+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
+		F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZIMYapListItem+ZIMYapRetrieving.m"; sourceTree = "<group>"; };
+		F3B57CFA1A9666F3000CB9E7 /* ZIMYapModel+ZIMYapRetrieving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZIMYapModel+ZIMYapRetrieving.h"; sourceTree = "<group>"; };
+		F3B57CFE1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ZIMHideAnimated.h"; path = "Views/UIView+ZIMHideAnimated.h"; sourceTree = "<group>"; };
+		F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ZIMHideAnimated.m"; path = "Views/UIView+ZIMHideAnimated.m"; sourceTree = "<group>"; };
+		F3B57D031A97186A000CB9E7 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
+		F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
+		F3B57D071A971B11000CB9E7 /* ZIMTransitionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMTransitionsFactory.h; sourceTree = "<group>"; };
+		F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMTransitionsFactory.m; sourceTree = "<group>"; };
+		F3B57D0A1A97246F000CB9E7 /* ZIMStoryboardConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZIMStoryboardConstants.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F33320DA1A921C3400561ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DE131267CA0EA034DEB7FB6 /* libPods-ShoppingCart.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33320F31A921C3400561ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21D7312C4EB1C8E9CA99AB52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6857D680C1EE64BDAFE847BE /* Pods-ShoppingCart.debug.xcconfig */,
+				792E599313CB0AD8540A6E10 /* Pods-ShoppingCart.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E066507761E1AE2F7985146D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B33C38E0F59D63794B2F77DF /* libPods-ShoppingCart.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F33320D41A921C3400561ED9 = {
+			isa = PBXGroup;
+			children = (
+				F33320DF1A921C3400561ED9 /* ShoppingCart */,
+				F33320F91A921C3400561ED9 /* ShoppingCartTests */,
+				F33320DE1A921C3400561ED9 /* Products */,
+				21D7312C4EB1C8E9CA99AB52 /* Pods */,
+				E066507761E1AE2F7985146D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F33320DE1A921C3400561ED9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F33320DD1A921C3400561ED9 /* ShoppingCart.app */,
+				F33320F61A921C3400561ED9 /* ShoppingCartTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F33320DF1A921C3400561ED9 /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CB41A966387000CB9E7 /* test_data.json */,
+				F3B57D011A971840000CB9E7 /* Libraries */,
+				F3B57D061A971AA9000CB9E7 /* Transitions */,
+				F3B57C7D1A9661C9000CB9E7 /* Resources */,
+				F3B57CB61A966459000CB9E7 /* YapShoppingList */,
+				F33321131A92251000561ED9 /* AbstractShoppingList */,
+				F333210A1A921DB500561ED9 /* Views */,
+				F33321061A921C5200561ED9 /* ViewControllers */,
+				F33320E01A921C3400561ED9 /* Supporting Files */,
+				F33320E41A921C3400561ED9 /* AppDelegate.h */,
+				F33320E51A921C3400561ED9 /* AppDelegate.m */,
+				F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */,
+				F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */,
+				F3B57D0A1A97246F000CB9E7 /* ZIMStoryboardConstants.h */,
+			);
+			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
+		F33320E01A921C3400561ED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F33320E11A921C3400561ED9 /* Info.plist */,
+				F33320E21A921C3400561ED9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F33320F91A921C3400561ED9 /* ShoppingCartTests */ = {
+			isa = PBXGroup;
+			children = (
+				F33320FC1A921C3400561ED9 /* ShoppingCartTests.m */,
+				F33320FA1A921C3400561ED9 /* Supporting Files */,
+			);
+			path = ShoppingCartTests;
+			sourceTree = "<group>";
+		};
+		F33320FA1A921C3400561ED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F33320FB1A921C3400561ED9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F33321061A921C5200561ED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F33321071A921CAC00561ED9 /* ZIMShoppingListViewController.h */,
+				F33321081A921CAC00561ED9 /* ZIMShoppingListViewController.m */,
+				F3B57C921A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.h */,
+				F3B57C931A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m */,
+				F3B57C941A9662C0000CB9E7 /* ZIMListItemCellConfigurator */,
+				F3B57C901A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.h */,
+				F3B57C911A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F333210A1A921DB500561ED9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CFE1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.h */,
+				F3B57CFF1A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m */,
+				F3B57C801A966257000CB9E7 /* UIView+ZIMNibForViewClass.h */,
+				F3B57C811A966257000CB9E7 /* UIView+ZIMNibForViewClass.m */,
+				F3B57C821A966257000CB9E7 /* ZIMCatalogItemCell.h */,
+				F3B57C831A966257000CB9E7 /* ZIMCatalogItemCell.m */,
+				F3B57C841A966257000CB9E7 /* ZIMCatalogItemCell.xib */,
+				F3B57C851A966257000CB9E7 /* ZIMShoppingListBackgroundView.h */,
+				F3B57C861A966257000CB9E7 /* ZIMShoppingListBackgroundView.m */,
+				F3B57C871A966257000CB9E7 /* ZIMShoppingListBackgroundView.xib */,
+				F3B57C881A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.h */,
+				F3B57C891A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m */,
+				F333210B1A921E0200561ED9 /* ZIMShoppingLisItemCell.h */,
+				F333210C1A921E0200561ED9 /* ZIMShoppingLisItemCell.m */,
+				F333210D1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F33321131A92251000561ED9 /* AbstractShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CA31A966355000CB9E7 /* DataModel */,
+				F3B57CAF1A966355000CB9E7 /* ZIMShoppingListProtocol.h */,
+				F3B57CA81A966355000CB9E7 /* ZIMGoodsCatalogListProtocol.h */,
+				F3B57CA91A966355000CB9E7 /* ZIMListChanges.h */,
+				F3B57CAA1A966355000CB9E7 /* ZIMListChanges.m */,
+				F3B57CAB1A966355000CB9E7 /* ZIMListControllerProtocol.h */,
+				F3B57CAC1A966355000CB9E7 /* ZIMListControllersFabric.h */,
+				F3B57CAD1A966355000CB9E7 /* ZIMListControllersFabric.m */,
+				F3B57CAE1A966355000CB9E7 /* ZIMListControllersFabricProtocol.h */,
+			);
+			name = AbstractShoppingList;
+			sourceTree = "<group>";
+		};
+		F3B57C7D1A9661C9000CB9E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F33320EF1A921C3400561ED9 /* LaunchScreen.xib */,
+				F33320EA1A921C3400561ED9 /* Main.storyboard */,
+				F3B57C7E1A9661C9000CB9E7 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3B57C941A9662C0000CB9E7 /* ZIMListItemCellConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57C951A9662C0000CB9E7 /* ZIMListItemCellConfigurator.h */,
+				F3B57C961A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m */,
+				F3B57C971A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.h */,
+				F3B57C981A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m */,
+				F3B57C991A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.h */,
+				F3B57C9A1A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m */,
+				F3B57C9B1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.h */,
+				F3B57C9C1A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m */,
+			);
+			name = ZIMListItemCellConfigurator;
+			path = ViewControllers/ZIMListItemCellConfigurator;
+			sourceTree = "<group>";
+		};
+		F3B57CA31A966355000CB9E7 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CA41A966355000CB9E7 /* ZIMDMListCategory.h */,
+				F3B57CA51A966355000CB9E7 /* ZIMDMListCategory.m */,
+				F3B57CA61A966355000CB9E7 /* ZIMDMListItem.h */,
+				F3B57CA71A966355000CB9E7 /* ZIMDMListItem.m */,
+			);
+			name = DataModel;
+			path = AbstractShoppingList/DataModel;
+			sourceTree = "<group>";
+		};
+		F3B57CB61A966459000CB9E7 /* YapShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CB71A966459000CB9E7 /* ListControllers */,
+				F3B57CBC1A966459000CB9E7 /* PresentationDataModel */,
+				F3B57CC11A966459000CB9E7 /* YapDatabase */,
+				F3B57CC81A966459000CB9E7 /* YapDatabaseHelpers */,
+				F3B57CCB1A966459000CB9E7 /* YapDataModel */,
+				F3B57CD81A966459000CB9E7 /* ZIMYapListControllerFablic.h */,
+				F3B57CD91A966459000CB9E7 /* ZIMYapListControllerFablic.m */,
+			);
+			path = YapShoppingList;
+			sourceTree = "<group>";
+		};
+		F3B57CB71A966459000CB9E7 /* ListControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CB81A966459000CB9E7 /* ZIMYapGoodsCatalogListController.h */,
+				F3B57CB91A966459000CB9E7 /* ZIMYapGoodsCatalogListController.m */,
+				F3B57CBA1A966459000CB9E7 /* ZIMYapShoppingCartListController.h */,
+				F3B57CBB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m */,
+			);
+			path = ListControllers;
+			sourceTree = "<group>";
+		};
+		F3B57CBC1A966459000CB9E7 /* PresentationDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CBD1A966459000CB9E7 /* ZIMYapDmListCategory.h */,
+				F3B57CBE1A966459000CB9E7 /* ZIMYapDmListCategory.m */,
+				F3B57CBF1A966459000CB9E7 /* ZIMYapDmListItem.h */,
+				F3B57CC01A966459000CB9E7 /* ZIMYapDmListItem.m */,
+			);
+			path = PresentationDataModel;
+			sourceTree = "<group>";
+		};
+		F3B57CC11A966459000CB9E7 /* YapDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CC61A966459000CB9E7 /* ZIMYapStotage.h */,
+				F3B57CC71A966459000CB9E7 /* ZIMYapStotage.m */,
+				F3B57CC21A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.h */,
+				F3B57CC31A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m */,
+				F3B57CC41A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.h */,
+				F3B57CC51A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m */,
+			);
+			path = YapDatabase;
+			sourceTree = "<group>";
+		};
+		F3B57CC81A966459000CB9E7 /* YapDatabaseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CF31A9666F3000CB9E7 /* ZIMRetrieving */,
+				F3B57CC91A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.h */,
+				F3B57CCA1A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.m */,
+			);
+			path = YapDatabaseHelpers;
+			sourceTree = "<group>";
+		};
+		F3B57CCB1A966459000CB9E7 /* YapDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CD21A966459000CB9E7 /* ZIMYapGoodsItem.h */,
+				F3B57CD31A966459000CB9E7 /* ZIMYapGoodsItem.m */,
+				F3B57CD41A966459000CB9E7 /* ZIMYapListCategory.h */,
+				F3B57CD51A966459000CB9E7 /* ZIMYapListCategory.m */,
+				F3B57CD61A966459000CB9E7 /* ZIMYapListItem.h */,
+				F3B57CD71A966459000CB9E7 /* ZIMYapListItem.m */,
+			);
+			path = YapDataModel;
+			sourceTree = "<group>";
+		};
+		F3B57CF31A9666F3000CB9E7 /* ZIMRetrieving */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57CF41A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.h */,
+				F3B57CF51A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m */,
+				F3B57CF61A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.h */,
+				F3B57CF71A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m */,
+				F3B57CF81A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.h */,
+				F3B57CF91A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m */,
+				F3B57CFA1A9666F3000CB9E7 /* ZIMYapModel+ZIMYapRetrieving.h */,
+			);
+			path = ZIMRetrieving;
+			sourceTree = "<group>";
+		};
+		F3B57D011A971840000CB9E7 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D021A971840000CB9E7 /* ZFDragableModalTransition */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		F3B57D021A971840000CB9E7 /* ZFDragableModalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D031A97186A000CB9E7 /* ZFModalTransitionAnimator.h */,
+				F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */,
+			);
+			path = ZFDragableModalTransition;
+			sourceTree = "<group>";
+		};
+		F3B57D061A971AA9000CB9E7 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				F3B57D071A971B11000CB9E7 /* ZIMTransitionsFactory.h */,
+				F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F33320DC1A921C3400561ED9 /* ShoppingCart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33321001A921C3400561ED9 /* Build configuration list for PBXNativeTarget "ShoppingCart" */;
+			buildPhases = (
+				FC93A9A07D26BAC5FE1B76B6 /* Check Pods Manifest.lock */,
+				F33320D91A921C3400561ED9 /* Sources */,
+				F33320DA1A921C3400561ED9 /* Frameworks */,
+				F33320DB1A921C3400561ED9 /* Resources */,
+				CF2652007E72ADEDA4D353F1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShoppingCart;
+			productName = ShoppingCart;
+			productReference = F33320DD1A921C3400561ED9 /* ShoppingCart.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F33320F51A921C3400561ED9 /* ShoppingCartTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F33321031A921C3400561ED9 /* Build configuration list for PBXNativeTarget "ShoppingCartTests" */;
+			buildPhases = (
+				F33320F21A921C3400561ED9 /* Sources */,
+				F33320F31A921C3400561ED9 /* Frameworks */,
+				F33320F41A921C3400561ED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F33320F81A921C3400561ED9 /* PBXTargetDependency */,
+			);
+			name = ShoppingCartTests;
+			productName = ShoppingCartTests;
+			productReference = F33320F61A921C3400561ED9 /* ShoppingCartTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F33320D51A921C3400561ED9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZIM;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = zim;
+				TargetAttributes = {
+					F33320DC1A921C3400561ED9 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					F33320F51A921C3400561ED9 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = F33320DC1A921C3400561ED9;
+					};
+				};
+			};
+			buildConfigurationList = F33320D81A921C3400561ED9 /* Build configuration list for PBXProject "ShoppingCart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F33320D41A921C3400561ED9;
+			productRefGroup = F33320DE1A921C3400561ED9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F33320DC1A921C3400561ED9 /* ShoppingCart */,
+				F33320F51A921C3400561ED9 /* ShoppingCartTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F33320DB1A921C3400561ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33320EC1A921C3400561ED9 /* Main.storyboard in Resources */,
+				F333210F1A921E0200561ED9 /* ZIMShoppingLisItemCell.xib in Resources */,
+				F3B57CB51A966387000CB9E7 /* test_data.json in Resources */,
+				F3B57C7F1A9661C9000CB9E7 /* Images.xcassets in Resources */,
+				F3B57C8E1A966257000CB9E7 /* ZIMShoppingListBackgroundView.xib in Resources */,
+				F33320F11A921C3400561ED9 /* LaunchScreen.xib in Resources */,
+				F3B57C8C1A966257000CB9E7 /* ZIMCatalogItemCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33320F41A921C3400561ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF2652007E72ADEDA4D353F1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShoppingCart/Pods-ShoppingCart-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC93A9A07D26BAC5FE1B76B6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F33320D91A921C3400561ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3B57D091A971B11000CB9E7 /* ZIMTransitionsFactory.m in Sources */,
+				F3B57CDC1A966459000CB9E7 /* ZIMYapDmListCategory.m in Sources */,
+				F3B57C8F1A966257000CB9E7 /* ZIMShoppingListPlaceholderCell.m in Sources */,
+				F3B57CA21A9662C0000CB9E7 /* ZIMListItemUndoneCellConfigurator.m in Sources */,
+				F3B57CE61A966459000CB9E7 /* ZIMYapListCategory.m in Sources */,
+				F3B57C9F1A9662C0000CB9E7 /* ZIMListItemCellConfigurator.m in Sources */,
+				F3B57D051A97186A000CB9E7 /* ZFModalTransitionAnimator.m in Sources */,
+				F3B57CA11A9662C0000CB9E7 /* ZIMListItemLaterCellConfigurator.m in Sources */,
+				F3B57C9E1A9662C0000CB9E7 /* ZIMGoodsCatalogViewController.m in Sources */,
+				F3B57CDB1A966459000CB9E7 /* ZIMYapShoppingCartListController.m in Sources */,
+				F33320E61A921C3400561ED9 /* AppDelegate.m in Sources */,
+				F3B57CFD1A9666F3000CB9E7 /* ZIMYapListItem+ZIMYapRetrieving.m in Sources */,
+				F3B57CDA1A966459000CB9E7 /* ZIMYapGoodsCatalogListController.m in Sources */,
+				F3B57C8B1A966257000CB9E7 /* ZIMCatalogItemCell.m in Sources */,
+				F3B57C8D1A966257000CB9E7 /* ZIMShoppingListBackgroundView.m in Sources */,
+				F3B57C9D1A9662C0000CB9E7 /* UITableView+ZIMApplyListChanges.m in Sources */,
+				F3B57CE11A966459000CB9E7 /* YapDatabaseViewConnection+ZIMGetChanges.m in Sources */,
+				F3B57CB01A966355000CB9E7 /* ZIMDMListCategory.m in Sources */,
+				F3B57CE81A966459000CB9E7 /* ZIMYapListControllerFablic.m in Sources */,
+				F3B57CE51A966459000CB9E7 /* ZIMYapGoodsItem.m in Sources */,
+				F3A6FBDC1A94F392009472A4 /* ZIMAppearanceController.m in Sources */,
+				F3B57CB11A966355000CB9E7 /* ZIMDMListItem.m in Sources */,
+				F3B57CE01A966459000CB9E7 /* ZIMYapStotage.m in Sources */,
+				F3B57CDD1A966459000CB9E7 /* ZIMYapDmListItem.m in Sources */,
+				F333210E1A921E0200561ED9 /* ZIMShoppingLisItemCell.m in Sources */,
+				F3B57CDF1A966459000CB9E7 /* ZIMYapStotage+ZIMShoppingListManipulations.m in Sources */,
+				F3B57D001A9668B0000CB9E7 /* UIView+ZIMHideAnimated.m in Sources */,
+				F3B57CB21A966355000CB9E7 /* ZIMListChanges.m in Sources */,
+				F3B57CFC1A9666F3000CB9E7 /* ZIMYapListCategory+ZIMYapRetrieving.m in Sources */,
+				F3B57CE71A966459000CB9E7 /* ZIMYapListItem.m in Sources */,
+				F3B57C8A1A966257000CB9E7 /* UIView+ZIMNibForViewClass.m in Sources */,
+				F3B57CA01A9662C0000CB9E7 /* ZIMListItemDoneCellConfigurator.m in Sources */,
+				F33321091A921CAC00561ED9 /* ZIMShoppingListViewController.m in Sources */,
+				F3B57CDE1A966459000CB9E7 /* ZIMYapStotage+ZIMJSONDataImport.m in Sources */,
+				F3B57CB31A966355000CB9E7 /* ZIMListControllersFabric.m in Sources */,
+				F3B57CFB1A9666F3000CB9E7 /* ZIMYapGoodsItem+ZIMYapRetrieving.m in Sources */,
+				F33320E31A921C3400561ED9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F33320F21A921C3400561ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F33320FD1A921C3400561ED9 /* ShoppingCartTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F33320F81A921C3400561ED9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F33320DC1A921C3400561ED9 /* ShoppingCart */;
+			targetProxy = F33320F71A921C3400561ED9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F33320EA1A921C3400561ED9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F33320EB1A921C3400561ED9 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F33320EF1A921C3400561ED9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F33320F01A921C3400561ED9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F33320FE1A921C3400561ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F33320FF1A921C3400561ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F33321011A921C3400561ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6857D680C1EE64BDAFE847BE /* Pods-ShoppingCart.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ShoppingCart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F33321021A921C3400561ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 792E599313CB0AD8540A6E10 /* Pods-ShoppingCart.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ShoppingCart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F33321041A921C3400561ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingCart.app/ShoppingCart";
+			};
+			name = Debug;
+		};
+		F33321051A921C3400561ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShoppingCartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingCart.app/ShoppingCart";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F33320D81A921C3400561ED9 /* Build configuration list for PBXProject "ShoppingCart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F33320FE1A921C3400561ED9 /* Debug */,
+				F33320FF1A921C3400561ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F33321001A921C3400561ED9 /* Build configuration list for PBXNativeTarget "ShoppingCart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F33321011A921C3400561ED9 /* Debug */,
+				F33321021A921C3400561ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F33321031A921C3400561ED9 /* Build configuration list for PBXNativeTarget "ShoppingCartTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F33321041A921C3400561ED9 /* Debug */,
+				F33321051A921C3400561ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F33320D51A921C3400561ED9 /* Project object */;
+}

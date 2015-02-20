@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="ZIMShoppingLisItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvc-9M-94a">
+                        <rect key="frame" x="25" y="8" width="270" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="5rU-av-VrH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Googs Item Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZI-Ji-ecV">
+                        <rect key="frame" x="25" y="30" width="270" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Lvc-9M-94a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="2N2-2U-VZa"/>
+                    <constraint firstAttribute="bottom" secondItem="yZI-Ji-ecV" secondAttribute="bottom" constant="8.5" id="Hdz-43-XFh"/>
+                    <constraint firstItem="yZI-Ji-ecV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="Qph-OP-3NX"/>
+                    <constraint firstItem="yZI-Ji-ecV" firstAttribute="top" secondItem="Lvc-9M-94a" secondAttribute="bottom" constant="1" id="jSS-cX-25w"/>
+                    <constraint firstAttribute="trailing" secondItem="Lvc-9M-94a" secondAttribute="trailing" constant="25" id="qiO-2T-jNQ"/>
+                    <constraint firstAttribute="trailing" secondItem="yZI-Ji-ecV" secondAttribute="trailing" constant="25" id="qnz-ZC-s6b"/>
+                    <constraint firstItem="Lvc-9M-94a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="xWN-AR-2pd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryTitleLabel" destination="Lvc-9M-94a" id="xgp-oa-brE"/>
+                <outlet property="itemTitleLabel" destination="yZI-Ji-ecV" id="QLb-9k-pCF"/>
+            </connections>
+            <point key="canvasLocation" x="395" y="334.5"/>
+        </tableViewCell>
+    </objects>
+</document>

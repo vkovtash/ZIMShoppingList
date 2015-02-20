@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xcd-hY-JO5" customClass="ZIMShoppingListBackgroundView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-eZ-PfR">
+                    <rect key="frame" x="254" y="72" width="45" height="82"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="82" id="0Vr-pj-iPJ"/>
+                        <constraint firstAttribute="width" constant="45" id="Pkr-re-bGx"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to add some stuff" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f09-we-k3I">
+                    <rect key="frame" x="142" y="161" width="161" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Fby-4g-K3h"/>
+                        <constraint firstAttribute="width" constant="161" id="TOT-Z2-KAB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                    <color key="textColor" red="0.061511075949367111" green="0.061511075949367111" blue="0.061511075949367111" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wCP-eZ-PfR" firstAttribute="top" secondItem="xcd-hY-JO5" secondAttribute="top" constant="72" id="0ES-FZ-xak"/>
+                <constraint firstItem="f09-we-k3I" firstAttribute="top" secondItem="wCP-eZ-PfR" secondAttribute="bottom" constant="7" id="CpQ-UP-3LE"/>
+                <constraint firstAttribute="trailing" secondItem="wCP-eZ-PfR" secondAttribute="trailing" constant="21" id="ve6-6U-uwy"/>
+                <constraint firstAttribute="trailing" secondItem="f09-we-k3I" secondAttribute="trailing" constant="16.5" id="yi5-I8-zkW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="817" y="390"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow" width="88" height="166"/>
+    </resources>
+</document>
