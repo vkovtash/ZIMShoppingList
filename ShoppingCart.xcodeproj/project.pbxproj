@@ -159,6 +159,7 @@
 		F3B57D041A97186A000CB9E7 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		F3B57D071A971B11000CB9E7 /* ZIMTransitionsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMTransitionsFactory.h; sourceTree = "<group>"; };
 		F3B57D081A971B11000CB9E7 /* ZIMTransitionsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMTransitionsFactory.m; sourceTree = "<group>"; };
+		F3B57D0A1A97246F000CB9E7 /* ZIMStoryboardConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZIMStoryboardConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +234,7 @@
 				F33320E51A921C3400561ED9 /* AppDelegate.m */,
 				F3A6FBDA1A94F392009472A4 /* ZIMAppearanceController.h */,
 				F3A6FBDB1A94F392009472A4 /* ZIMAppearanceController.m */,
+				F3B57D0A1A97246F000CB9E7 /* ZIMStoryboardConstants.h */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";

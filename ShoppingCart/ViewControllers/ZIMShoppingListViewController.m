@@ -15,11 +15,10 @@
 #import "UIView+ZIMNibForViewClass.h"
 #import "UIView+ZIMHideAnimated.h"
 #import "ZIMTransitionsFactory.h"
-
+#import "ZIMStoryboardConstants.h"
 
 static NSString *const ZIMListItemCellReuseId = @"ZIMListItemCellReuseId";
-static NSString *const ZIMGoodsCatalogSegueId = @"goodsCatalogSegue";
-static NSString *const ZIMGoodsCatalogViewControllerId = @"goodsCatalogViewController";
+
 
 @interface ZIMShoppingListViewController()
 @property (nonatomic, strong) id transitionAnimator;
@@ -67,7 +66,7 @@ static NSString *const ZIMGoodsCatalogViewControllerId = @"goodsCatalogViewContr
         _listController = listController;
         _listController.delegate = self;
         [self applyFilterState];
-        [self updateBackgoundViewState:NO];
+        [self updateIsEmptyListState:NO];
     }
 }
 
@@ -159,10 +158,11 @@ static NSString *const ZIMGoodsCatalogViewControllerId = @"goodsCatalogViewContr
     [self.listController setItemsStateFilter:self.controllerFilterState];
 }
 
-- (void)updateBackgoundViewState:(BOOL)animated {
-    BOOL hidden = [self.listController numberOfAllItemsInList] > 0;
-    [self.tableView.backgroundView zim_setHidden:hidden
-                                        animated:animated];
+- (void)updateIsEmptyListState:(BOOL)animated {
+    BOOL isEmpty = [self.listController numberOfAllItemsInList] == 0;
+    
+    self.navigationItem.leftBarButtonItem.enabled = !isEmpty;
+    [self.tableView.backgroundView zim_setHidden:!isEmpty animated:animated];
 }
 
 - (void)subscribeListControllerNotifications {
@@ -209,7 +209,7 @@ static NSString *const ZIMGoodsCatalogViewControllerId = @"goodsCatalogViewContr
 }
 
 - (void)listController:(id)listController didChangeWithRowChanges:(NSArray *)rowChanges sectionChanges:(NSArray *)sectionChanges {
-    [self updateBackgoundViewState:YES];
+    [self updateIsEmptyListState:YES];
     [self.tableView zim_applyRowChanges:rowChanges sectionChanges:sectionChanges];
 }
 

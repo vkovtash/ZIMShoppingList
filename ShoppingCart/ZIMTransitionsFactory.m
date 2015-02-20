@@ -15,7 +15,7 @@
     ZFModalTransitionAnimator *animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:viewController];
     animator.bounces = NO;
     animator.behindViewAlpha = 0.7f;
-    animator.behindViewScale = 0.95f;
+    animator.behindViewScale = 0.9f;
     animator.springDamping = 1.0;
     animator.initialSpringVelocity = 0;
     animator.transitionDuration = 0.5;
